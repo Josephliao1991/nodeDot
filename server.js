@@ -10,14 +10,14 @@ app.get('/api/family/', function(req, res) {
 			// if (err)
 				// res.send(err)
 
-			res.write("Hello world"); // return all todos in JSON format
+			res.write("Hello worlddd"); // return all todos in JSON format
 		// });
 	});
 
 
 	app.get('/', function(req, res) {
-		res.write("Hello"); // load the single view file (angular will handle the page changes on the front-end)
+		res.write("Hellooo"); // load the single view file (angular will handle the page changes on the front-end)
 	});
 
-	app.listen(8080);
+	app.listen(8080,'104.155.226.241');
 	console.log("App listening on port 8888");
