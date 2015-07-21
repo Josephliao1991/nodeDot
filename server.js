@@ -20,4 +20,4 @@ var app      = express(); 								// create our app w/ express
 	});
 
 	app.listen(8888);
-	console.log("App listening on port 8888");
+	console.log("Now App is listening on port 8888");
