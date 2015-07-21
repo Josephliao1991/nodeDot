@@ -1,7 +1,7 @@
 var express  = require('express');
 var app      = express(); 								// create our app w/ express
 
-app.get('/api/family/', function(req, res) {
+	app.get('/api/family/', function(req, res) {
 
 		// use mongoose to get all todos in the database
 		// Todo.find(function(err, familyKey) {
@@ -19,5 +19,5 @@ app.get('/api/family/', function(req, res) {
 		res.write("Hellooo"); // load the single view file (angular will handle the page changes on the front-end)
 	});
 
-	app.listen(8080,'104.155.226.241');
+	app.listen(8888);
 	console.log("App listening on port 8888");
