@@ -53,7 +53,7 @@
 
 	// api ---------------------------------------------------------------------
 	// get all todos
-	app.get('/api/family', function(req, res) {
+	app.get('/family', function(req, res) {
 
 		// use mongoose to get all todos in the database
 		Todo.find(function(err, todos) {
@@ -74,6 +74,7 @@
 			title : req.body.title,
 			completed : false
 			familykey : req.body.familykey
+
 		}, function(err, todo) {
 			if (err)
 				res.send(err);
