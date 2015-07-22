@@ -33,7 +33,7 @@ angular.module('todomvc', [])
 
 		return {
 			get: function () {
-				return $http.get('/api/todos');
+				return $http.get('/api/family');
 			},
 
 			delete: function (todo) {
