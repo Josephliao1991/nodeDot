@@ -53,7 +53,7 @@
 
 	// api ---------------------------------------------------------------------
 	// get all todos
-	app.get('/api/family', function(req, res) {
+	app.get('/family', function(req, res) {
 
 		// use mongoose to get all todos in the database
 		Todo.find(function(err, todos) {
@@ -67,12 +67,13 @@
 	});
 
 	// create todo and send back all todos after creation
-	app.post('/api/todos', function(req, res) {
+	app.post('/family', function(req, res) {
 
 		// create a todo, information comes from AJAX request from Angular
 		Todo.create({
-			title : req.body.title,
-			completed : false
+			// title : req.body.title,
+			// completed : false
+			familyKey : req.body.familyKey
 		}, function(err, todo) {
 			if (err)
 				res.send(err);
