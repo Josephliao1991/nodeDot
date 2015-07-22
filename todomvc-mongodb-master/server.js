@@ -71,8 +71,8 @@
 
 		// create a todo, information comes from AJAX request from Angular
 		Todo.create({
-			// title : req.body.title,
-			// completed : false
+			title : req.body.title,
+			completed : false
 			familykey : req.body.familykey
 		}, function(err, todo) {
 			if (err)
