@@ -16,7 +16,7 @@ app.use(bodyParser.urlencoded({extended: true}))
 app.use(bodyParser.json({ type: 'application/vnd.api+json' }))
 app.use(methodOverride())
 
-var router1 = app.Router()
+var router1 = express.Router()
 
 router.get('/T1',function (req, res) {
   // body...
