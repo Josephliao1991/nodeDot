@@ -1,6 +1,6 @@
 var express = require('express');
 var mongoose = require('mongoose');
-var bodyParser = require('body-Parser');
+var bodyParser = require('body-parser');
 var methodOverride = require('method-override');
 
 
@@ -26,4 +26,12 @@ router.get('/T1',function (req, res) {
 
 app.use('/router1',router1)
 
-app.listen(8080)
+app.listen(8080,function (error) {
+  // body...
+  if (error) {
+    console.log(error);
+  }
+
+  console.log("Server is Start Right Now, Enter Ctrl+C Twice Times If You Need To Close Service!");
+
+})
