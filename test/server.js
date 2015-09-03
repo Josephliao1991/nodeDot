@@ -11,9 +11,9 @@ mongoose.connect('mongodb://'+be_ip+dbName)
 
 
 var app = express();
-app.use(bodyparser.json())
-app.use(bodyparser.urlencoded({extended: true}))
-app.use(bodyparser.json({ type: 'application/vnd.api+json' }))
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({extended: true}))
+app.use(bodyParser.json({ type: 'application/vnd.api+json' }))
 app.use(methodOverride())
 
 var router1 = app.Router()
