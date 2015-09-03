@@ -23,17 +23,17 @@ router1.get('/T1',function (req, res) {
   // body...
   res.send("T1")
 
-}).get('TT1',function (req, res) {
+}).get('/TT1',function (req, res) {
   // body...
   res.send("TT1")
 })
 
 app.use('/router1',router1)
 
-router2.get('T2',function (req, res) {
+router2.get('/T2',function (req, res) {
   // body...
   res.send("T2")
-}).get('TT2',function (req, res) {
+}).get('/TT2',function (req, res) {
   // body...
   res.send("TT2")
 })
