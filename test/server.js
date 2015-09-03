@@ -18,7 +18,7 @@ app.use(methodOverride())
 
 var router1 = express.Router()
 
-router.get('/T1',function (req, res) {
+router1.get('/T1',function (req, res) {
   // body...
   res.send("T1")
 
