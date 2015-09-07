@@ -61,8 +61,8 @@ app.use(bodyparser.json({ type: 'application/vnd.api+json'}))
 //
 // })
 
-app.use('/phone',phone)
-app.use('/inedot',inedot)
+// app.use('/phone',phone)
+// app.use('/inedot',inedot)
 
 app.listen(8080,function (error) {
   // body...
