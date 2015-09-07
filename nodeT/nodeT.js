@@ -32,34 +32,34 @@ app.use(bodyparser.json({ type: 'application/vnd.api+json'}))
 
 
 
-app.get('/', function (req, res) {
-  // body...
-  res.send("Hello World,This is A-Liao's Server!!!!!")
-})
+// app.get('/', function (req, res) {
+//   // body...
+//   res.send("Hello World,This is A-Liao's Server!!!!!")
+// })
+//
+// app.get('/eat', function (req, res) {
+//   // body...
+//   var breakfast = req.query.breakfast
+//   var lunch     = req.query.lunch
+//   var dinner    = req.query.dinner
+//   var times     = req.query.times
+//   var cacul     = times*10;
+//
+//   if (!breakfast||!times) {
+//     res.end("error")
+//   }
+//
+//   res.send("times : "+cacul+"  Breakfast : "+breakfast + "  Lunch : "+lunch + "  Dinner : "+dinner)
+//
+// })
 
-app.get('/eat', function (req, res) {
-  // body...
-  var breakfast = req.query.breakfast
-  var lunch     = req.query.lunch
-  var dinner    = req.query.dinner
-  var times     = req.query.times
-  var cacul     = times*10;
 
-  if (!breakfast||!times) {
-    res.end("error")
-  }
-
-  res.send("times : "+cacul+"  Breakfast : "+breakfast + "  Lunch : "+lunch + "  Dinner : "+dinner)
-
-})
-
-
-app.post('/play',function (req, res) {
-  // body...
-  var ball = req.body.ball
-  res.send("You Choose : "+ball)
-
-})
+// app.post('/play',function (req, res) {
+//   // body...
+//   var ball = req.body.ball
+//   res.send("You Choose : "+ball)
+//
+// })
 
 app.use('/phone',phone)
 app.use('/inedot',inedot)
