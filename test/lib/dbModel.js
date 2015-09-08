@@ -23,7 +23,7 @@ mongoose.model( 'group', group );
 
 
 var person  = new Schema({
-  ssid      : String, *//SSID
+  ssid      : String, //SSID
   pwd       : String, //PASSWORD
   phone     : Array,  //[deviceToken, deviceToken,,,]
 
