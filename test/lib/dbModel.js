@@ -58,7 +58,7 @@ var inedot  = new Schema({
   battery        : Number,
 
   pushGroup      : Array,  //[_id, _id, _id,,,]
-  pushPoeple     : Array,  //[deviceToken, deviceToken,,,]
+  // pushPoeple     : Array,  //[deviceToken, deviceToken,,,]
 
   situation      : Array,
   /*

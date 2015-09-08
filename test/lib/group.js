@@ -52,7 +52,8 @@ function createGroup(leader, name, listenDevice, callback) {
 
     if (exist) {
       console.log('/Group/createGroup => fail,group is exist');
-      return callback(null,{result  : "fail,group is exist"})
+      return callback(null,{result  : false,
+                            message : "fail,group is exist"})
     }
 
     var leader_create   = leader
@@ -76,7 +77,8 @@ function createGroup(leader, name, listenDevice, callback) {
           return callback(error)
         }
         console.log('/Group/createGroup => success,group is createNow');
-        callback(null, {result:"success,group is createNow"});
+        callback(null, {result  : true,
+                        data    : group});
       }
     )
   })
@@ -92,21 +94,22 @@ function createGroup(leader, name, listenDevice, callback) {
 
      if (!group) {
        console.log('/Group/updateGroup => no such device');
-       return callback(null,{result : "no such device"})
-     }
+       callback(null, {result  : true,
+                       data    : group});
 
      if (name)    group.name = name
      if (leader)  group.leader = leader
      if (member)  group.listenDevice  = listenDevice
 
-     return group.save(function (error) {
+     return group.save(function (error, group) {
        // body...
        if (error) {
          console.log('/Group/updateGroup => fail to update');
          return callback(error)
        }
        console.log('/Group/updateGroup => success, group is update');
-       callback(null,{result : 'success, group is update'})
+       callback(null,{result : true,
+                      data   : group})
 
      })
 
@@ -123,7 +126,8 @@ function createGroup(leader, name, listenDevice, callback) {
 
      if (!group) {
        console.log('/Group/deleteGroup => "fail, no such group"');
-       return callback(null, {result : "fail, no such group"})
+       return callback(null, {result  : false,
+                              message : "fail, no such group"})
      }
 
      group.remove(function (error) {
@@ -133,7 +137,8 @@ function createGroup(leader, name, listenDevice, callback) {
          return callback(error)
        }
        console.log('/Group/deleteGroup => success, group is delete');
-       callback(null,{result : "success,group is delete"})
+       callback(null,{result  : true,
+                      message : "success, group is delete"})
      })
    })
  }
@@ -148,7 +153,7 @@ function createGroup(leader, name, listenDevice, callback) {
 
      if (!group) {
        console.log('/Group/deleteGroupById => "fail, no such group"');
-       return callback(null, {result : "fail, no such group"})
+       return callback(null, {result : false})
      }
 
      group.remove(function (error) {
@@ -158,7 +163,7 @@ function createGroup(leader, name, listenDevice, callback) {
          return callback(error)
        }
        console.log('/Group/deleteGroupById => success, group is delete');
-       callback(null,{result : "success,group is delete"})
+       callback(null,{result : true})
      })
    })
  }

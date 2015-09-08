@@ -34,7 +34,7 @@ router.get('/create',function (req, res) {
     if (error) {
       return res.send(error)
     }
-    res.json(result)
+    res.json(result.data)
 
   })
 
@@ -58,7 +58,7 @@ router.get('/update',function (req, res) {
     if (error) {
       return res.send(error)
     }
-    res.json(result)
+    res.json(result.data)
 
   })
 
