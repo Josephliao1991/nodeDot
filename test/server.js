@@ -3,7 +3,7 @@ var express = require('express');
 var bodyParser = require('body-parser');
 var methodOverride = require('method-override');
 
-var group = require('./router/group.js');
+var apiGroup = require('./router/apiGroup.js');
 
 var app = express();
 app.use(bodyParser.json())
@@ -12,7 +12,7 @@ app.use(bodyParser.json({ type: 'application/vnd.api+json' }))
 app.use(methodOverride())
 
 
-app.use('/group',group);
+app.use('/group',apiGroup);
 
 
 
