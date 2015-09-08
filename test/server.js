@@ -5,7 +5,7 @@ var methodOverride = require('method-override');
 
 var phone   = require('./router/phone.js');
 var inedot  = require('./router/inedot.js');
-// var group = require('./router/group.js');
+var group = require('./router/group.js');
 
 //Connect TO MONGODB
 // var be_ip   = "10.240.72.88:80"
@@ -21,7 +21,7 @@ app.use(methodOverride())
 
 app.use('/phone', phone);
 app.use('/inedot', inedot);
-// app.use('/group',group);
+app.use('/group',group);
 
 
 

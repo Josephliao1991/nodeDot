@@ -11,8 +11,4 @@ router.get('/create',function (req, res) {
 })
 
 
-// module.exports  = {
-//
-//   router  : router
-//
-// }
+module.exports  = router
