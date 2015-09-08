@@ -82,7 +82,7 @@ function createGroup(leader, name, listenDevice, callback) {
   })
  }
 
- function updateGroup(_id, name, leader, member, listenDevice, callback) {
+ function updateGroup(_id, leader, name, member, listenDevice, callback) {
    // body...
    Group.findById({_id : _id},function (error, group) {
      // body..
