@@ -53,7 +53,7 @@ mongoose.model( 'center', center );
 var inedot  = new Schema({
   macAddr        : String, //macAddr
   owner          : String, //deviceToken
-  connectState   : Boolean
+  connectState   : Boolean,
   name           : String,
   battery        : Number,
 
