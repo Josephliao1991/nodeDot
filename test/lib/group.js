@@ -96,6 +96,7 @@ function createGroup(leader, name, listenDevice, callback) {
        console.log('/Group/updateGroup => no such device');
        callback(null, {result  : true,
                        data    : group});
+                     }
 
      if (name)    group.name = name
      if (leader)  group.leader = leader
