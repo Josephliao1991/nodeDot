@@ -11,4 +11,6 @@ router.get('/create',function (req, res) {
 })
 
 
-module.exports  = router
+module.exports  = {
+  group : router
+}
