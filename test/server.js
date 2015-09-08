@@ -3,8 +3,6 @@ var express = require('express');
 var bodyParser = require('body-parser');
 var methodOverride = require('method-override');
 
-var phone   = require('./router/phone.js');
-var inedot  = require('./router/inedot.js');
 var group = require('./router/group.js');
 
 //Connect TO MONGODB
@@ -19,8 +17,6 @@ app.use(bodyParser.json({ type: 'application/vnd.api+json' }))
 app.use(methodOverride())
 
 
-app.use('/phone', phone);
-app.use('/inedot', inedot);
 app.use('/group',group);
 
 
