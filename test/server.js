@@ -5,11 +5,6 @@ var methodOverride = require('method-override');
 
 var group = require('./router/group.js');
 
-//Connect TO MONGODB
-// var be_ip   = "10.240.72.88:80"
-// var dbName  = "myDatabase"
-// mongoose.connect('mongodb://'+be_ip+dbName)
-
 var app = express();
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended: true}))
