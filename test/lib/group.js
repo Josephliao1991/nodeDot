@@ -69,7 +69,7 @@ function createGroup(leader, name, listenDevice, callback) {
         listenDevice  : listenDevice_create,
         date      : date_create
 
-      }function (error, group) {
+      },function (error, group) {
         // body...
         if (error) {
           console.log('/Group/createGroup => fail to create group');
@@ -171,5 +171,5 @@ function createGroup(leader, name, listenDevice, callback) {
    updateGroup      : updateGroup,
    deleteGroup      : deleteGroup,
    deleteGroupById  : deleteGroupById
-   
+
  }
