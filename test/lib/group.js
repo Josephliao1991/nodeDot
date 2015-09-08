@@ -105,7 +105,7 @@ function createGroup(leader, name, listenDevice, callback) {
          console.log('/Group/updateGroup => fail to update');
          return callback(error)
        }
-
+       console.log('/Group/updateGroup => success, group is update');
        callback(null,{result : 'success, group is update'})
 
      })
