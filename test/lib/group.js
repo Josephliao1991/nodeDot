@@ -43,7 +43,7 @@ function findGroupAll(_id, callback) {
 Group.find($where(function () {
   return Group.leader == "Joseph";
 
-})
+}))
 
   // query.where(function () {
   //   return Group.name == "Joseph";
