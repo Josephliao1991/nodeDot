@@ -44,7 +44,7 @@ Group.find(function (error,groups) {
   // body...
   console.log("group: "+groups);
 
-}).where({leader : "Joseph"||"Koseph"})
+}).where({leader : "Joseph"}).where({leader : "Koseph"})
 callback(null,{result:"True"})
   // query.where(function () {
   //   return Group.name == "Joseph";
