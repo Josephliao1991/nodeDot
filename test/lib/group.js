@@ -37,7 +37,7 @@ function findGroupAll(_id, callback) {
     console.log('/Group/findGroup => '+group);
     callback(null,group)
 
-  }).where(Group.name == "Joseph")
+  }).where('Group.name == Joseph')
 
 
   // query.where(function () {
