@@ -28,17 +28,22 @@ function checkGroupExist(leader, name, callback) {
 
 function findGroupAll(_id, callback) {
   // body...
-  Group.find(function (error, group) {
-    // body...
-    if (error) {
-      return callback(error)
-    }
+  // Group.find(function (error, group) {
+  //   // body...
+  //   if (error) {
+  //     return callback(error)
+  //   }
+  //
+  //   console.log('/Group/findGroup => '+group);
+  //   callback(null,group)
+  //
+  // }).where('Group.name == Joseph')
 
-    console.log('/Group/findGroup => '+group);
-    callback(null,group)
 
-  }).where('Group.name == Joseph')
+Group.find($where(function () {
+  return Group.leader == "Joseph";
 
+})
 
   // query.where(function () {
   //   return Group.name == "Joseph";
