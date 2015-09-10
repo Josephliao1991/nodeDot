@@ -13,7 +13,7 @@ router.get('/find',function (req, res) {
   var _id_find = req.query._id
   group.findGroup(_id_find,function (error,group) {
     // body...
-    res.send("Group: "+group)
+    res.json(group)
 
   })
 
@@ -34,7 +34,7 @@ router.get('/create',function (req, res) {
     if (error) {
       return res.send(error)
     }
-    res.json(result.data)
+    res.json(result)
 
   })
 
