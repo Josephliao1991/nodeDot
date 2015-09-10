@@ -28,7 +28,7 @@ function checkGroupExist(leader, name, callback) {
 
 function findGroup(_id, callback) {
   // body...
-  Group.find({_id : [_id,"s"]},function (error, group) {
+  Group.find({_id : [_id]},function (error, group) {
     // body...
     if (error) {
       return callback(error)
