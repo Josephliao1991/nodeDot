@@ -1,7 +1,7 @@
 require('./dbModel');
 var mongoose  = require('mongoose');
 var Group     = mongoose.model('group')
-
+var query     = mongoose.Query();
 
 /*=======================================================================================*/
 //cehck function
@@ -36,6 +36,12 @@ function findGroupAll(_id, callback) {
 
     console.log('/Group/findGroup => '+group);
     callback(null,group)
+
+  })
+
+
+  query.$where(function () {
+    return Group.name == "Joseph";
 
   })
 
