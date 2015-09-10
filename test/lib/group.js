@@ -40,7 +40,8 @@ function findGroupAll(_id, callback) {
   // }).where('Group.name == Joseph')
 
   var data = Group.find().where('Group.name == Joseph')
-  callback(null,data)
+  // callback(null,data)
+  console.log(data);
 
 }
 
