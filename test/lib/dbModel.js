@@ -13,6 +13,7 @@ var Schema   = mongoose.Schema;
 var test = new Schema({
   first : String
 })
+mongoose.model( 'test', test );
 
 var group = new Schema({
   name    : String,
