@@ -10,12 +10,15 @@ var mongoose = require('mongoose');
 //Set Data Model
 var Schema   = mongoose.Schema;
 
+var test = new Schema({
+  first : String
+})
 
 var group = new Schema({
   name    : String,
   leader  : String, //SSID
   member  : Array,  //[SSID, SSID, SSID,,,]
-  listenDevice  : Document,  //[macAddr, macAddr, macAddr,,,]
+  listenDevice  : test,  //[macAddr, macAddr, macAddr,,,]
   date    : Date
 });
 mongoose.model( 'group', group );
