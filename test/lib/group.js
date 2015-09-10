@@ -67,7 +67,7 @@ function createGroup(leader, name, listenDevice, callback) {
         leader    : leader_create,
         name      : name_create,
         member    : member_create,
-        listenDevice  : listenDevice_create,
+        listenDevice  : {first:"listenDevice_create"},
         date      : date_create
 
       },function (error, group) {
