@@ -39,23 +39,8 @@ function findGroupAll(_id, callback) {
   //
   // }).where('Group.name == Joseph')
 
-Group.comment(
-  'db.find({leader : Joseph})'
-,function (error, groups) {
-  // body...
-  console.log("Group: "+groups);
-})
-
-// Group.find(function (error,groups) {
-//   // body...
-//   console.log("group: "+groups);
-//
-// }).where({leader : "Joseph"})
-callback(null,{result:"True"})
-  // query.where(function () {
-  //   return Group.name == "Joseph";
-  //
-  // })
+  var date = Group.find().where('Group.name == Joseph')
+  callback(null,data)
 
 }
 
