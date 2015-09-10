@@ -26,7 +26,23 @@ function checkGroupExist(leader, name, callback) {
 
 /*=======================================================================================*/
 
-function findGroup(_id, callback) {
+function findGroupAll(_id, callback) {
+  // body...
+  Group.find(function (error, group) {
+    // body...
+    if (error) {
+      return callback(error)
+    }
+
+    console.log('/Group/findGroup => '+group);
+    callback(null,group)
+
+  })
+
+}
+
+
+function findGroupById(_id, callback) {
   // body...
   Group.find({_id : [_id]},function (error, group) {
     // body...
@@ -172,7 +188,8 @@ function createGroup(leader, name, listenDevice, callback) {
 
  module.exports = {
 
-   findGroup        : findGroup,
+   findGroupById    : findGroupById,
+   findGroupAll     : findGroupAll,
    createGroup      : createGroup,
    updateGroup      : updateGroup,
    deleteGroup      : deleteGroup,

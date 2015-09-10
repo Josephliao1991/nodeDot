@@ -8,10 +8,21 @@ var be_ip   = "10.240.72.88:80"
 var dbName  = "/myDatabase"
 mongoose.connect('mongodb://'+be_ip+dbName)
 
+router.get('/findAll',function (req, res) {
+  // body...
+  var _id_find = req.query._id
+  group.findGroupAll(_id_find,function (error,group) {
+    // body...
+    res.json(group)
+
+  })
+
+})
+
 router.get('/findById',function (req, res) {
   // body...
   var _id_find = req.query._id
-  group.findGroup(_id_find,function (error,group) {
+  group.findGroupById(_id_find,function (error,group) {
     // body...
     res.json(group)
 
