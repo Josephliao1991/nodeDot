@@ -39,12 +39,18 @@ function findGroupAll(_id, callback) {
   //
   // }).where('Group.name == Joseph')
 
-
-Group.find(function (error,groups) {
+Group.comment(
+  'db.find({leader : Joseph})'
+,function (error, groups) {
   // body...
-  console.log("group: "+groups);
+  console.log("Group: "+groups);
+})
 
-}).where({leader : "Joseph"}).where({leader : "Koseph"})
+// Group.find(function (error,groups) {
+//   // body...
+//   console.log("group: "+groups);
+//
+// }).where({leader : "Joseph"})
 callback(null,{result:"True"})
   // query.where(function () {
   //   return Group.name == "Joseph";
