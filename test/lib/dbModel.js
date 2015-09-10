@@ -15,7 +15,7 @@ var group = new Schema({
   name    : String,
   leader  : String, //SSID
   member  : Array,  //[SSID, SSID, SSID,,,]
-  listenDevice  : document,  //[macAddr, macAddr, macAddr,,,]
+  listenDevice  : Document,  //[macAddr, macAddr, macAddr,,,]
   date    : Date
 });
 mongoose.model( 'group', group );
