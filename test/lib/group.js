@@ -40,10 +40,7 @@ function findGroupAll(_id, callback) {
   // }).where('Group.name == Joseph')
 
 
-Group.find($where(function () {
-  return Group.leader == "Joseph";
-
-}))
+Group.find().where('Group.leader == Joseph')
 
   // query.where(function () {
   //   return Group.name == "Joseph";
