@@ -20,7 +20,7 @@ app.get('/dbref',function (req, res) {
   // dbref.dbrefTest();
   dbref.showDbrefTest();
   console.log('start Test');
-  res.send('AStart Test!!!')
+  // res.send('AStart Test!!!')
 
 })
 
