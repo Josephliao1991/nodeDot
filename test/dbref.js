@@ -60,7 +60,7 @@ function dbrefTest() {
 
 module.exports = {
 
-  dbrefTest   = dbrefTest
+  dbrefTest  : dbrefTest
 
 }
 
