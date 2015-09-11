@@ -19,6 +19,7 @@ app.get('/dbref',function (req, res) {
   // body...
   dbref.dbrefTest();
   console.log('start Test');
+  res.send('AStart Test!!!')
 
 })
 

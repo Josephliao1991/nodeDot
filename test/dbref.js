@@ -24,37 +24,45 @@ function dbrefTest() {
   // body...
   console.log("Test Start");
 
-  var aaron = new Person({name: 'Aaron', age: 100});
-  aaron.save(function (err) {
-    if (err) throw err;
+  // var aaron = new Person({name: 'Aaron', age: 100});
 
-    var story1 = new Story({
-        title: "A man who cooked Nintendo"
-      , _creator: aaron._id
-    });
-
-    story1.save(function (err) {
+  Person.findOne({_id : "55f251512cd7c5f74fddc077"},function (error, aaron) {
+    // body...
+    aaron.save(function (err) {
       if (err) throw err;
 
-      aaron.stories.push(story1._id);
-      aaron.save(function (err) {
+      var story1 = new Story({
+          title: "A man who cooked Nintendo"
+        , _creator: aaron._id
+      });
+
+      story1.save(function (err) {
         if (err) throw err;
 
-        Person.findOne({name: "Aaron"}).populate('stories')
-                .run(function (err, person) {
+        aaron.stories.push(story1._id);
+        aaron.save(function (err) {
           if (err) throw err;
-          console.log("person =", person);
-          console.log("person.stories =", person.stories[0]);
-        })
 
-        Story.findOne({title: /Nintendo/i}).populate('_creator')
-                .run(function (err, story) {
-          if (err) throw err;
-          console.log("story =", story);
+          Person.findOne({name: "Aaron"}).populate('stories')
+                  .run(function (err, person) {
+            if (err) throw err;
+            console.log("person =", person);
+            console.log("person.stories =", person.stories[0]);
+          })
+
+          Story.findOne({title: /Nintendo/i}).populate('_creator')
+                  .run(function (err, story) {
+            if (err) throw err;
+            console.log("story =", story);
+          });
         });
       });
     });
-  });
+
+
+
+  })
+
 
 }
 
