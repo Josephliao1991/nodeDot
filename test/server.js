@@ -18,9 +18,13 @@ var dbref = require('./dbref.js');
 app.get('/dbref',function (req, res) {
   // body...
   // dbref.dbrefTest();
-  dbref.showDbrefTest();
-  console.log('start Test');
-  // res.send('AStart Test!!!')
+  dbref.showDbrefTest(function (result) {
+    // body...
+
+    res.send(result)
+
+  });
+
 
 })
 

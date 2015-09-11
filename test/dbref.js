@@ -19,23 +19,26 @@ var StorySchema = new Schema({
 var Story  = mongoose.model('Story', StorySchema);
 var Person = mongoose.model('Person', PersonSchema);
 
-function showDbrefTest() {
+function showDbrefTest(callback) {
   // body...
   Person.find({_id : '55f251512cd7c5f74fddc077'},function (error, person) {
   // body...
     console.log('Person: '+person);
+    console.log('Person.stories: '+person.stories);
+    // for (var i = 0; i < person.stories.length; i++) {
+    //   console.log('Person.stories: '+person.stories[i]);
+    //
+    //
+    // }
 
-    for (var i = 0; i < person.stories.length; i++) {
-      console.log('Person.stories: '+person.stories[i]);
+    callback('done')
 
-
-    }
   })
 
 
 }
 
-function dbrefTest() {
+function dbrefTest(callback) {
   // body...
   console.log("Test Start");
 
@@ -75,7 +78,7 @@ function dbrefTest() {
     });
 
 
-
+    callback('done')
   })
 
 
