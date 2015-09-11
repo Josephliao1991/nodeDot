@@ -14,6 +14,14 @@ app.use(methodOverride())
 
 app.use('/group',apiGroup);
 
+var dbref = require('./dbref.js');
+app.get('/dbref',function (req, res) {
+  // body...
+  dbref.dbrefTest();
+  console.log('start Test');
+
+})
+
 
 
 app.listen(8080,function (error) {
