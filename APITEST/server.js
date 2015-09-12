@@ -16,9 +16,11 @@ var phone  = new Schema({
 mongoose.model( 'phone', phone );
 
 
+var Phone  = mongoose.model('phone')
+
 app.get('/phoneCreate',function (req, res) {
   // body...
-  phone.create({
+  Phone.create({
     name    : "Shit Man",
     number  : "0800-092-000"
   },function (error, phone) {
