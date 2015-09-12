@@ -1,22 +1,9 @@
 var express = require('express');
 var mongoose = require('mongoose');
-
+var phone = require('./lib/phone');
 var app =express();
 
 mongoose.connect('mongodb://10.240.42.213:27017/myDatabase')
-
-var Schema = mongoose.Schema;
-var phone  = new Schema({
-
-  name    : String,
-  number  : String
-
-})
-
-mongoose.model( 'phone', phone );
-
-
-var Phone  = mongoose.model('phone')
 
 app.get('/phoneCreate',function (req, res) {
   // body...
@@ -27,19 +14,16 @@ app.get('/phoneCreate',function (req, res) {
     return res.send("Fail,Lost Some Params...")
   }
 
-  Phone.create({
-    name    : name_create,
-    number  : number_create
-  },function (error, phone) {
+  phone.create(name_create, number_create, function (error, phones) {
     // body...
     if (error) {
-      console.log("ERROR: "+error);
       return res.send(error)
     }
 
-    res.send("PHONE: "+phone)
-    // res.json(phone)
+    res.json(phones)
+
   })
+
 })
 
 
@@ -51,16 +35,13 @@ app.get('/phoneFind',function (req, res) {
     return res.send("Fail,Lost Some Params...")
   }
 
-  Phone.find({name : name_create}, function (error, phones) {
+  phone.find(name, function (error, phones) {
     // body...
     if (error) {
       return res.send(error)
     }
-    
     res.json(phones)
-
   })
-
 })
 
 
