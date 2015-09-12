@@ -30,8 +30,15 @@ app.get('/phoneCreate',function (req, res) {
 
     res.send("PHONE: "+phone)
     // res.json(phone)
-
-
   })
+})
+
+app.listen(80,function (error) {
+  // body...
+  if (error) {
+    return console.log("ERROR: "error);
+  }
+
+  console.log("Server Is Start, Enter CTRL + C Twice To Stop!!");
 
 })
