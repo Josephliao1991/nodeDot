@@ -1,4 +1,4 @@
-var mogoose = require('mogoose');
+var mogoose = require('mongoose');
 
 var Schema = mongoose.Schema;
 var phone  = new Schema({
