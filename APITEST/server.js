@@ -35,7 +35,7 @@ app.get('/phoneFind',function (req, res) {
     return res.send("Fail,Lost Some Params...")
   }
 
-  phone.find(name, function (error, phones) {
+  phone.find(name_create, function (error, phones) {
     // body...
     if (error) {
       return res.send(error)
