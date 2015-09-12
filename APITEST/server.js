@@ -20,6 +20,13 @@ var Phone  = mongoose.model('phone')
 
 app.get('/phoneCreate',function (req, res) {
   // body...
+  var name_create = req.query.name
+  var number_create = req.query.number
+
+  if (!name_create || !number_create) {
+    return res.send("Fail,Lost Some Params...")
+  }
+
   Phone.create({
     name    : "Shit Man",
     number  : "0800-092-000"
