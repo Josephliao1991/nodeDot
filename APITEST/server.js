@@ -42,6 +42,28 @@ app.get('/phoneCreate',function (req, res) {
   })
 })
 
+
+app.get('/phoneFind',function (req, res) {
+  // body...
+  var name_create = req.query.name
+
+  if (!name_create) {
+    return res.send("Fail,Lost Some Params...")
+  }
+
+  Phone.find({name : name_create}, function (error, phones) {
+    // body...
+    if (error) {
+      return res.send(error)
+    }
+    
+    res.json(phones)
+
+  })
+
+})
+
+
 app.listen(80,function (error) {
   // body...
   if (error) {
