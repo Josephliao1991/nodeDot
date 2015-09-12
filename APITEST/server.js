@@ -28,8 +28,8 @@ app.get('/phoneCreate',function (req, res) {
   }
 
   Phone.create({
-    name    : "Shit Man",
-    number  : "0800-092-000"
+    name    : name_create,
+    number  : number_create
   },function (error, phone) {
     // body...
     if (error) {
