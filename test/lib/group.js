@@ -195,7 +195,8 @@ function createGroup(leader, name, callback) {
      var members = group.member
      for (var i = 0; i < members.length; i++) {
       if (members[i].person_id == member_id) {
-        return delete.members[i]
+        members[i].delete
+        break;
       }
      }
      console.log('Member: '+group);
