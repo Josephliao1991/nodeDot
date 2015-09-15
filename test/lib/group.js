@@ -193,27 +193,29 @@ function createGroup(leader, name, callback) {
      }
 
      var members = group.member
-     console.log(members.length);
+    //  console.log(members.length);
      for (var i = 0; i < members.length; i++) {
-       console.log('member '+members[i].person_id);
+      //  console.log('member '+members[i].person_id);
       if (members[i].person_id == member_id) {
-        console.log(members[i]);
+        // console.log(members[i]);
         members.splice(i, 1)
         break;
       }
      }
-     console.log('Member: '+group);
+    //  console.log('Member: '+group);
 
-    //  group.remove(function (error) {
-    //    // body...
-    //    if (error) {
-    //      console.log('/Group/deleteGroup => fail, can not delete');
-    //      return callback(error)
-    //    }
-    //    console.log('/Group/deleteGroup => success, group is delete');
-    //    callback(null,{result  : true,
-    //                   message : "success, group is delete"})
-    //  })
+    return group.save(function (error, group) {
+      // body...
+      if (error) {
+        console.log('/Group/deleteGroupMember => fail to update');
+        return callback(error)
+      }
+      console.log('/Group/deleteGroupMember => success, group is update');
+      callback(null,{result : true,
+                     data   : group})
+
+    })
+
    })
  }
 
