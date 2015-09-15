@@ -40,7 +40,7 @@ router.get('/create',function (req, res) {
     return res.json({result : "fail,lost some params"})
   }
 
-  group.createGroup(leader_create, name_create, listenDevice_create, function (error, result) {
+  group.createGroup(leader_create, name_create, function (error, result) {
     // body...
     if (error) {
       return res.send(error)
@@ -51,7 +51,7 @@ router.get('/create',function (req, res) {
 
 })
 
-router.get('/update',function (req, res) {
+router.get('/updateLeader',function (req, res) {
   // body...
   var _id_update    = req.query._id
   var leader_update = req.query.leader
@@ -63,7 +63,7 @@ router.get('/update',function (req, res) {
     return res.json({result : "fail,lost some params"})
   }
 
-  group.updateGroup(_id_update, leader_update, name_update, member_update, listenDevice_update,
+  group.updateGroupLeader(_id_update, leader_update, name_update,
     function (error, result) {
     // body...
     if (error) {
@@ -75,7 +75,24 @@ router.get('/update',function (req, res) {
 
 })
 
-router.get('/deleteGroupMember',function (req, res) {
+router.get('/addMember',function (req, res) {
+  // body...
+  var _id_add = req.query._id
+  var member_id_add  = req.query.member_id
+
+  group.addGroupMember(_id_add, member_id_add, function (error, result) {
+    // body...
+    if (error) {
+      return res.send(error)
+    }
+
+    res.json(result)
+
+  })
+
+})
+
+router.get('/deleteMember',function (req, res) {
   // body...
   var _id_delete = req.query._id
   var member_id_delete  = req.query.member_id

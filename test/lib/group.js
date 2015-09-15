@@ -114,7 +114,7 @@ function createGroup(leader, name, callback) {
      }
 
      if (!group) {
-       console.log('/Group/updateGroup => no such device');
+       console.log('/Group/updateGroup => no such group');
        callback(null, {result  : true,
                        data    : group});
                      }
@@ -150,7 +150,7 @@ function createGroup(leader, name, callback) {
      }
 
      if (!group) {
-       console.log('/Group/updateGroup => no such device');
+       console.log('/Group/updateGroup => no such group');
        callback(null, {result  : true,
                        data    : group});
                      }
