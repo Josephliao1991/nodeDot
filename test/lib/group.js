@@ -198,7 +198,7 @@ function createGroup(leader, name, callback) {
        console.log('member '+members[i].person_id);
       if (members[i].person_id == member_id) {
         console.log(members[i]);
-        members[i].remove
+        members.splice(i, 1)
         break;
       }
      }
