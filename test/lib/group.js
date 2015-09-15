@@ -141,7 +141,7 @@ function createGroup(leader, name, callback) {
    })
  }
 
- function updateGroupMember(_id, member_id, member_name, callback) {
+ function addGroupMember(_id, member_id, member_name, callback) {
    // body...
    Group.findById({_id : _id},function (error, group) {
      // body..
