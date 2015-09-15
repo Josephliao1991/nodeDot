@@ -193,7 +193,7 @@ function createGroup(leader, name, callback) {
      }
 
      var members = group.member
-     console.log(member.length);
+     console.log(members.length);
      for (var i = 0; i < members.length; i++) {
       if (members[i].person_id == member_id) {
         console.log(members[i]);
