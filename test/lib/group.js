@@ -192,7 +192,14 @@ function createGroup(leader, name, callback) {
                               message : "fail, no such group"})
      }
 
+     var members = group.member
+     for (var i = 0; i < members.length; i++) {
+      if (members[i].person_id == member_id) {
+        return delete.members[i]
+      }
+     }
      console.log('Member: '+group);
+
     //  group.remove(function (error) {
     //    // body...
     //    if (error) {
