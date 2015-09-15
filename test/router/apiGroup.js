@@ -80,7 +80,7 @@ router.get('/addMember',function (req, res) {
   var _id_add = req.query._id
   var member_id_add  = req.query.member_id
   var member_name_add = req.query.member_name
-  group.addGroupMember(_id_add, member_id_add, member_name_add function (error, result) {
+  group.addGroupMember(_id_add, member_id_add, member_name_add, function (error, result) {
     // body...
     if (error) {
       return res.send(error)
