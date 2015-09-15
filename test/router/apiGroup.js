@@ -14,9 +14,7 @@ router.get('/findAll',function (req, res) {
   group.findGroupAll(_id_find,function (error,groups) {
     // body...
     res.json(groups)
-
   })
-
 })
 
 router.get('/findById',function (req, res) {
@@ -25,10 +23,19 @@ router.get('/findById',function (req, res) {
   group.findGroupById(_id_find,function (error,group) {
     // body...
     res.json(group)
-
   })
-
 })
+
+
+router.get('/findByLeader',function (req, res) {
+  // body...
+  var person_id_find = req.query.person_id
+  group.findByLeader(person_id_find,function (error,group) {
+    // body...
+    res.json(group)
+  })
+})
+
 
 router.get('/create',function (req, res) {
   // body...

@@ -9,7 +9,7 @@ router.get('/create',function (req, res) {
 
 router.get('/update',function (req, res) {
   // body...
-res.send("iNeDot Update!!")
+  res.send("iNeDot Update!!")
 
 })
 

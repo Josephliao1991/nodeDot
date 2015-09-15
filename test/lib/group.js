@@ -38,12 +38,9 @@ function findGroupAll(_id, callback) {
     if (error) {
       return callback(error)
     }
-
-    console.log('/Group/findGroup => '+group);
+    console.log('/Group/findGroupAll => '+group);
     callback(null,group)
-
   })
-
 }
 
 
@@ -54,12 +51,21 @@ function findGroupById(_id, callback) {
     if (error) {
       return callback(error)
     }
-
-    console.log('/Group/findGroup => '+group);
+    console.log('/Group/findGroupById => '+group);
     callback(null,group)
-
   })
+}
 
+function findGroupByLeader(person_id, callback) {
+  // body...
+  Group.find({leader.person_id : person_id},function (error, group) {
+    // body...
+    if (error) {
+      return callback(error)
+    }
+    console.log('/Group/findGroupById => '+group);
+    callback(null,group)
+  })
 }
 
 function createGroup(leader, name, callback) {
@@ -276,11 +282,15 @@ function createGroup(leader, name, callback) {
  module.exports = {
 
    findGroupById    : findGroupById,
+   findGroupByLeader  : findGroupByLeader,
    findGroupAll     : findGroupAll,
+
    createGroup      : createGroup,
    updateGroupLeader      : updateGroupLeader,
+
    deleteGroup      : deleteGroup,
    deleteGroupById  : deleteGroupById,
+   
    addGroupMember      : addGroupMember,
    deleteGroupMember   : deleteGroupMember
 
