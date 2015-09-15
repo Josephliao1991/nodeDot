@@ -160,7 +160,7 @@ function createGroup(leader, name, callback) {
                                message  : 'lost some params'})
 
      var memberArray = group.member
-     var newMember = {member.person_id : member_id, member.name : member_name}
+     var newMember = {person_id : member_id, name : member_name}
      memberArray.push(newMember);
 
      return group.save(function (error, group) {
