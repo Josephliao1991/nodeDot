@@ -1,7 +1,12 @@
 require('./dbModel');
 var mongoose  = require('mongoose');
 var Group     = mongoose.model('group')
-var query     = mongoose.Query();
+
+//Connect TO MONGODB
+var be_ip   = "10.240.72.88:80"
+var dbName  = "/myDatabase"
+mongoose.connect('mongodb://'+be_ip+dbName)
+
 
 /*=======================================================================================*/
 //cehck function
@@ -39,7 +44,6 @@ function findGroupAll(_id, callback) {
 
   })
 
-
 }
 
 
@@ -58,7 +62,7 @@ function findGroupById(_id, callback) {
 
 }
 
-function createGroup(leader, name, listenDevice, callback) {
+function createGroup(leader, name, callback) {
   // body...
   //check if leader & name is create before!
   checkGroupExist(leader, name, function (error, exist) {
@@ -76,7 +80,7 @@ function createGroup(leader, name, listenDevice, callback) {
     var leader_create   = leader
     var name_create     = name
     var member_create   = []
-    var listenDevice_create = listenDevice
+    // var listenDevice_create = listenDevice
     var date_create     = new Date()
 
     Group.create(
@@ -84,7 +88,7 @@ function createGroup(leader, name, listenDevice, callback) {
         leader    : leader_create,
         name      : name_create,
         member    : member_create,
-        listenDevice  : {first:"listenDevice_create"},
+        // listenDevice  : {first:"listenDevice_create"},
         date      : date_create
 
       },function (error, group) {
@@ -101,7 +105,7 @@ function createGroup(leader, name, listenDevice, callback) {
   })
  }
 
- function updateGroup(_id, leader, name, member, listenDevice, callback) {
+ function updateGroup(_id, leader, name, member, callback) {
    // body...
    Group.findById({_id : _id},function (error, group) {
      // body..
@@ -115,9 +119,12 @@ function createGroup(leader, name, listenDevice, callback) {
                        data    : group});
                      }
 
-     if (name)    group.name = name
-     if (leader)  group.leader = leader
-     if (member)  group.listenDevice  = listenDevice
+     if (name)
+        group.name = name
+     if (leader)
+        group.leader = leader
+     if (member)
+        group.listenDevice  = listenDevice
 
      return group.save(function (error, group) {
        // body...
