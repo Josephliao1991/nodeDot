@@ -11,9 +11,9 @@ var group = require('../lib/group.js');
 router.get('/findAll',function (req, res) {
   // body...
   var _id_find = req.query._id
-  group.findGroupAll(_id_find,function (error,group) {
+  group.findGroupAll(_id_find,function (error,groups) {
     // body...
-    res.json(group)
+    res.json(groups)
 
   })
 
@@ -69,7 +69,7 @@ router.get('/update',function (req, res) {
     if (error) {
       return res.send(error)
     }
-    res.json(result.data)
+    res.json(result)
 
   })
 
