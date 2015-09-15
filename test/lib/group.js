@@ -195,6 +195,7 @@ function createGroup(leader, name, callback) {
      var members = group.member
      console.log(members.length);
      for (var i = 0; i < members.length; i++) {
+       console.log('member + 'members[i].person);
       if (members[i].person_id == member_id) {
         console.log(members[i]);
         members[i].delete
