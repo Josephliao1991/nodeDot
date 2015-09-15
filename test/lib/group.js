@@ -58,14 +58,14 @@ function findGroupById(_id, callback) {
 
 function findGroupByLeader(person_id, callback) {
   // body...
-  Group.find(function (error, group) {
+  Group.find({'leader.person_id' : person_id},function (error, group) {
     // body...
     if (error) {
       return callback(error)
     }
     console.log('/Group/findGroupById => '+group);
     callback(null,group)
-  }).where({leader.person_id : person_id})
+  })
 }
 
 function createGroup(leader, name, callback) {
