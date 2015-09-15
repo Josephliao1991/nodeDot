@@ -180,7 +180,7 @@ function createGroup(leader, name, callback) {
 
  function deleteGroupMember(_id, member_id, callback) {
    // body...
-   Group.findOne({_id : _id, member.person_id : member_id},function (error, group) {
+   Group.findOne({_id : _id},function (error, group) {
      // body...
      if (error) {
        return callback(error)
