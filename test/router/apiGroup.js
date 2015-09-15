@@ -75,6 +75,22 @@ router.get('/update',function (req, res) {
 
 })
 
+router.get('/deleteGroupMember',function (req, res) {
+  // body...
+  var _id_delete = req.query._id
+  var member_id_delete  = req.query.member_id
+
+  group.deleteGroupMember(_id_delete, member_id_delete, function (error, result) {
+    // body...
+    if (error) {
+      return res.send(error)
+    }
+
+    res.json(result)
+
+  })
+
+})
 
 router.get('/deleteById',function (req, res) {
   // body...

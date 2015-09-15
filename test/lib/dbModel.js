@@ -19,7 +19,7 @@ mongoose.model( 'test', test );
 var group = new Schema({
   name    : String,
   leader  : {person_id : String, name : String}, //person_id
-  member  : [{person_id : String, name : String}]],  //[person_id, person_id, person_id,,,]
+  member  : [{person_id : String, name : String}],  //[person_id, person_id, person_id,,,]
   // listenDevice  : {first : String},  //[macAddr, macAddr, macAddr,,,]
   date    : Date
 });

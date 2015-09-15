@@ -105,7 +105,7 @@ function createGroup(leader, name, callback) {
   })
  }
 
- function updateGroup(_id, leader, name, member, callback) {
+ function updateGroupLeader(_id, leader_id,leader_name, callback) {
    // body...
    Group.findById({_id : _id},function (error, group) {
      // body..
@@ -119,12 +119,12 @@ function createGroup(leader, name, callback) {
                        data    : group});
                      }
 
-     if (name)
-        group.name = name
-     if (leader)
-        group.leader = leader
-     if (member)
-        group.listenDevice  = listenDevice
+     if (!leader_id && !leader_name)
+        return callback(null, {result : false,
+                               message  : 'lost some params'})
+
+     group.leader.person_id = leader_id
+     group.leader.name      = leader_name
 
      return group.save(function (error, group) {
        // body...
@@ -140,6 +140,72 @@ function createGroup(leader, name, callback) {
 
    })
  }
+
+ function updateGroupMember(_id, member_id, member_name, callback) {
+   // body...
+   Group.findById({_id : _id},function (error, group) {
+     // body..
+     if (error) {
+       return callback(error)
+     }
+
+     if (!group) {
+       console.log('/Group/updateGroup => no such device');
+       callback(null, {result  : true,
+                       data    : group});
+                     }
+
+     if (!member_id && !member_name)
+        return callback(null, {result : false,
+                               message  : 'lost some params'})
+
+     var memberArray = group.member
+     var newMember = {person_id : member_id, name : member_name}
+     memberArray.push(newMember);
+
+     return group.save(function (error, group) {
+       // body...
+       if (error) {
+         console.log('/Group/updateGroup => fail to update');
+         return callback(error)
+       }
+       console.log('/Group/updateGroup => success, group is update');
+       callback(null,{result : true,
+                      data   : group})
+
+     })
+
+   })
+ }
+
+ function deleteGroupMember(_id, member_id, callback) {
+   // body...
+   Group.findOne({_id : _id, member.person_id : member_id},function (error, group) {
+     // body...
+     if (error) {
+       return callback(error)
+     }
+
+     if (!group) {
+       console.log('/Group/deleteGroup => "fail, no such group"');
+       return callback(null, {result  : false,
+                              message : "fail, no such group"})
+     }
+
+     console.log('Member: '+group);
+    //  group.remove(function (error) {
+    //    // body...
+    //    if (error) {
+    //      console.log('/Group/deleteGroup => fail, can not delete');
+    //      return callback(error)
+    //    }
+    //    console.log('/Group/deleteGroup => success, group is delete');
+    //    callback(null,{result  : true,
+    //                   message : "success, group is delete"})
+    //  })
+   })
+ }
+
 
  function deleteGroup(leader, name ,callback) {
    // body...
@@ -199,8 +265,10 @@ function createGroup(leader, name, callback) {
    findGroupById    : findGroupById,
    findGroupAll     : findGroupAll,
    createGroup      : createGroup,
-   updateGroup      : updateGroup,
+   updateGroupLeader      : updateGroupLeader,
    deleteGroup      : deleteGroup,
-   deleteGroupById  : deleteGroupById
+   deleteGroupById  : deleteGroupById,
+   addGroupMember      : addGroupMember,
+   deleteGroupMember   : deleteGroupMember
 
  }
