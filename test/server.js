@@ -46,9 +46,9 @@ res.json(result)
 
 })
 
-app.get('/deleteStroies',function (req, res) {
+app.get('/deleteStories',function (req, res) {
   // body...
-dbref.deleteStroies(function (error, result) {
+dbref.deleteStories(function (error, result) {
   // body...
   res.json(result)
 })
