@@ -89,9 +89,9 @@ function findStory(callback) {
     var stories = aaron.stories
     console.log("stories: "+stories);
 
-    
 
-  }
+
+  })
 
 }
 
