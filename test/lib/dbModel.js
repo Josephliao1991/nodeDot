@@ -27,8 +27,8 @@ mongoose.model( 'test', test );
 
 var group = new Schema({
   name    : String,
-  leader  : {person_id : String}, //person_id
-  member  : [{person_id : String}],  //[person_id, person_id, person_id,,,]
+  leader  : {type: Schema.ObjectId, ref: 'person'}, //person_id
+  member  : [{type: Schema.ObjectId, ref: 'person'}],  //[person_id, person_id, person_id,,,]
   // listenDevice  : {first : String},  //[macAddr, macAddr, macAddr,,,]
   date    : Date
 });
@@ -36,21 +36,35 @@ mongoose.model( 'group', group );
 
 
 
+// var person  = new Schema({
+//   ssid      : String, //SSID
+//   pwd       : String, //PASSWORD
+//   phone     : Array,  //[deviceToken, deviceToken,,,]
+//
+//   selfGroup : [{group_id : String, name : String}],
+//   joinGroup : [{group_id : String, name : String}],
+//
+//   center    : [{center_id : String, name : String}],  //[macAddr, macAddr, macAddr,,,]
+//   inedot    : [{inedot_id : String, name : String}],  //[macAddr, macAddr, macAddr,,,]
+//
+//   // authData  : Array   //[_id, _id, _id,,,]
+// })
+// mongoose.model( 'person', person );
+
 var person  = new Schema({
   ssid      : String, //SSID
   pwd       : String, //PASSWORD
   phone     : Array,  //[deviceToken, deviceToken,,,]
 
-  selfGroup : [{group_id : String, name : String}],
-  joinGroup : [{group_id : String, name : String}],
+  selfGroup : [{type: Schema.ObjectId, ref: 'group'}],
+  joinGroup : [{type: Schema.ObjectId, ref: 'group'}],
 
-  center    : [{center_id : String, name : String}],  //[macAddr, macAddr, macAddr,,,]
-  inedot    : [{inedot_id : String, name : String}],  //[macAddr, macAddr, macAddr,,,]
+  center    : [{type: Schema.ObjectId, ref: 'center'}],  //[macAddr, macAddr, macAddr,,,]
+  inedot    : [{type: Schema.ObjectId, ref: 'inedot'}],  //[macAddr, macAddr, macAddr,,,]
 
   // authData  : Array   //[_id, _id, _id,,,]
 })
 mongoose.model( 'person', person );
-
 
 
 var center  = new Schema({

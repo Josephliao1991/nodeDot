@@ -36,6 +36,15 @@ app.get('/findStory',function (req, res) {
 
 })
 
+app.get('deleteStory',function (req, res) {
+  // body...
+dbref.deleteStory(function (error, result) {
+  // body...
+res.json(result)
+
+})
+
+})
 
 
 app.listen(8080,function (error) {

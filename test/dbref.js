@@ -34,9 +34,8 @@ function showDbrefTest(callback) {
     callback('done')
 
   })
-
-
 }
+
 
 function dbrefTest(callback) {
   // body...
@@ -92,10 +91,37 @@ function findStory(callback) {
     Story.find({_id : {$in:stories}},function (error, stories) {
       // body...
       callback(null, stories)
+    })
+  })
+}
+
+function deleteStory(callback) {
+  // body...
+  Person.findOne({_id : "55f9378e8c2742d65c79cfdb"},function (error, aaron) {
+
+    var storiesID = aaron.stories
+    console.log("stories: "+stories);
+
+    Story.find({_id : {$in:storiesID}},function (error, stories) {
+      // body...
+      for (var i = 0; i < stories.length; i++) {
+        if (stories[i]._id == "55f93f6e3f5c870f5f429118") {
+          aaron.stories[i].splice(i, 1)
+        }
+      }
+
+      return aaron.save(function (error, aaron) {
+        // body...
+        if (error) {
+          console.log('/Group/deleteGroupMember => fail to update');
+          return callback(error)
+        }
+        console.log('/Group/deleteGroupMember => success, group is update');
+        callback(null, aaron)
+
+      })
 
     })
-
-
   })
 
 }
@@ -105,7 +131,8 @@ module.exports = {
 
   dbrefTest  : dbrefTest,
   showDbrefTest : showDbrefTest,
-  findStory : findStory
+  findStory : findStory,
+  deleteStory : deleteStory
 
 }
 
