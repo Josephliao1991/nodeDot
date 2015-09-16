@@ -44,7 +44,7 @@ function dbrefTest(callback) {
 
   var aaron = new Person({name: 'Aaron', age: 100});
 
-  Person.findOne(function (error, aaron) {
+  // Person.findOne(function (error, aaron) {
     // body...
     aaron.save(function (err) {
       if (err) throw err;
@@ -79,7 +79,7 @@ function dbrefTest(callback) {
 
 
     callback(null,aaron)
-  })
+  // })
 
 
 }
