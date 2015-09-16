@@ -106,7 +106,7 @@ function deleteStory(callback) {
       // body...
       for (var i = 0; i < stories.length; i++) {
         if (stories[i]._id == "55f93f6e3f5c870f5f429118") {
-          // aaron.stories[i].splice(i, 1)
+          aaron.stories.splice(i, 1)
           console.log('aaron.stories[i]'+aaron.stories[i]);
         }
       }
