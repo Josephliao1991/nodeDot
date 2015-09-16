@@ -42,9 +42,9 @@ function dbrefTest(callback) {
   // body...
   console.log("Test Start");
 
-  var aaron = new Person({name: 'Aaron', age: 100});
+  // var aaron = new Person({name: 'Aaron', age: 100});
 
-  // Person.findOne(function (error, aaron) {
+  Person.findOne({_id : "55f9378e8c2742d65c79cfdb"},function (error, aaron) {
     // body...
     aaron.save(function (err) {
       if (err) throw err;
@@ -79,7 +79,7 @@ function dbrefTest(callback) {
 
 
     callback(null,aaron)
-  // })
+  })
 
 
 }
