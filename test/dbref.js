@@ -128,12 +128,35 @@ function deleteStory(callback) {
 }
 
 
+
+
+function deleteStories(callback) {
+  // body...
+  Story.findOne({_id : "55f93f773f5c870f5f429119"},function (error, story) {
+
+    story.remove(function (error) {
+      // body...
+      if (error) {
+        console.log('/Group/deleteGroup => fail, can not delete');
+        return callback(error)
+      }
+      console.log('/Group/deleteGroup => success, group is delete');
+      callback(null,{result  : true,
+                     message : "success, group is delete"})
+    })
+
+  })
+
+}
+
+
 module.exports = {
 
   dbrefTest  : dbrefTest,
   showDbrefTest : showDbrefTest,
   findStory : findStory,
-  deleteStory : deleteStory
+  deleteStory : deleteStory,
+  deleteStories : deleteStories
 
 }
 

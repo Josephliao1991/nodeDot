@@ -46,6 +46,14 @@ res.json(result)
 
 })
 
+app.get('/deleteStroies',function (req, res) {
+  // body...
+dbref.deleteStroies(function (error, result) {
+  // body...
+  res.json(result)
+})
+
+})
 
 app.listen(8080,function (error) {
   // body...
