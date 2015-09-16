@@ -78,7 +78,7 @@ function dbrefTest(callback) {
     });
 
 
-    callback('done')
+    callback(null,aaron)
   })
 
 

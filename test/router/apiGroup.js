@@ -52,12 +52,18 @@ router.get('/create',function (req, res) {
     if (error) {
       return res.send(error)
     }
+    //Save To Person.GroupID
+
+
+
     res.json(result)
 
   })
 
 })
 
+
+//Change Method To UpdateGroupName
 router.get('/updateLeader',function (req, res) {
   // body...
   var _id_update    = req.query._id
@@ -92,6 +98,9 @@ router.get('/addMember',function (req, res) {
     if (error) {
       return res.send(error)
     }
+    //Save To Person.GroupID
+
+
 
     res.json(result)
 
@@ -109,6 +118,9 @@ router.get('/deleteMember',function (req, res) {
     if (error) {
       return res.send(error)
     }
+    //Save To Person.GroupID
+
+
 
     res.json(result)
 
@@ -123,6 +135,9 @@ router.get('/deleteById',function (req, res) {
   if (!_id_delete) {
     return res.json({result : "fail,lost some params"})
   }
+  //get all member first
+  //remove member groupID Array Secnod
+
 
   group.deleteGroupById(_id_delete, function (error,result) {
     // body...

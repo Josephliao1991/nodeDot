@@ -10,7 +10,7 @@ mongoose.connect('mongodb://'+be_ip+dbName)
 
 /*=======================================================================================*/
 //cehck function
-function checkGroupExist(leader, name, callback) {
+function checkExist(leader, name, callback) {
   // body...
   Group.find({leader : leader, name : name},function (error, group) {
     // body...
@@ -23,15 +23,13 @@ function checkGroupExist(leader, name, callback) {
     }else {
       callback(null,null)
     }
-
   })
-
 }
 
 
 /*=======================================================================================*/
 
-function findGroupAll(_id, callback) {
+function findAll(_id, callback) {
   // body...
   Group.find(function (error, group) {
     // body...
@@ -44,7 +42,7 @@ function findGroupAll(_id, callback) {
 }
 
 
-function findGroupById(_id, callback) {
+function findById(_id, callback) {
   // body...
   Group.find({_id : [_id]},function (error, group) {
     // body...
@@ -56,7 +54,7 @@ function findGroupById(_id, callback) {
   })
 }
 
-function findGroupByLeader(person_id, callback) {
+function findByLeader(person_id, callback) {
   // body...
   Group.find({'leader.person_id' : person_id},function (error, group) {
     // body...
@@ -68,7 +66,7 @@ function findGroupByLeader(person_id, callback) {
   })
 }
 
-function createGroup(leader, name, callback) {
+function create(leader, name, callback) {
   // body...
   //check if leader & name is create before!
   checkGroupExist(leader, name, function (error, exist) {
@@ -111,7 +109,46 @@ function createGroup(leader, name, callback) {
   })
  }
 
- function updateGroupLeader(_id, leader_id,leader_name, callback) {
+ function updateName(_id, name, callback) {
+   // body...
+   Group.findById({_id : _id},function (error, group) {
+     // body...
+     if (error) {
+       return callback(error)
+     }
+
+     if (!group) {
+       console.log('/Group/updateGroup => no such group');
+       callback(null, {result  : true,
+                       data    : group});
+                     }
+
+     if (!name)
+        return callback(null, {result : false,
+                               message  : 'lost some params'})
+
+     group.name      = name
+
+     return group.save(function (error, group) {
+       // body...
+       if (error) {
+         console.log('/Group/updateGroup => fail to update');
+         return callback(error)
+       }
+       console.log('/Group/updateGroup => success, group is update');
+       callback(null,{result : true,
+                      data   : group})
+
+     })
+
+   })
+
+
+   })
+
+ }
+
+ function updateLeader(_id, leader_id,leader_name, callback) {
    // body...
    Group.findById({_id : _id},function (error, group) {
      // body..
@@ -147,7 +184,7 @@ function createGroup(leader, name, callback) {
    })
  }
 
- function addGroupMember(_id, member_id, member_name, callback) {
+ function addMember(_id, member_id, member_name, callback) {
    // body...
    Group.findById({_id : _id},function (error, group) {
      // body..
@@ -184,7 +221,7 @@ function createGroup(leader, name, callback) {
    })
  }
 
- function deleteGroupMember(_id, member_id, callback) {
+ function deleteMember(_id, member_id, callback) {
    // body...
    Group.findOne({_id : _id},function (error, group) {
      // body...
@@ -226,7 +263,7 @@ function createGroup(leader, name, callback) {
  }
 
 
- function deleteGroup(leader, name ,callback) {
+ function delete(leader, name ,callback) {
    // body...
    Group.findOne({leader : leader, name : name},function (error, group) {
      // body...
@@ -253,7 +290,7 @@ function createGroup(leader, name, callback) {
    })
  }
 
- function deleteGroupById(_id,callback) {
+ function deleteById(_id,callback) {
    // body...
    Group.findOne({_id : _id},function (error, group) {
      // body...
@@ -281,17 +318,18 @@ function createGroup(leader, name, callback) {
 
  module.exports = {
 
-   findGroupById    : findGroupById,
-   findGroupByLeader  : findGroupByLeader,
-   findGroupAll     : findGroupAll,
+   findById       : findById,
+   findByLeader   : findByLeader,
+   findAll        : findAll,
 
-   createGroup      : createGroup,
-   updateGroupLeader      : updateGroupLeader,
+   create         : create,
+   updateName     : updateName,
+   updateLeader   : updateLeader,
 
-   deleteGroup      : deleteGroup,
-   deleteGroupById  : deleteGroupById,
+   delete         : delete,
+   deleteById     : deleteById,
 
-   addGroupMember      : addGroupMember,
-   deleteGroupMember   : deleteGroupMember
+   addMember      : addMember,
+   deleteMember   : deleteMember
 
  }
