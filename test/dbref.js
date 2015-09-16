@@ -100,7 +100,7 @@ function deleteStory(callback) {
   Person.findOne({_id : "55f9378e8c2742d65c79cfdb"},function (error, aaron) {
 
     var storiesID = aaron.stories
-    console.log("stories: "+stories);
+    console.log("stories: "+storiesID);
 
     Story.find({_id : {$in:storiesID}},function (error, stories) {
       // body...
