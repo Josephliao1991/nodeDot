@@ -3,9 +3,9 @@ var mongoose  = require('mongoose');
 var Group     = mongoose.model('group')
 
 //Connect TO MONGODB
-var be_ip   = "10.240.72.88:80"
-var dbName  = "/myDatabase"
-mongoose.connect('mongodb://'+be_ip+dbName)
+// var be_ip   = "10.240.72.88:80"
+// var dbName  = "/myDatabase"
+// mongoose.connect('mongodb://'+be_ip+dbName)
 
 
 /*=======================================================================================*/
