@@ -258,7 +258,7 @@ function create(leader, name, callback) {
  }
 
 
- function delete(leader, name ,callback) {
+ function deleteGroup(leader, name ,callback) {
    // body...
    Group.findOne({leader : leader, name : name},function (error, group) {
      // body...
@@ -321,7 +321,7 @@ function create(leader, name, callback) {
    updateName     : updateName,
    updateLeader   : updateLeader,
 
-   delete         : delete,
+   deleteGroup         : deleteGroup,
    deleteById     : deleteById,
 
    addMember      : addMember,

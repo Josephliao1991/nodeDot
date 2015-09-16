@@ -11,7 +11,7 @@ var group = require('../lib/group.js');
 router.get('/findAll',function (req, res) {
   // body...
   var _id_find = req.query._id
-  group.findGroupAll(_id_find,function (error,groups) {
+  group.findAll(_id_find,function (error,groups) {
     // body...
     res.json(groups)
   })
@@ -20,7 +20,7 @@ router.get('/findAll',function (req, res) {
 router.get('/findById',function (req, res) {
   // body...
   var _id_find = req.query._id
-  group.findGroupById(_id_find,function (error,group) {
+  group.findById(_id_find,function (error,group) {
     // body...
     res.json(group)
   })
@@ -30,7 +30,7 @@ router.get('/findById',function (req, res) {
 router.get('/findByLeader',function (req, res) {
   // body...
   var person_id_find = req.query.person_id
-  group.findGroupByLeader(person_id_find,function (error,group) {
+  group.findByLeader(person_id_find,function (error,group) {
     // body...
     res.json(group)
   })
@@ -47,7 +47,7 @@ router.get('/create',function (req, res) {
     return res.json({result : "fail,lost some params"})
   }
 
-  group.createGroup(leader_create, name_create, function (error, result) {
+  group.create(leader_create, name_create, function (error, result) {
     // body...
     if (error) {
       return res.send(error)
@@ -76,7 +76,7 @@ router.get('/updateLeader',function (req, res) {
     return res.json({result : "fail,lost some params"})
   }
 
-  group.updateGroupLeader(_id_update, leader_update, name_update,
+  group.updateLeader(_id_update, leader_update, name_update,
     function (error, result) {
     // body...
     if (error) {
@@ -93,7 +93,7 @@ router.get('/addMember',function (req, res) {
   var _id_add = req.query._id
   var member_id_add  = req.query.member_id
   var member_name_add = req.query.member_name
-  group.addGroupMember(_id_add, member_id_add, member_name_add, function (error, result) {
+  group.addMember(_id_add, member_id_add, member_name_add, function (error, result) {
     // body...
     if (error) {
       return res.send(error)
@@ -113,7 +113,7 @@ router.get('/deleteMember',function (req, res) {
   var _id_delete = req.query._id
   var member_id_delete  = req.query.member_id
 
-  group.deleteGroupMember(_id_delete, member_id_delete, function (error, result) {
+  group.deleteMember(_id_delete, member_id_delete, function (error, result) {
     // body...
     if (error) {
       return res.send(error)
@@ -139,7 +139,7 @@ router.get('/deleteById',function (req, res) {
   //remove member groupID Array Secnod
 
 
-  group.deleteGroupById(_id_delete, function (error,result) {
+  group.deleteById(_id_delete, function (error,result) {
     // body...
     if (error) {
       return res.send(error)
