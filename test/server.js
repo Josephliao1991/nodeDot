@@ -30,7 +30,7 @@ app.get('/findStory',function (req, res) {
   // body...
   dbref.findStory(function (error, result) {
     // body...
-    // res.json(result)
+    res.json(result)
 
   })
 

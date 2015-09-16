@@ -89,6 +89,11 @@ function findStory(callback) {
     var stories = aaron.stories
     console.log("stories: "+stories);
 
+    Story.find({_id : {$in:stories}},function (error, stories) {
+      // body...
+      callback(null, stories)
+
+    })
 
 
   })
