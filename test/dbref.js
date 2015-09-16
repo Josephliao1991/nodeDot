@@ -80,14 +80,27 @@ function dbrefTest(callback) {
 
     callback(null,aaron)
   })
+}
 
+function findStory(callback) {
+  // body...
+  Person.findOne({_id : "55f9378e8c2742d65c79cfdb"},function (error, aaron) {
+
+    var stories = aaron.stories
+    console.log("stories: "+stories);
+
+    
+
+  }
 
 }
+
 
 module.exports = {
 
   dbrefTest  : dbrefTest,
-  showDbrefTest : showDbrefTest
+  showDbrefTest : showDbrefTest,
+  findStory : findStory
 
 }
 

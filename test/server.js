@@ -24,7 +24,15 @@ app.get('/dbref',function (req, res) {
     res.json(result)
 
   });
+})
 
+app.get('/findStory',function (req, res) {
+  // body...
+  dbref.findStory(function (error, result) {
+    // body...
+    // res.json(result)
+
+  })
 
 })
 
