@@ -21,7 +21,7 @@ app.get('/dbref',function (req, res) {
   dbref.showDbrefTest(function (error, esult) {
     // body...
 
-    res.send(result)
+    res.json(result)
 
   });
 
