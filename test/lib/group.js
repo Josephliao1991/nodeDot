@@ -140,12 +140,7 @@ function create(leader, name, callback) {
                       data   : group})
 
      })
-
    })
-
-
-   })
-
  }
 
  function updateLeader(_id, leader_id,leader_name, callback) {
