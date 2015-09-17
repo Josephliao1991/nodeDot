@@ -39,15 +39,15 @@ function checkExistById(_id, callback) {
 
 /*=======================================================================================*/
 
-function findAll(_id, callback) {
+function findAll(callback) {
   // body...
-  Person.find(function (error, persons) {
+  Person.find(function (error, people) {
     // body...
     if (error) {
       return callback(error)
     }
-    console.log('/Person/findAll => \n'+persons);
-    callback(null,persons)
+    console.log('/Person/findAll => \n'+people);
+    callback(null,people)
   })
 }
 
