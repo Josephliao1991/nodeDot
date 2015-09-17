@@ -28,6 +28,8 @@ function checkExistById(_id, callback) {
       return callback(error)
     }
 
+    console.log('/Person/checkExistById : '+_id+'\n'+person);
+
     if (person.length > 0) {
       callback(null,1)
     }else {
