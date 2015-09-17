@@ -15,8 +15,14 @@ app.use(methodOverride())
 var be_ip   = "10.240.72.88:80"
 var dbName  = "/myDatabase"
 mongoose.connect('mongodb://'+be_ip+dbName)
+app.get('/',function (req, res) {
+  // body...
+  res.send("Hellow World! This is iNeDot Server!!")
 
+})
 app.use('/group',apiGroup);
+
+
 
 var dbref = require('./dbref.js');
 app.get('/dbref',function (req, res) {

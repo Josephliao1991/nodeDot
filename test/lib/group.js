@@ -317,6 +317,8 @@ function create(person_id, name, callback) {
 
  module.exports = {
 
+   checkExist     : checkExist,
+
    findById       : findById,
    findByLeader   : findByLeader,
    findAll        : findAll,
