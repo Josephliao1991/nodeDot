@@ -1,10 +1,10 @@
 var mongoose = require("mongoose");
 var Schema = mongoose.Schema;
 
-//Connect TO MONGODB
-var be_ip   = "10.240.72.88:80"
-var dbName  = "/myDatabase"
-mongoose.connect('mongodb://'+be_ip+dbName)
+// //Connect TO MONGODB
+// var be_ip   = "10.240.72.88:80"
+// var dbName  = "/myDatabase"
+// mongoose.connect('mongodb://'+be_ip+dbName)
 
 var PersonSchema = new Schema({
     name    : String

@@ -11,6 +11,10 @@ app.use(bodyParser.urlencoded({extended: true}))
 app.use(bodyParser.json({ type: 'application/vnd.api+json' }))
 app.use(methodOverride())
 
+//Connect TO MONGODB
+var be_ip   = "10.240.72.88:80"
+var dbName  = "/myDatabase"
+mongoose.connect('mongodb://'+be_ip+dbName)
 
 app.use('/group',apiGroup);
 
