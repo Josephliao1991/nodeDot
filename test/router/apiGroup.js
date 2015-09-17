@@ -40,8 +40,8 @@ router.get('/findByLeader',function (req, res) {
 
 router.post('/create',function (req, res) {
   // body...
-  var leader_create = req.query.leader    //person_id
-  var name_create   = req.query.name      //String : GroupName
+  var leader_create = req.body.leader    //person_id
+  var name_create   = req.body.name      //String : GroupName
 
   if (!leader_create || !name_create) {
     return res.json({result : "fail,lost some params"})
