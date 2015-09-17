@@ -207,12 +207,7 @@ function create(person_id, name, callback) {
                               message : 'no such group'});
      }
 
-    //Ref db
-
-
-     var memberArray = group.member
-     var newMember = {person_id : member_id, name : member_name}
-     memberArray.push(newMember);
+     group.members.push(member_id)
 
      return group.save(function (error, group) {
        // body...
