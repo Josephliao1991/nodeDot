@@ -192,7 +192,7 @@ function create(ssid, pwd, callback) {
                               message : 'no such person'});
        }
 
-     var person.selfGroups.push(group_id)
+     person.selfGroups.push(group_id)
 
      return person.save(function (error, person) {
        // body...
@@ -258,7 +258,7 @@ function create(ssid, pwd, callback) {
                               message : 'no such person'});
        }
 
-     var person.joinGroups.push(group_id)
+     person.joinGroups.push(group_id)
 
      return person.save(function (error, person) {
        // body...
@@ -325,7 +325,7 @@ function create(ssid, pwd, callback) {
                               message : 'no such person'});
        }
 
-     var person.centers.push(center_id)
+     person.centers.push(center_id)
 
      return person.save(function (error, person) {
        // body...
@@ -391,7 +391,7 @@ function create(ssid, pwd, callback) {
                               message : 'no such person'});
        }
 
-     var person.inedots.push(inedot_id)
+     person.inedots.push(inedot_id)
 
      return person.save(function (error, person) {
        // body...
