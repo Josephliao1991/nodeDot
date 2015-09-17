@@ -1,5 +1,5 @@
 require('./dbModel');
-var mongoose  = require('mongoode');
+var mongoose  = require('mongoose');
 var Person    = mongoose.model('person')
 
 /*=======================================================================================*/
