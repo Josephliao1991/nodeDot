@@ -129,10 +129,10 @@ router.get('/updateLeader',function (req, res) {
 
 })
 
-router.get('/addMember',function (req, res) {
+router.post('/addMember',function (req, res) {
   // body...
-  var _id_add = req.query._id
-  var member_id_add  = req.query.member_id
+  var _id_add = req.body._id
+  var member_id_add  = req.body.member_id
 
   if (!_id_add || !member_id_add) {
     return res.json({result : false,
