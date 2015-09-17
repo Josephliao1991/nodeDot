@@ -60,7 +60,7 @@ function findAll(callback) {
 
 function findById(_id, callback) {
   // body...
-  Group.find({_id : [_id]},function (error, group) {
+  Group.findOne({_id : [_id]},function (error, group) {
     // body...
     if (error) {
       return callback(error)
