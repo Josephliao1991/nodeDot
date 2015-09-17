@@ -4,7 +4,7 @@ var router  = express.Router();
 var mongoose = require('mongoose');
 var person = require('../lib/person.js');
 
-router.post('regist',function (req, res) {
+router.post('/regist',function (req, res) {
   // body...
   var ssid_regist = req.body.ssid
   var pwd_regist  = req.body.pwd
