@@ -74,7 +74,8 @@ router.post('/create',function (req, res) {
   person.checkExistById(leader_create, function (error, exist) {
     // body...
     if (!exist) {
-      return res.json({result : "fail,person is not regist"})
+      return res.json({result : false,
+                       message : "fail,person is not regist"})
     }
     //2.Create Group
     group.create(leader_create, name_create, function (error, result) {
@@ -138,18 +139,38 @@ router.get('/addMember',function (req, res) {
                      message : "fail,lost some params"})
   }
 
-  group.addMember(_id_add, member_id_add, function (error, result) {
+  //1.Check Person is Exist
+  person.checkExistById(member_id_add, function (error, exist) {
     // body...
-    if (error) {
-      return res.send(error)
+    if (!exist) {
+      return res.json({result : false,
+                       message : "fail,person is not regist"})
     }
-    //Save To Person.GroupID
+    //2. Add Member To Group
+    group.addMember(_id_add, member_id_add, function (error, result) {
+      // body...
+      if (error) {
+        return res.send(error)
+      }
+      if (result.result == false) {
+        return res.json(result)
+      }
+      //3.Add GroupID To Person
+      person.addJoinGroup(_id_add, member_id_add, function (error, result) {
+        // body...
+        if (error) {
+          return res.send(error)
+        }
+        if (result.result == false) {
+          return res.json(result)
+        }
+        res.json(result)
 
-
-
-    res.json(result)
+      })
+    })
 
   })
+
 
 })
 

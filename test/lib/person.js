@@ -54,7 +54,7 @@ function findAll(callback) {
 
 function findById(_id, callback) {
   // body...
-  Person.find({_id : [_id]},function (error, person) {
+  Person.findOne({_id : [_id]},function (error, person) {
     // body...
     if (error) {
       return callback(error)
@@ -64,9 +64,22 @@ function findById(_id, callback) {
   })
 }
 
+function findByIds(_ids, callback) {
+  // body...
+  Person.find({_id : {$in : _ids}},function (error, person) {
+    // body...
+    if (error) {
+      return callback(error)
+    }
+    console.log('/Person/findByIds => '+person);
+    callback(null,person)
+  })
+}
+
+
 function findBySSID(ssid, callback) {
   // body...
-  Person.find({ssid : ssid},function (error, person) {
+  Person.findOne({ssid : ssid},function (error, person) {
     // body...
     if (error) {
       return callback(error)
@@ -75,6 +88,19 @@ function findBySSID(ssid, callback) {
     callback(null,person)
   })
 }
+
+function findBySSIDs(ssids, callback) {
+  // body...
+  Person.find({ssid : {$in : ssids}},function (error, person) {
+    // body...
+    if (error) {
+      return callback(error)
+    }
+    console.log('/Person/findBySSIDs => \n'+person);
+    callback(null,person)
+  })
+}
+
 
 function create(ssid, pwd, callback) {
   // body...
@@ -494,6 +520,9 @@ function create(ssid, pwd, callback) {
    checkExistById : checkExistById,
 
    findById       : findById,
+   findByIds      : findByIds,
+   findBySSID     : findBySSID
+   findBySSIDs    : findBySSIDs,
    findAll        : findAll,
 
    create         : create,
