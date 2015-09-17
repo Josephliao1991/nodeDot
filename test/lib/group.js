@@ -182,7 +182,7 @@ function create(person_id, name, callback) {
      return group.save(function (error, group) {
        // body...
        if (error) {
-         console.log('/Group/update => fail to update \n group_id: '+_id+);
+         console.log('/Group/update => fail to update \n group_id: '+_id);
          return callback(error)
        }
        console.log('/Group/update => success, group is update \n group_id: '+_id+' Name: '+group.name);
@@ -281,7 +281,7 @@ function create(person_id, name, callback) {
      }
 
      if (!group) {
-       console.log('/Group/delete => fail, no such group \n group_id: '+_id+);
+       console.log('/Group/delete => fail, no such group \n group_id: '+_id);
        return callback(null, {result  : false,
                               message : "fail, no such group"})
      }
