@@ -20,6 +20,22 @@ function checkExist(ssid, callback) {
   })
 }
 
+function checkExistById(_id, callback) {
+  // body...
+  Person.find({_id : _id},function (error, person) {
+    // body...
+    if (error) {
+      return callback(error)
+    }
+
+    if (person.length > 0) {
+      callback(null,1)
+    }else {
+      callback(null,null)
+    }
+  })
+}
+
 
 /*=======================================================================================*/
 
@@ -474,6 +490,8 @@ function create(ssid, pwd, callback) {
 
 
  module.exports = {
+
+   checkExistById : checkExistById,
 
    findById       : findById,
    findAll        : findAll,

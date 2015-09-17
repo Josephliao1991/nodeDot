@@ -26,6 +26,22 @@ function checkExist(person_id, name, callback) {
   })
 }
 
+function checkExistById(_id, callback) {
+  // body...
+  Group.find({_id : _id},function (error, group) {
+    // body...
+    if (error) {
+      return callback(error)
+    }
+
+    if (group.length > 0) {
+      callback(null,1)
+    }else {
+      callback(null,null)
+    }
+  })
+}
+
 
 /*=======================================================================================*/
 
@@ -317,7 +333,7 @@ function create(person_id, name, callback) {
 
  module.exports = {
 
-   checkExist     : checkExist,
+   checkExistById     : checkExistById,
 
    findById       : findById,
    findByLeader   : findByLeader,

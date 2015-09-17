@@ -38,29 +38,47 @@ router.get('/findByLeader',function (req, res) {
 })
 
 
-router.get('/create',function (req, res) {
+router.post('/create',function (req, res) {
   // body...
-  var leader_create = req.query.leader
-  var name_create   = req.query.name
-  var listenDevice_create = []
+  var leader_create = req.query.leader    //person_id
+  var name_create   = req.query.name      //String : GroupName
 
-  if (!leader_create || !name_create || !listenDevice_create) {
+  if (!leader_create || !name_create) {
     return res.json({result : "fail,lost some params"})
   }
 
-  group.create(leader_create, name_create, function (error, result) {
+  //1.Check Person is Exist
+  person.checkExistById(leader_create, function (error, exist) {
     // body...
-    if (error) {
-      return res.send(error)
+    if (!exist) {
+      return res.json({result : "fail,person is not regist"})
     }
-    //Save To Person.GroupID
+    //2.Create Group
+    group.create(leader_create, name_create, function (error, result) {
+      // body...
+      if (error) {
+        return  res.send(error)
+      }
+      if (result.result == false) {
+        return  res.json(result)
+      }
 
+      //3.Add GroupId ref to Person
+      var group = result.data
+      person.addSelfGroup(leader_create, group._id, function (error, result) {
+        // body...
+        if (error) {
+          return  res.send(error)
+        }
+        if (result.result == false) {
+          return  res.json(result)
+        }
 
+        res.json(result)
 
-    res.json(result)
-
+      })
+    })
   })
-
 })
 
 
