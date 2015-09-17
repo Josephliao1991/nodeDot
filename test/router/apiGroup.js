@@ -33,7 +33,7 @@ router.get('/findById',function (req, res) {
     person.findById(group.leader, function (error, leader) {
       // body...
       group.leader = leader
-      res.json(group)
+      res.json(leader)
 
     })
   })
