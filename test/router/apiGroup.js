@@ -30,7 +30,7 @@ router.get('/findById',function (req, res) {
   group.findById(_id_find,function (error,group) {
     // body...
     //1. find leader first
-    person.findById(group.leader, function (error, leader) {
+    person.findById(group[0].leader, function (error, leader) {
       // body...
       group.leader = leader
       res.json(leader)
