@@ -521,7 +521,7 @@ function create(ssid, pwd, callback) {
 
    findById       : findById,
    findByIds      : findByIds,
-   findBySSID     : findBySSID
+   findBySSID     : findBySSID,
    findBySSIDs    : findBySSIDs,
    findAll        : findAll,
 
