@@ -45,7 +45,7 @@ function checkExistById(_id, callback) {
 
 /*=======================================================================================*/
 
-function findAll(_id, callback) {
+function findAll(callback) {
   // body...
   Group.find(function (error, group) {
     // body...

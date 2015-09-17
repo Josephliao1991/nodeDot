@@ -4,6 +4,7 @@ var bodyParser = require('body-parser');
 var methodOverride = require('method-override');
 
 var apiGroup = require('./router/apiGroup.js');
+var apiAccount = require('./router/apiAccount.js');
 
 var app = express();
 app.use(bodyParser.json())
@@ -21,7 +22,7 @@ app.get('/',function (req, res) {
 
 })
 app.use('/group',apiGroup);
-
+app.use('/account',apiAccount)
 
 
 var dbref = require('./dbref.js');
