@@ -127,7 +127,7 @@ function create(ssid, pwd, callback) {
                               message : 'no such person'});
        }
 
-     var person.phones.push(phone_id)
+     person.phones.push(phone_id)
 
      return person.save(function (error, person) {
        // body...
