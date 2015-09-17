@@ -28,6 +28,20 @@ router.get('/findById',function (req, res) {
   })
 })
 
+router.get('/findBySSId',function (req, res) {
+  // body...
+  var _ssid_find = req.query.ssid
+
+  if (!_ssid_find) {
+    return res.json({result : false,
+                     message : "fail,lost some params"})
+  }
+
+  person.findBySSID(_ssid_find,function (error,person) {
+    // body...
+    res.json(person)
+  })
+})
 
 
 router.post('/regist',function (req, res) {
