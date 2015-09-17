@@ -156,7 +156,7 @@ router.post('/addMember',function (req, res) {
         return res.json(result)
       }
       //3.Add GroupID To Person
-      person.addJoinGroup(_id_add, member_id_add, function (error, result) {
+      person.addJoinGroup(member_id_add, _id_add, function (error, result) {
         // body...
         if (error) {
           return res.send(error)
