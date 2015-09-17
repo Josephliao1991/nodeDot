@@ -86,7 +86,7 @@ function create(ssid, pwd, callback) {
     }
 
     if (exist) {
-      console.log('/Person/create => fail,person is exist');
+      console.log('/Person/create => fail,person is exist \n SSID: '+ssid);
       return callback(null,{result  : false,
                             message : "fail,person is exist"})
     }
@@ -116,7 +116,7 @@ function create(ssid, pwd, callback) {
       },function (error, person) {
         // body...
         if (error) {
-          console.log('/Person/create => fail to create person');
+          console.log('/Person/create => fail to create person \nSSID '+ssid);
           return callback(error)
         }
         console.log('/Person/create => success,person is createNow');
