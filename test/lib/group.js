@@ -132,7 +132,7 @@ function create(person_id, name, callback) {
        return callback(error)
      }
 
-     if (!group) {
+     if (group.length>0) {
        console.log('/Group/update => no such group \n group_id: '+_id+' Name: '+name);
        return callback(null, {result  : true,
                               message : 'no such group'});
@@ -167,7 +167,7 @@ function create(person_id, name, callback) {
        return callback(error)
      }
 
-     if (!group) {
+     if (group.length>0) {
        console.log('/Group/update => no such group \n group_id: '+_id+' Name: '+name);
        return callback(null, {result  : false,
                               message : 'no such group'});

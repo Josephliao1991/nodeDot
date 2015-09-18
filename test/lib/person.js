@@ -106,7 +106,7 @@ function findBySSIDs(ssids, callback) {
 
 function create(ssid, pwd, callback) {
   // body...
-  //check if leader & name is create before!
+  //1.Check ssid is exist
   checkExist(ssid, function (error, exist) {
     // body...
     if (error) {
@@ -118,7 +118,7 @@ function create(ssid, pwd, callback) {
       return callback(null,{result  : false,
                             message : "fail,person is exist"})
     }
-
+    //2. create person
     var ssid_create   = ssid
     var pwd_create    = pwd
     var phones_create  = []
@@ -159,13 +159,14 @@ function create(ssid, pwd, callback) {
 
  function addPhone(_id, phone_id, callback) {
    // body...
+   //1. check person is exist
    Person.findById({_id : _id},function (error, person) {
      // body...
      if (error) {
        return callback(error)
      }
 
-     if (!person) {
+     if (person.length>0) {
        console.log('/Person/addPhone => no such person');
        return callback(null, {result  : false,
                               message : 'no such person'});
