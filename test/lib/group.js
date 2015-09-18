@@ -242,7 +242,7 @@ function create(person_id, name, callback) {
      var members = group.members
     //  console.log(members.length);
      for (var i = 0; i < members.length; i++) {
-       console.log('member '+members[i]);
+      //  console.log('member '+members[i]);
       if (members[i] == member_id) {
         console.log(members[i]);
         members.splice(i, 1)
@@ -251,7 +251,7 @@ function create(person_id, name, callback) {
      }
     //  console.log('Member: '+group);
 
-    group.save(function (error, group) {
+    return group.save(function (error, group) {
       // body...
       if (error) {
         console.log('/Group/deleteGroupMember => fail to update \n group_id: '+_id);
