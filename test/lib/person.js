@@ -341,7 +341,7 @@ function create(ssid, pwd, callback) {
          }
        }
 
-     return person.save(function (error, person) {
+     person.save(function (error, person) {
        // body...
        if (error) {
          console.log('/Person/deleteJoinGroup => fail to update');
