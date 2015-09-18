@@ -334,7 +334,7 @@ function create(ssid, pwd, callback) {
 
       var joinGroups = person.joinGroups
       for (var i = 0; i < joinGroups.length; i++) {
-         if (joinGroups[i]._id == group_id) {
+         if (joinGroups[i] == group_id) {
            person.joinGroups.splice(i, 1)
            break;
            // console.log('aaron.stories[i]'+aaron.stories[i]);
