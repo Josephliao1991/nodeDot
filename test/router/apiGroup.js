@@ -176,13 +176,54 @@ router.post('/addMember',function (req, res) {
 
 router.get('/deleteMember',function (req, res) {
   // body...
-  var _id_delete = req.query._id
-  var member_id_delete  = req.query.member_id
+  var _id_delete = req.body._id
+  var member_id_delete  = req.body.member_id
 
   if (!_id_delete || !member_id_delete) {
     return res.json({result : false,
                      message : "fail,lost some params"})
   }
+  //1.Check Member_id(Person) Is Exist
+  person.checkExistById(member_id_delete, function (error, exist) {
+    // body...
+    if (error) {
+      return res.send(error)
+    }
+    if (!exist) {
+      return res.json({result : false,
+                       message : "fail,person is not regist"})
+    }
+
+    //2.Delete person_id In Group
+    group.deleteMember(_id_delete, member_id_delete, function (error, result) {
+      // body...
+      if (error) {
+        return res.send(error)
+      }
+      if (result.result == false) {
+        return res.json(result)
+      }
+
+      //3.Delete groupId In Person
+      person.deleteJoinGroup(member_id_delete, _id_delete, function (error, result) {
+        // body...
+        if (error) {
+          return res.send(error)
+        }
+        if (result.result == false) {
+          return res.json(error)
+        }
+
+        res.json(result)
+
+      })
+
+
+
+    })
+
+
+  })
 
   group.deleteMember(_id_delete, member_id_delete, function (error, result) {
     // body...
