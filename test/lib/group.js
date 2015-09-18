@@ -212,16 +212,18 @@ function create(person_id, name, callback) {
      var members = group.members
      console.log('group.members: '+members);
      for (var i = 0; i < members.length; i++) {
-       var check = false
+      //  var check = false
        console.log('members: '+members[i]);
        if (members[i] == member_id) {
-         check = true
-         break;
+        //  check = true
+        //  break;
+        return callback(null, {result  : false,
+                               message : 'person is already in group'});
        }
-       if (check == true) {
-         return callback(null, {result  : false,
-                                message : 'person is already in group'});
-       }
+      //  if (check == true) {
+      //    return callback(null, {result  : false,
+      //                           message : 'person is already in group'});
+      //  }
      }
 
      //3.Add person in to Group.members
