@@ -212,6 +212,7 @@ function create(person_id, name, callback) {
      var members = group.members
      for (var i = 0; i < members.length; i++) {
        var check = false
+       console.log('members: 'members[i]);
        if (members[i] == member_id) {
          check = true
          break;
