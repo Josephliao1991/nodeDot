@@ -290,18 +290,34 @@ function create(ssid, pwd, callback) {
 
  function addJoinGroup(_id, group_id, callback) {
    // body...
+
    Person.findById({_id : _id},function (error, person) {
      // body...
      if (error) {
        return callback(error)
      }
-
+     //1. Check person is exist
      if (!person) {
        console.log('/Person/addJoinGroup => no such person');
        return callback(null, {result  : false,
                               message : 'no such person'});
        }
 
+     //2.check member is not in this group
+     var joinGroups = person.joinGroups
+     for (var i = 0; i < joinGroups.length; i++) {
+       var check = false
+       if (joinGroups[i] == group_id) {
+         check = true
+         break;
+       }
+       if (check == true) {
+         return callback(null, {result  : false,
+                                message : 'person is already in group'});
+       }
+     }
+
+     //3.Add group in to person.joinGroups
      person.joinGroups.push(group_id)
 
      return person.save(function (error, person) {
@@ -341,7 +357,7 @@ function create(ssid, pwd, callback) {
          }
        }
 
-     person.save(function (error, person) {
+     return person.save(function (error, person) {
        // body...
        if (error) {
          console.log('/Person/deleteJoinGroup => fail to update');

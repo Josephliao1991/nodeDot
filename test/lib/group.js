@@ -201,12 +201,28 @@ function create(person_id, name, callback) {
        return callback(error)
      }
 
+     //1.check group is exist
      if (!group) {
        console.log('/Group/updateGroup => no such group \n group_id: '+_id);
        return callback(null, {result  : false,
                               message : 'no such group'});
      }
 
+     //2.check member is not in this group
+     var members = group.members
+     for (var i = 0; i < members.length; i++) {
+       var check = false
+       if (members[i] == member_id) {
+         check = true
+         break;
+       }
+       if (check == true) {
+         return callback(null, {result  : false,
+                                message : 'person is already in group'});
+       }
+     }
+
+     //3.Add person in to Group.members
      group.members.push(member_id)
 
      return group.save(function (error, group) {
