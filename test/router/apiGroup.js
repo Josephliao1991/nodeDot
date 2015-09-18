@@ -107,17 +107,17 @@ router.post('/create',function (req, res) {
 
 
 //Change Method To UpdateGroupName
-router.get('/updateLeader',function (req, res) {
+router.post('/updateName',function (req, res) {
   // body...
-  var _id_update    = req.query._id
-  var leader_update = req.query.leader
+  var _id_update    = req.body._id
+  var name_update = req.body.name
 
-  if (!_id_update || !leader_update) {
+  if (!_id_update || !name_update) {
     return res.json({result : false,
                      message : "fail,lost some params"})
   }
 
-  group.updateLeader(_id_update, leader_update,
+  group.updateName(_id_update, name_update,
     function (error, result) {
     // body...
     if (error) {
