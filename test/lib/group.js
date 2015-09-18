@@ -210,6 +210,7 @@ function create(person_id, name, callback) {
 
      //2.check member is not in this group
      var members = group.members
+     console.log('group.members: '+members);
      for (var i = 0; i < members.length; i++) {
        var check = false
        console.log('members: '+members[i]);
