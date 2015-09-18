@@ -174,7 +174,7 @@ router.post('/addMember',function (req, res) {
 
 })
 
-router.get('/deleteMember',function (req, res) {
+router.post('/deleteMember',function (req, res) {
   // body...
   var _id_delete = req.body._id
   var member_id_delete  = req.body.member_id
