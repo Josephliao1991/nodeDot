@@ -239,7 +239,7 @@ function create(person_id, name, callback) {
      }
 
      //Ref db
-     var members = group.member
+     var members = group.members
     //  console.log(members.length);
      for (var i = 0; i < members.length; i++) {
       //  console.log('member '+members[i].person_id);
