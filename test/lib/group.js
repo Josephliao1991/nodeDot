@@ -251,7 +251,7 @@ function create(person_id, name, callback) {
      }
     //  console.log('Member: '+group);
 
-    return group.save(function (error, group) {
+    group.save(function (error, group) {
       // body...
       if (error) {
         console.log('/Group/deleteGroupMember => fail to update \n group_id: '+_id);
