@@ -129,7 +129,7 @@ function create(operation, uuid, token, callback) {
 
 function updateToken(_id, token, callback) {
   // body...
-  Phone.find({_id : _id}, function (error, phone) {
+  Phone.findById({_id : _id}, function (error, phone) {
     // body...
     if (error) {
       return callback(error)
