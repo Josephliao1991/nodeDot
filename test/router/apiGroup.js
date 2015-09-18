@@ -213,31 +213,11 @@ router.post('/deleteMember',function (req, res) {
         if (result.result == false) {
           return res.json(error)
         }
-
         res.json(result)
 
       })
-
-
-
     })
-
-
   })
-
-  group.deleteMember(_id_delete, member_id_delete, function (error, result) {
-    // body...
-    if (error) {
-      return res.send(error)
-    }
-    //Save To Person.GroupID
-
-
-
-    res.json(result)
-
-  })
-
 })
 
 router.get('/deleteById',function (req, res) {
