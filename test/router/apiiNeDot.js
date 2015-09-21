@@ -22,8 +22,10 @@ router.post('/create',function (req, res) {
           if (error) {
             return res.send(error)
           }
-          res.send("result: "+result)
-
+          if (result.result == false) {
+            return res.json(result)
+          }
+          res.json(result)
         })
 
 

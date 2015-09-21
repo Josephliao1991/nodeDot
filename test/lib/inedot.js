@@ -79,7 +79,7 @@ function create(macAddr, owner, connectState, name, battery, pushGroup, situatio
   var situation      = situation
 
   //1. Check iNeDot Exist Or Not
-  checkExistByMacAddr(macAddr_create, function (error, exist) {
+  checkExistByMacAddr(macAddr, function (error, exist) {
     // body...
     if (error) {
       return callback(error)
@@ -103,9 +103,12 @@ function create(macAddr, owner, connectState, name, battery, pushGroup, situatio
     },function (error, inedot) {
       // body...
       if (error) {
-        callback(error)
+        console.log('/device/inedot/create => fail to create inedot \n macAddr: '+macAddr+' Name: '+name);
+        return callback(error)
       }
-      callback(null, inedot)
+      console.log('/device/inedot/create => success,inedot is createNow \n macAddr: '+macAddr+' Name: '+name);
+      callback(null, {result  : true,
+                      data    : inedot});
 
     })
   })
