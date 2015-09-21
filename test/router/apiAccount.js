@@ -102,7 +102,10 @@ router.post('/regist',function (req, res) {
     if (error) {
       return res.send(error)
     }
+
+    console.log("result : "+result);
     if (result.result = false) {
+      console.log("return Fail Message");
       return res.json(result)
     }
     //2. Create Person
