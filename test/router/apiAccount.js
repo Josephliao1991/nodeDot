@@ -86,7 +86,7 @@ router.post('/regist',function (req, res) {
   var uuid_regist   = req.body.uuid
   var token_regist  = req.body.token
 
-
+  console.log("ssid : "+ssid_regist+'\n');
   if (!ssid_regist || !pwd_regist) {
     return res.json({result : false,
                      message : "fail,lost some params"})
