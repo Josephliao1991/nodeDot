@@ -30,6 +30,7 @@ function checkPersonPhoneExist(person_ssid, phone_uuid, callback) {
         return callback(error)
       }
       if (exist) {
+        console.log("return False, phone exist");
         return callback(null,{result  : false,
                               message : "fail,phone is exist"})
       }
