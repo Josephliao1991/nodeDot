@@ -5,6 +5,41 @@ var mongoose = require('mongoose');
 var inedot = require('../lib/inedot.js');
 var person = require('../lib/person.js');
 
+
+function checkPersoniNeDotExist(person_id, inedot_id, callback) {
+  // body...
+  //1. Check Person Exist Or Not
+  person.checkExistByIs(person_id, function (error, exist) {
+    // body...
+    if (error) {
+      return callback(error)
+    }
+    if (exist) {
+      return callback(null,{result : false,
+                            message : "fail,person is regist"})
+    }
+
+    //2. Check inedot Exist Or Not
+    ineodt.checkExistById(inedot_id, function (error, exist) {
+      // body...
+      if (error) {
+        return callback(error)
+      }
+      if (exist) {
+        return callback(null,{result  : false,
+                              message : "fail,phone is exist"})
+      }
+
+      callback(null,{reslut : true})
+
+    })
+  })
+
+}
+
+/*======================================================*/
+
+
 router.get('/findAll',function (req, res) {
   // body...
   inedot.findAll(function (error,inedots) {
@@ -102,9 +137,53 @@ router.post('/create',function (req, res) {
   })
 })
 
+//Update Data Next Step
 
 
+router.post('/delete',function (req, res) {
+  // body...
+  var person_id_delete    = req.body.person_id
+  var inedot_id_delete    = req.body.inedot_id
 
+  if (!person_id_delete || !inedot_id_delete) {
+    return res.json({result : false,
+                     message : "fail,lost some params"})
+  }
+
+  //1. check Person & iNeDot Exist
+  checkPersoniNeDotExist(person_id_delete, inedot_id_delete, function (error, result) {
+    // body...
+    if (error) {
+      return callback(error)
+    }
+
+    if (result.result == false) {
+      res.json(result)
+    }
+
+    //2. Delete iNeDot
+    inedot.deleteById(inedot_id, function (error, result) {
+      // body...
+      if (error) {
+        return res.send(error)
+      }
+      if (result.result == false) {
+        return res.json(result)
+      }
+
+      //3. Delete person
+      person.deleteiNedot(person_id_delete, inedot_id_delete, function (error, result) {
+        // body...
+        if (error) {
+          return res.send(error)
+        }
+        if (result.result == false) {
+          return res.json(result)
+        }
+      })
+    })
+  })
+})
 
 
 

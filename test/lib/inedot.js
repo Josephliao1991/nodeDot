@@ -116,6 +116,48 @@ function create(macAddr, owner, connectState, name, battery, pushGroup, situatio
 }
 
 
+//Update Data Next Step
+
+function updateSituation(_id, situation, callback) {
+  // body...
+
+
+}
+
+
+function deleteById(_id, callback) {
+  // body...
+  inedot.findOne({_id : _id},function (error, inedot) {
+    // body...
+    if (error) {
+      callback(error)
+    }
+    if (!inedot) {
+      console.log('/device/inedot/create => fail,inedot is not exist');
+      return callback(null,{result  : false,
+                            message : "fail,inedot is not exist"})
+    }
+
+    inedot.remove(function (error) {
+      // body...
+      if (error) {
+        console.log('/device/inedot/delete => fail, can not delete \n inedot_id: '+_id);
+        return callback(error)
+      }
+      console.log('/device/inedot/delete => success, inedot is delete \n inedot_id: '+_id);
+      callback(null,{result  : true,
+                     message : 'success, group is delete'})
+
+    })
+
+  })
+
+
+}
+
+
+
+
 module.exports = {
 
   checkExistByMacAddr : checkExistByMacAddr,
