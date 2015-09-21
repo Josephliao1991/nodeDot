@@ -37,7 +37,7 @@ app.get('/alamofireGET',function (req, res) {
 
 })
 
-app.POST('/alamofirePOST',function (req, res) {
+app.post('/alamofirePOST',function (req, res) {
   // body...
   var name    = req.body.name
 
