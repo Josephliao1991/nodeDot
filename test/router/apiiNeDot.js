@@ -100,7 +100,7 @@ router.post('/create',function (req, res) {
   }
 
   //1. Check Person Exist Or Not
-  person.checkExistById(owner, function (error, exist) {
+  person.checkExistById(owner_create, function (error, exist) {
     // body...
     if (error) {
       return res.send(error)
@@ -122,7 +122,7 @@ router.post('/create',function (req, res) {
             }
             var inedot_id = result.data._id
             //3. connect Person & iNeDot
-            person.addiNedot(owner, inedot_id, function (error, result) {
+            person.addiNedot(owner_create, inedot_id, function (error, result) {
               // body...
               if (error) {
                 return res.send(error)
