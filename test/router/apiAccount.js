@@ -9,7 +9,7 @@ var phone = require('../lib/phone.js');
 function checkPersonPhoneExist(person_ssid, phone_uuid, callback) {
   // body...
   //1. Check Person Exist Or Not
-  person.checkExistBySSID(ssid_regist, function (error, exist) {
+  person.checkExistBySSID(person_ssid, function (error, exist) {
     // body...
     if (error) {
       return callback(error)
@@ -20,7 +20,7 @@ function checkPersonPhoneExist(person_ssid, phone_uuid, callback) {
     }
 
     //2. Check Phone Exist Or Not
-    Phone.checkExistByUUID(uuid_regist, function (error, exist) {
+    Phone.checkExistByUUID(phone_uuid, function (error, exist) {
       // body...
       if (error) {
         return callback(error)
@@ -86,7 +86,6 @@ router.post('/regist',function (req, res) {
   var uuid_regist   = req.body.uuid
   var token_regist  = req.body.token
 
-  console.log("ssid : "+ssid_regist+'\n');
   if (!ssid_regist || !pwd_regist) {
     return res.json({result : false,
                      message : "fail,lost some params"})
@@ -100,8 +99,6 @@ router.post('/regist',function (req, res) {
     if (result.result = false) {
       return res.json(result)
     }
-
-    console.log("check OK,");
     //2. Create Person
     person.create(ssid_regist, pwd_regist, function (error, result) {
       // body...
