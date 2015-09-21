@@ -106,6 +106,7 @@ router.post('/regist',function (req, res) {
         return res.send(error)
       }
       if (result.result == false) {
+        console.log("false Test");
         return res.json(result)
       }
 
