@@ -180,6 +180,7 @@ router.post('/delete',function (req, res) {
         if (result.result == false) {
           return res.json(result)
         }
+        res.json(result)
       })
     })
   })
