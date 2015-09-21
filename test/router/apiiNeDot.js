@@ -20,7 +20,7 @@ function checkPersoniNeDotExist(person_id, inedot_id, callback) {
     }
 
     //2. Check inedot Exist Or Not
-    ineodt.checkExistById(inedot_id, function (error, exist) {
+    inedot.checkExistById(inedot_id, function (error, exist) {
       // body...
       if (error) {
         return callback(error)
