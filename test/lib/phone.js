@@ -46,7 +46,7 @@ function findAll(callback) {
   })
 }
 
-function findByUUId(uuid, callback) {
+function findByUUID(uuid, callback) {
   // body...
   Phone.find({uuid : uuid},function (error, phones) {
     // body...
@@ -58,7 +58,7 @@ function findByUUId(uuid, callback) {
   })
 }
 
-function findByUUIds(uuids, callback) {
+function findByUUIDs(uuids, callback) {
   // body...
   Phone.find({uuid : {$in:uuids}},function (error, phones) {
     // body...
