@@ -9,7 +9,7 @@ var person = require('../lib/person.js');
 function checkPersoniNeDotExist(person_id, inedot_id, callback) {
   // body...
   //1. Check Person Exist Or Not
-  person.checkExistByIs(person_id, function (error, exist) {
+  person.checkExistById(person_id, function (error, exist) {
     // body...
     if (error) {
       return callback(error)
