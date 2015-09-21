@@ -11,8 +11,6 @@ function checkPersonPhoneExist(person_ssid, phone_uuid, callback) {
   //1. Check Person Exist Or Not
   person.checkExistBySSID(person_ssid, function (error, exist) {
     // body...
-    console.log("Check Person");
-    console.log("Check Person Exist : "+exist);
     if (error) {
       return callback(error)
     }
@@ -24,13 +22,10 @@ function checkPersonPhoneExist(person_ssid, phone_uuid, callback) {
     //2. Check Phone Exist Or Not
     phone.checkExistByUUID(phone_uuid, function (error, exist) {
       // body...
-      console.log("Check Phone");
-      console.log("Check Phone Exist : "+exist);
       if (error) {
         return callback(error)
       }
       if (exist) {
-        console.log("return False, phone exist");
         return callback(null,{result  : false,
                               message : "fail,phone is exist"})
       }
@@ -103,10 +98,7 @@ router.post('/regist',function (req, res) {
       return res.send(error)
     }
 
-    console.log("result : "+result.result);
-    console.log("result : "+result.message);
     if (result.result == false) {
-      console.log("return Fail Message");
       return res.json(result)
     }
     //2. Create Person
@@ -116,7 +108,6 @@ router.post('/regist',function (req, res) {
         return res.send(error)
       }
       if (result.result == false) {
-        console.log("false Test");
         return res.json(result)
       }
 
