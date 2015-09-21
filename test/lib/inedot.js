@@ -91,14 +91,14 @@ function create(macAddr, owner, connectState, name, battery, pushGroup, situatio
     }
     //2. Create iNeDot
     inedot.create({
-      macAddr        = macAddr,
-      owner          = owner,
-      connectState   = connectState,
-      name           = name,
-      battery        = battery,
-      pushGroup      = pushGroup,
-      pushPoeple     = [],
-      situation      = situation
+      macAddr        : macAddr,
+      owner          : owner,
+      connectState   : connectState,
+      name           ; name,
+      battery        : battery,
+      pushGroup      : pushGroup,
+      pushPoeple     ; [],
+      situation      : situation
 
     },function (error, inedot) {
       // body...
