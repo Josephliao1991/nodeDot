@@ -224,7 +224,7 @@ router.post('/updateBattery',function (req, res) {
   // body...
 
   var inedot_id_update      = req.body._id
-  var battery_update           = req.body.battert
+  var battery_update           = req.body.battery
 
   if (!inedot_id_update || !battery_update) {
     return res.json({result : false,
