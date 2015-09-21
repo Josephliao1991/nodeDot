@@ -126,7 +126,7 @@ function updateAll(_id, connectState, name, battery, pushGroup, situation, callb
       return callback(error)
     }
     if (!inedot) {
-      console.log('/device/inedot/updateAll => fail,inedot is not exist \n macAddr: '+macAddr+' Name: '+name);
+      console.log('/device/inedot/updateAll => fail,inedot is not exist \n inedot_id: '+_id);
       return callback(null,{result  : false,
                             message : "fail,inedot is not exist"})
     }
@@ -159,7 +159,7 @@ function updateConnectState(_id, connectState, callback) {
       return callback(error)
     }
     if (!inedot) {
-      console.log('/device/inedot/updateConnectState => fail,inedot is not exist \n macAddr: '+macAddr+' Name: '+name);
+      console.log('/device/inedot/updateConnectState => fail,inedot is not exist \n inedot_id: '+_id);
       return callback(null,{result  : false,
                             message : "fail,inedot is not exist"})
     }
@@ -188,7 +188,7 @@ function updateName(_id, name, callback) {
       return callback(error)
     }
     if (!inedot) {
-      console.log('/device/inedot/updateName => fail,inedot is not exist \n macAddr: '+macAddr+' Name: '+name);
+      console.log('/device/inedot/updateName => fail,inedot is not exist \n inedot_id: '+_id);
       return callback(null,{result  : false,
                             message : "fail,inedot is not exist"})
     }
@@ -217,7 +217,7 @@ function updateBattery(_id, battery, callback) {
       return callback(error)
     }
     if (!inedot) {
-      console.log('/device/inedot/updateBattery => fail,inedot is not exist \n macAddr: '+macAddr+' Name: '+name);
+      console.log('/device/inedot/updateBattery => fail,inedot is not exist \n inedot_id: '+_id);
       return callback(null,{result  : false,
                             message : "fail,inedot is not exist"})
     }
@@ -246,7 +246,7 @@ function updatePushGroup(_id, pushGroup, callback) {
       return callback(error)
     }
     if (!inedot) {
-      console.log('/device/inedot/updatePushGroup => fail,inedot is not exist \n macAddr: '+macAddr+' Name: '+name);
+      console.log('/device/inedot/updatePushGroup => fail,inedot is not exist \n inedot_id: '+_id);
       return callback(null,{result  : false,
                             message : "fail,inedot is not exist"})
     }
@@ -275,7 +275,7 @@ function updateSituation(_id, situation, callback) {
       return callback(error)
     }
     if (!inedot) {
-      console.log('/device/inedot/updateSituation => fail,inedot is not exist \n macAddr: '+macAddr+' Name: '+name);
+      console.log('/device/inedot/updateSituation => fail,inedot is not exist \n inedot_id: '+_id);
       return callback(null,{result  : false,
                             message : "fail,inedot is not exist"})
     }
