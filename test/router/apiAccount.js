@@ -103,7 +103,8 @@ router.post('/regist',function (req, res) {
       return res.send(error)
     }
 
-    console.log("result : "+result);
+    console.log("result : "+result.result);
+    console.log("result : "+result.message);
     if (result.result = false) {
       console.log("return Fail Message");
       return res.json(result)
