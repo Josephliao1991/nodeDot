@@ -138,7 +138,17 @@ router.post('/create',function (req, res) {
 })
 
 //Update Data Next Step
+//Update All
 
+//Update ConnectState
+
+//Update Name
+
+//Update Battery
+
+//Update PushGroup
+
+//Update Situation
 
 
 

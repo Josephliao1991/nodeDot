@@ -118,18 +118,181 @@ function create(macAddr, owner, connectState, name, battery, pushGroup, situatio
 
 //Update Data Next Step
 //Update All
+function updateAll(_id, connectState, name, battery, pushGroup, situation, callback) {
+  // body...
+  inedot.find({_id : _id}, function (error, inedot) {
+    // body...
+    if (error) {
+      return callback(error)
+    }
+    if (!inedot) {
+      console.log('/device/inedot/updateAll => fail,inedot is not exist \n macAddr: '+macAddr+' Name: '+name);
+      return callback(null,{result  : false,
+                            message : "fail,inedot is not exist"})
+    }
+
+    if (connectState) {inedot.connectState = connectState}
+    if (name)         {inedot.name= name}
+    if (battery)      {inedot.battery = battery}
+    if (pushGroup)    {inedot.pushGroup = pushGroup}
+    if (situation)    {inedot.situation = situation}
+
+    return inedot.save(function (error, inedot) {
+      // body...
+      if (error) {
+        console.log('/device/inedot/updateAll => fail to update \n inedot_id: '+_id);
+        return callback(error)
+      }
+      console.log('/device/inedot/updateAll => success, inedot is update \n inedot_id: '+_id+' Name: '+inedot.name);
+      callback(null,{result : true,
+                     data   : inedot})
+    })
+  })
+}
 
 //Update ConnectState
+function updateConnectState(_id, connectState, callback) {
+  // body...
+  inedot.find({_id : _id}, function (error, inedot) {
+    // body...
+    if (error) {
+      return callback(error)
+    }
+    if (!inedot) {
+      console.log('/device/inedot/updateConnectState => fail,inedot is not exist \n macAddr: '+macAddr+' Name: '+name);
+      return callback(null,{result  : false,
+                            message : "fail,inedot is not exist"})
+    }
+
+    if (connectState) {inedot.connectState = connectState}
+
+    return inedot.save(function (error, inedot) {
+      // body...
+      if (error) {
+        console.log('/device/inedot/updateConnectState => fail to update \n inedot_id: '+_id);
+        return callback(error)
+      }
+      console.log('/device/inedot/updateConnectState => success, inedot is update \n inedot_id: '+_id+' Name: '+inedot.name);
+      callback(null,{result : true,
+                     data   : inedot})
+    })
+  })
+}
 
 //Update Name
+function updateName(_id, name, callback) {
+  // body...
+  inedot.find({_id : _id}, function (error, inedot) {
+    // body...
+    if (error) {
+      return callback(error)
+    }
+    if (!inedot) {
+      console.log('/device/inedot/updateName => fail,inedot is not exist \n macAddr: '+macAddr+' Name: '+name);
+      return callback(null,{result  : false,
+                            message : "fail,inedot is not exist"})
+    }
+
+    if (name) {inedot.name = name}
+
+    return inedot.save(function (error, inedot) {
+      // body...
+      if (error) {
+        console.log('/device/inedot/updateName => fail to update \n inedot_id: '+_id);
+        return callback(error)
+      }
+      console.log('/device/inedot/updateName => success, inedot is update \n inedot_id: '+_id+' Name: '+inedot.name);
+      callback(null,{result : true,
+                     data   : inedot})
+    })
+  })
+}
 
 //Update Battery
+function updateBattery(_id, battery, callback) {
+  // body...
+  inedot.find({_id : _id}, function (error, inedot) {
+    // body...
+    if (error) {
+      return callback(error)
+    }
+    if (!inedot) {
+      console.log('/device/inedot/updateBattery => fail,inedot is not exist \n macAddr: '+macAddr+' Name: '+name);
+      return callback(null,{result  : false,
+                            message : "fail,inedot is not exist"})
+    }
+
+    if (battery) {inedot.battery = battery}
+
+    return inedot.save(function (error, inedot) {
+      // body...
+      if (error) {
+        console.log('/device/inedot/updateBattery => fail to update \n inedot_id: '+_id);
+        return callback(error)
+      }
+      console.log('/device/inedot/updateBattery => success, inedot is update \n inedot_id: '+_id+' Name: '+inedot.name);
+      callback(null,{result : true,
+                     data   : inedot})
+    })
+  })
+}
 
 //Update PushGroup
+function updatePushGroup(_id, pushGroup, callback) {
+  // body...
+  inedot.find({_id : _id}, function (error, inedot) {
+    // body...
+    if (error) {
+      return callback(error)
+    }
+    if (!inedot) {
+      console.log('/device/inedot/updatePushGroup => fail,inedot is not exist \n macAddr: '+macAddr+' Name: '+name);
+      return callback(null,{result  : false,
+                            message : "fail,inedot is not exist"})
+    }
+
+    if (pushGroup) {inedot.pushGroup = pushGroup}
+
+    return inedot.save(function (error, inedot) {
+      // body...
+      if (error) {
+        console.log('/device/inedot/updatePushGroup => fail to update \n inedot_id: '+_id);
+        return callback(error)
+      }
+      console.log('/device/inedot/updatePushGroup => success, inedot is update \n inedot_id: '+_id+' Name: '+inedot.name);
+      callback(null,{result : true,
+                     data   : inedot})
+    })
+  })
+}
 
 //Update Situation
 function updateSituation(_id, situation, callback) {
   // body...
+  inedot.find({_id : _id}, function (error, inedot) {
+    // body...
+    if (error) {
+      return callback(error)
+    }
+    if (!inedot) {
+      console.log('/device/inedot/updateSituation => fail,inedot is not exist \n macAddr: '+macAddr+' Name: '+name);
+      return callback(null,{result  : false,
+                            message : "fail,inedot is not exist"})
+    }
+
+    if (situation) {inedot.situation = situation}
+
+    return inedot.save(function (error, inedot) {
+      // body...
+      if (error) {
+        console.log('/device/inedot/updateSituation => fail to update \n inedot_id: '+_id);
+        return callback(error)
+      }
+      console.log('/device/inedot/updateSituation => success, inedot is update \n inedot_id: '+_id+' Name: '+inedot.name);
+      callback(null,{result : true,
+                     data   : inedot})
+    })
+  })
 }
 
 
@@ -141,7 +304,7 @@ function deleteById(_id, callback) {
       callback(error)
     }
     if (!inedot) {
-      console.log('/device/inedot/delete => fail,inedot is not exist');
+      console.log('/device/inedot/deleteById => fail,inedot is not exist');
       return callback(null,{result  : false,
                             message : "fail,inedot is not exist"})
     }
@@ -149,10 +312,10 @@ function deleteById(_id, callback) {
     inedot.remove(function (error) {
       // body...
       if (error) {
-        console.log('/device/inedot/delete => fail, can not delete \n inedot_id: '+_id);
+        console.log('/device/inedot/deleteById => fail, can not delete \n inedot_id: '+_id);
         return callback(error)
       }
-      console.log('/device/inedot/delete => success, inedot is delete \n inedot_id: '+_id);
+      console.log('/device/inedot/deleteById => success, inedot is delete \n inedot_id: '+_id);
       callback(null,{result  : true,
                      message : 'success, inedot is delete'})
 
@@ -170,10 +333,20 @@ module.exports = {
 
   checkExistByMacAddr : checkExistByMacAddr,
   checkExistById      : checkExistById,
+
   findAll             : findAll,
   findByMacAddr       : findByMacAddr,
   findById            : findById,
+
   create              : create,
+
+  updateAll           : updateAll,
+  updateConnectState  : updateConnectState,
+  updateName          : updateName,
+  updateBattery       : updateBattery,
+  updatePushGroup     : updatePushGroup,
+  updateSituation     ; updateSituation,
+
   deleteById          : deleteById
 
 
