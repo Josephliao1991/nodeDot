@@ -13,7 +13,7 @@ app.use(bodyParser.json({ type: 'application/vnd.api+json' }))
 app.use(methodOverride())
 
 //Connect TO MONGODB
-var be_ip   = "10.240.72.88:80"
+var be_ip   = "10.240.17.142:80"
 var dbName  = "/mongoTest"
 mongoose.connect('mongodb://'+be_ip+dbName)
 app.get('/',function (req, res) {
