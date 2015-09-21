@@ -117,11 +117,19 @@ function create(macAddr, owner, connectState, name, battery, pushGroup, situatio
 
 
 //Update Data Next Step
+//Update All
 
+//Update ConnectState
+
+//Update Name
+
+//Update Battery
+
+//Update PushGroup
+
+//Update Situation
 function updateSituation(_id, situation, callback) {
   // body...
-
-
 }
 
 
@@ -133,7 +141,7 @@ function deleteById(_id, callback) {
       callback(error)
     }
     if (!inedot) {
-      console.log('/device/inedot/create => fail,inedot is not exist');
+      console.log('/device/inedot/delete => fail,inedot is not exist');
       return callback(null,{result  : false,
                             message : "fail,inedot is not exist"})
     }

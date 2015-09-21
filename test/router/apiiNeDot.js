@@ -160,7 +160,7 @@ router.post('/delete',function (req, res) {
     }
 
     if (result.result == false) {
-      res.json(result)
+      return res.json(result)
     }
 
     //2. Delete iNeDot
