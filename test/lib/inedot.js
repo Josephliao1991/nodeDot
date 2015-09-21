@@ -70,24 +70,46 @@ function findById(_id, callback) {
 
 function create(macAddr, owner, connectState, name, battery, pushGroup, situation,callback) {
   // body...
-  var macAddr_create        = macAddr
-  var owner_create          = owner
-  var connectState_create   = connectState
-  var name_create           = name
-  var battery_create        = battery
-  var pushGroup_create      = []
-  pushGroup_create  = pushGroup
-  var situation_create      = situation
+  var macAddr        = macAddr
+  var owner          = owner
+  var connectState   = connectState
+  var name           = name
+  var battery        = battery
+  var pushGroup      = pushGroup
+  var situation      = situation
 
-  console.log('macAddr_create: '+macAddr_create);
-  console.log('owner_create: '+owner_create);
-  console.log('connectState_create: '+connectState_create);
-  console.log('name_create: '+name_create);
-  console.log('battery_create: '+battery_create);
-  console.log('pushGroup_create: '+pushGroup_create);
-  console.log('situation_create: '+situation_create);
+  //1. Check iNeDot Exist Or Not
+  checkExistByMacAddr(macAddr_create, function (error, exist) {
+    // body...
+    if (error) {
+      return callback(error)
+    }
+    if (exist) {
+      console.log('/device/inedot/create => fail,inedot is exist \n macAddr: '+macAddr+' Name: '+name);
+      return callback(null,{result  : false,
+                            message : "fail,inedot is exist"})
+    }
+    //2. Create iNeDot
+    inedot.create({
+      macAddr        = macAddr,
+      owner          = owner,
+      connectState   = connectState,
+      name           = name,
+      battery        = battery,
+      pushGroup      = pushGroup,
+      pushPoeple     = [],
+      situation      = situation
 
-  callback(null,1)
+    },function (error, inedot) {
+      // body...
+      if (error) {
+        callback(error)
+      }
+      callback(null, inedot)
+
+    })
+  })
+
 }
 
 
