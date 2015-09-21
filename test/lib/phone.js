@@ -86,7 +86,7 @@ function findById(_id, callback) {
 
 function findByIds(_ids, callback) {
   // body...
-  Phone.find({_id : $in:{_ids}},function (error, phones) {
+  Phone.find({_id : {$in:_ids}},function (error, phones) {
     // body...
     if (error) {
       return callback(error)
