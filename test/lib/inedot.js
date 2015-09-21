@@ -320,13 +320,8 @@ function deleteById(_id, callback) {
                      message : 'success, inedot is delete'})
 
     })
-
   })
-
-
 }
-
-
 
 
 module.exports = {
