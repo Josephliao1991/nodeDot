@@ -107,7 +107,7 @@ function findBySSIDs(ssids, callback) {
 function create(ssid, pwd, callback) {
   // body...
   //1.Check ssid is exist
-  checkExist(ssid, function (error, exist) {
+  checkExistBySSID(ssid, function (error, exist) {
     // body...
     if (error) {
       return callback(error)
