@@ -33,7 +33,7 @@ app.get('/alamofireGET',function (req, res) {
 
   var NAME = name.toUpperCase();
 
-  res.sned({resutl : NAME});
+  res.send({resutl : NAME});
 
 })
 
@@ -43,7 +43,7 @@ app.post('/alamofirePOST',function (req, res) {
 
   var NAME = name.toUpperCase();
 
-  res.sned({resutl : NAME});
+  res.send({resutl : NAME});
 
 })
 
