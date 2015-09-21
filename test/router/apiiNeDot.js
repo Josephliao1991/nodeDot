@@ -5,6 +5,46 @@ var mongoose = require('mongoose');
 var inedot = require('../lib/inedot.js');
 var person = require('../lib/person.js');
 
+router.get('/findAll',function (req, res) {
+  // body...
+  inedot.findAll(function (error,inedots) {
+    // body...
+    res.json(inedots)
+  })
+})
+
+router.get('/findById',function (req, res) {
+  // body...
+  var _id_find = req.query._id
+
+  if (!_id_find) {
+    return res.json({result : false,
+                     message : "fail,lost some params"})
+  }
+
+  person.findById(_id_find,function (error,inedots) {
+    // body...
+    res.json(inedots)
+  })
+})
+
+router.get('/findByMacAddr',function (req, res) {
+  // body...
+  var macAddr_find = req.query.macAddr
+
+  if (!macAddr_find) {
+    return res.json({result : false,
+                     message : "fail,lost some params"})
+  }
+
+  inedot.findByMacAddr(macAddr_find,function (error,inedot) {
+    // body...
+    res.json(inedot)
+  })
+})
+
+
+
 router.post('/create',function (req, res) {
   // body...
   var macAddr_create        = req.body.macAddr
