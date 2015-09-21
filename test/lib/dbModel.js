@@ -35,22 +35,6 @@ var group = new Schema({
 mongoose.model( 'group', group );
 
 
-
-// var person  = new Schema({
-//   ssid      : String, //SSID
-//   pwd       : String, //PASSWORD
-//   phone     : Array,  //[deviceToken, deviceToken,,,]
-//
-//   selfGroup : [{group_id : String, name : String}],
-//   joinGroup : [{group_id : String, name : String}],
-//
-//   center    : [{center_id : String, name : String}],  //[macAddr, macAddr, macAddr,,,]
-//   inedot    : [{inedot_id : String, name : String}],  //[macAddr, macAddr, macAddr,,,]
-//
-//   // authData  : Array   //[_id, _id, _id,,,]
-// })
-// mongoose.model( 'person', person );
-
 var person  = new Schema({
   ssid        : String, //SSID
   pwd         : String, //PASSWORD
@@ -66,7 +50,6 @@ var person  = new Schema({
   // authData  : Array   //[_id, _id, _id,,,]
 })
 mongoose.model('person', person);
-
 
 
 var phone   = new Schema({
@@ -100,7 +83,8 @@ var inedot  = new Schema({
   pushGroup      : [{type: Schema.ObjectId, ref: 'group'}],  //[_id, _id, _id,,,]
   pushPoeple     : [{type: Schema.ObjectId, ref: 'person'}],  //[deviceToken, deviceToken,,,]
 
-  situation      : {mornitor : {alert : {enable : Boolean, value : Number},
+  situation      : {type     :  Number,// 0 => mornitor , 1 => normal
+                    mornitor : {alert : {enable : Boolean, value : Number},
                                 temp  : {enable : Boolean, value : Number},
                                 humi  : {enable : Boolean, value : Number},
                                 baby  : {enable : Boolean},
