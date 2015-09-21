@@ -29,8 +29,11 @@ app.use('/device',apiDevice)
 
 app.get('/alamofireGET',function (req, res) {
   // body...
-  var name    = req.query.name+''
+  if (!req.query.name) {
+    return res.send({resutl : "FAIL"})
+  }
 
+  var name    = req.query.name+''
   var NAME = name.toUpperCase();
 
   res.send({resutl : NAME});
@@ -39,8 +42,11 @@ app.get('/alamofireGET',function (req, res) {
 
 app.post('/alamofirePOST',function (req, res) {
   // body...
+  if (!req.body.name) {
+    return res.send({resutl : "FAIL"})
+  }
+  
   var name    = req.body.name+''
-
   var NAME = name.toUpperCase();
 
   res.send({resutl : NAME});
