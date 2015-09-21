@@ -94,10 +94,10 @@ function create(macAddr, owner, connectState, name, battery, pushGroup, situatio
       macAddr        : macAddr,
       owner          : owner,
       connectState   : connectState,
-      name           ; name,
+      name           : name,
       battery        : battery,
       pushGroup      : pushGroup,
-      pushPoeple     ; [],
+      pushPoeple     : [],
       situation      : situation
 
     },function (error, inedot) {
