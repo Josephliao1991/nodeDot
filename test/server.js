@@ -27,6 +27,27 @@ app.use('/account',apiAccount)
 app.use('/device',apiDevice)
 
 
+app.get('/alamofireGET',function (req, res) {
+  // body...
+  var name    = req.query.name
+
+  var NAME = name.toUpperCase();
+
+  res.sned({resutl : NAME});
+
+})
+
+app.POST('/alamofirePOST',function (req, res) {
+  // body...
+  var name    = req.body.name
+
+  var NAME = name.toUpperCase();
+
+  res.sned({resutl : NAME});
+
+})
+
+
 var dbref = require('./dbref.js');
 app.get('/dbref',function (req, res) {
   // body...
