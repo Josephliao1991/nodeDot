@@ -90,7 +90,7 @@ function create(macAddr, owner, connectState, name, battery, pushGroup, situatio
                             message : "fail,inedot is exist"})
     }
     //2. Create iNeDot
-    inedot.create({
+    iNeDot.create({
       macAddr        : macAddr,
       owner          : owner,
       connectState   : connectState,
@@ -123,7 +123,7 @@ module.exports = {
   findAll             : findAll,
   findByMacAddr       : findByMacAddr,
   findById            : findById,
-  create              : create
+  create              : create,
 
 
 }
