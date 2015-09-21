@@ -20,7 +20,7 @@ function checkPersonPhoneExist(person_ssid, phone_uuid, callback) {
     }
 
     //2. Check Phone Exist Or Not
-    Phone.checkExistByUUID(phone_uuid, function (error, exist) {
+    phone.checkExistByUUID(phone_uuid, function (error, exist) {
       // body...
       if (error) {
         return callback(error)
