@@ -60,7 +60,7 @@ function findByUUId(uuid, callback) {
 
 function findByUUIds(uuids, callback) {
   // body...
-  Phone.find({uuid : $in:{uuids}},function (error, phones) {
+  Phone.find({uuid : {$in:uuids}},function (error, phones) {
     // body...
     if (error) {
       return callback(error)
