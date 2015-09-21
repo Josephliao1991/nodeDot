@@ -12,6 +12,7 @@ function checkPersonPhoneExist(person_ssid, phone_uuid, callback) {
   person.checkExistBySSID(person_ssid, function (error, exist) {
     // body...
     console.log("Check Person");
+    console.log("Check Person Exist : "+exist);
     if (error) {
       return callback(error)
     }
@@ -20,11 +21,11 @@ function checkPersonPhoneExist(person_ssid, phone_uuid, callback) {
                             message : "fail,person is regist"})
     }
 
-    console.log("Check Person Exist : "+exist);
     //2. Check Phone Exist Or Not
     phone.checkExistByUUID(phone_uuid, function (error, exist) {
       // body...
       console.log("Check Phone");
+      console.log("Check Phone Exist : "+exist);
       if (error) {
         return callback(error)
       }
@@ -33,7 +34,7 @@ function checkPersonPhoneExist(person_ssid, phone_uuid, callback) {
                               message : "fail,phone is exist"})
       }
 
-      console.log("Check Phone Exist : "+exist);
+
       callback(null,{reslut : true})
 
     })
