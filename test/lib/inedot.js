@@ -166,6 +166,7 @@ module.exports = {
   findByMacAddr       : findByMacAddr,
   findById            : findById,
   create              : create,
+  deleteById          : deleteById
 
 
 }
