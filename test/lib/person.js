@@ -204,7 +204,7 @@ function create(ssid, pwd, callback) {
 
       var phones = person.phones
       for (var i = 0; i < phones.length; i++) {
-         if (phones[i]._id == phone_id) {
+         if (phones[i] == phone_id) {
            person.phones.splice(i, 1)
            // console.log('aaron.stories[i]'+aaron.stories[i]);
          }
@@ -269,7 +269,7 @@ function create(ssid, pwd, callback) {
 
       var selfGroups = person.selfGroups
       for (var i = 0; i < selfGroups.length; i++) {
-         if (selfGroups[i]._id == group_id) {
+         if (selfGroups[i] == group_id) {
            person.selfGroups.splice(i, 1)
            // console.log('aaron.stories[i]'+aaron.stories[i]);
          }
@@ -415,7 +415,7 @@ function create(ssid, pwd, callback) {
 
       var centers = person.centers
       for (var i = 0; i < centers.length; i++) {
-         if (centers[i]._id == center_id) {
+         if (centers[i] == center_id) {
            person.centers.splice(i, 1)
            // console.log('aaron.stories[i]'+aaron.stories[i]);
          }
@@ -481,7 +481,7 @@ function create(ssid, pwd, callback) {
 
       var inedots = person.inedots
       for (var i = 0; i < inedots.length; i++) {
-         if (inedots[i]._id == inedot_id) {
+         if (inedots[i] == inedot_id) {
            person.inedots.splice(i, 1)
            // console.log('aaron.stories[i]'+aaron.stories[i]);
          }

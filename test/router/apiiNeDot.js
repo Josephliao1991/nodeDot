@@ -20,19 +20,19 @@ function checkPersoniNeDotExist(person_id, inedot_id, callback) {
     }
 
     //2. Check inedot Exist Or Not
-    inedot.checkExistById(inedot_id, function (error, exist) {
-      // body...
-      if (error) {
-        return callback(error)
-      }
-      if (!exist) {
-        return callback(null,{result  : false,
-                              message : "fail,inedot is not exist"})
-      }
+    // inedot.checkExistById(inedot_id, function (error, exist) {
+    //   // body...
+    //   if (error) {
+    //     return callback(error)
+    //   }
+    //   if (!exist) {
+    //     return callback(null,{result  : false,
+    //                           message : "fail,inedot is not exist"})
+    //   }
 
       callback(null,{reslut : true})
 
-    })
+    // })
   })
 
 }
