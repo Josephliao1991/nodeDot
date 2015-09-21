@@ -146,7 +146,7 @@ function deleteById(_id, callback) {
       }
       console.log('/device/inedot/delete => success, inedot is delete \n inedot_id: '+_id);
       callback(null,{result  : true,
-                     message : 'success, group is delete'})
+                     message : 'success, inedot is delete'})
 
     })
 
