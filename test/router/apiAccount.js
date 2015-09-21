@@ -14,7 +14,7 @@ function checkPersonPhoneExist(person_ssid, phone_uuid, callback) {
     if (error) {
       return callback(error)
     }
-    if (!exist) {
+    if (exist) {
       return callback(null,{result : false,
                             message : "fail,person is regist"})
     }
@@ -25,7 +25,7 @@ function checkPersonPhoneExist(person_ssid, phone_uuid, callback) {
       if (error) {
         return callback(error)
       }
-      if (!exist) {
+      if (exist) {
         return callback(null,{result  : false,
                               message : "fail,phone is exist"})
       }
