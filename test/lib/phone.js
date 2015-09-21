@@ -1,4 +1,4 @@
-require('./deModel');
+require('./dbModel');
 var mongoose  = require('mongoose');
 var Phone     = mongoose.model('phone')
 
