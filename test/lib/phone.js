@@ -121,7 +121,8 @@ function create(operation, uuid, token, callback) {
         return callback(error)
       }
       console.log('/Phone/create => \n'+phone);
-      callback(null, phone)
+      callback(null,{result : true,
+                     data   : phone})
 
     })
   })
