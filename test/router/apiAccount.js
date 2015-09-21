@@ -101,6 +101,7 @@ router.post('/regist',function (req, res) {
       return res.json(result)
     }
 
+    console.log("check OK,");
     //2. Create Person
     person.create(ssid_regist, pwd_regist, function (error, result) {
       // body...
