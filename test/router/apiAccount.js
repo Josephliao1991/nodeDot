@@ -110,7 +110,7 @@ router.post('/regist',function (req, res) {
       }
 
       var person_id = result.data._id
-
+      console.log("person_id : "+person_id);
       //3. Create Phone
       phone.create(operation_regist, uuid_regist, token_regist, function (error, result) {
         // body...
@@ -131,7 +131,7 @@ router.post('/regist',function (req, res) {
         }
 
         var phone_id = result.date._id
-
+        console.log("Phone_id : "+phone_id);
         //4. Connect Person & Phone` Refdb
           person.addPhone(person_id, phone_id, function (error, result) {
           // body...
