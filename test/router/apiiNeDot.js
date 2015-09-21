@@ -90,17 +90,17 @@ router.post('/create',function (req, res) {
   var pushGroup_create      = req.body.pushGroup
   var situation_create      = req.body.situation
 
-  var person_id             = req.body.person_id
+  // var person_id             = req.body.person_id
 
   if (!macAddr_create || !owner_create || !connectState_create ||
       !name_create || !battery_create /*|| !pushGroup_create ||
-      !situation_create*/ || !person_id) {
+      !situation_create*/) {
         return res.json({result : false,
                          message : "fail,lost some params"})
   }
 
   //1. Check Person Exist Or Not
-  person.checkExistById(person_id, function (error, exist) {
+  person.checkExistById(owner, function (error, exist) {
     // body...
     if (error) {
       return res.send(error)
@@ -122,7 +122,7 @@ router.post('/create',function (req, res) {
             }
             var inedot_id = result.data._id
             //3. connect Person & iNeDot
-            person.addiNedot(person_id, inedot_id, function (error, result) {
+            person.addiNedot(owner, inedot_id, function (error, result) {
               // body...
               if (error) {
                 return res.send(error)
