@@ -127,7 +127,7 @@ function updateSituation(_id, situation, callback) {
 
 function deleteById(_id, callback) {
   // body...
-  inedot.findOne({_id : _id},function (error, inedot) {
+  iNeDot.findOne({_id : _id},function (error, inedot) {
     // body...
     if (error) {
       callback(error)
