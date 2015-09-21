@@ -14,7 +14,7 @@ app.use(methodOverride())
 
 //Connect TO MONGODB
 var be_ip   = "10.240.72.88:80"
-var dbName  = "/myDatabase"
+var dbName  = "/mongoTest"
 mongoose.connect('mongodb://'+be_ip+dbName)
 app.get('/',function (req, res) {
   // body...
