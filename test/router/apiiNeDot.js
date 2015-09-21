@@ -20,19 +20,19 @@ function checkPersoniNeDotExist(person_id, inedot_id, callback) {
     }
 
     //2. Check inedot Exist Or Not
-    // inedot.checkExistById(inedot_id, function (error, exist) {
-    //   // body...
-    //   if (error) {
-    //     return callback(error)
-    //   }
-    //   if (!exist) {
-    //     return callback(null,{result  : false,
-    //                           message : "fail,inedot is not exist"})
-    //   }
+    inedot.checkExistById(inedot_id, function (error, exist) {
+      // body...
+      if (error) {
+        return callback(error)
+      }
+      if (!exist) {
+        return callback(null,{result  : false,
+                              message : "fail,inedot is not exist"})
+      }
 
       callback(null,{reslut : true})
 
-    // })
+    })
   })
 
 }
@@ -162,14 +162,14 @@ router.post('/delete',function (req, res) {
     }
 
     //2. Delete iNeDot
-    // inedot.deleteById(inedot_id_delete, function (error, result) {
-    //   // body...
-    //   if (error) {
-    //     return res.send(error)
-    //   }
-    //   if (result.result == false) {
-    //     return res.json(result)
-    //   }
+    inedot.deleteById(inedot_id_delete, function (error, result) {
+      // body...
+      if (error) {
+        return res.send(error)
+      }
+      if (result.result == false) {
+        return res.json(result)
+      }
 
       //3. Delete person
       person.deleteiNedot(person_id_delete, inedot_id_delete, function (error, result) {
@@ -182,7 +182,7 @@ router.post('/delete',function (req, res) {
         }
         res.json(result)
       })
-    // })
+    })
   })
 })
 
