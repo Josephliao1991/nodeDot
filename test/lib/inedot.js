@@ -120,7 +120,7 @@ function create(macAddr, owner, connectState, name, battery, pushGroup, situatio
 //Update All
 function updateAll(_id, connectState, name, battery, pushGroup, situation, callback) {
   // body...
-  inedot.find({_id : _id}, function (error, inedot) {
+  iNeDot.find({_id : _id}, function (error, inedot) {
     // body...
     if (error) {
       return callback(error)
@@ -153,7 +153,7 @@ function updateAll(_id, connectState, name, battery, pushGroup, situation, callb
 //Update ConnectState
 function updateConnectState(_id, connectState, callback) {
   // body...
-  inedot.find({_id : _id}, function (error, inedot) {
+  iNeDot.find({_id : _id}, function (error, inedot) {
     // body...
     if (error) {
       return callback(error)
@@ -182,7 +182,7 @@ function updateConnectState(_id, connectState, callback) {
 //Update Name
 function updateName(_id, name, callback) {
   // body...
-  inedot.find({_id : _id}, function (error, inedot) {
+  iNeDot.find({_id : _id}, function (error, inedot) {
     // body...
     if (error) {
       return callback(error)
@@ -211,7 +211,7 @@ function updateName(_id, name, callback) {
 //Update Battery
 function updateBattery(_id, battery, callback) {
   // body...
-  inedot.find({_id : _id}, function (error, inedot) {
+  iNeDot.find({_id : _id}, function (error, inedot) {
     // body...
     if (error) {
       return callback(error)
@@ -240,7 +240,7 @@ function updateBattery(_id, battery, callback) {
 //Update PushGroup
 function updatePushGroup(_id, pushGroup, callback) {
   // body...
-  inedot.find({_id : _id}, function (error, inedot) {
+  iNeDot.find({_id : _id}, function (error, inedot) {
     // body...
     if (error) {
       return callback(error)
@@ -269,7 +269,7 @@ function updatePushGroup(_id, pushGroup, callback) {
 //Update Situation
 function updateSituation(_id, situation, callback) {
   // body...
-  inedot.find({_id : _id}, function (error, inedot) {
+  iNeDot.find({_id : _id}, function (error, inedot) {
     // body...
     if (error) {
       return callback(error)

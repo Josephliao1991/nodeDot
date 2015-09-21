@@ -139,16 +139,160 @@ router.post('/create',function (req, res) {
 
 //Update Data Next Step
 //Update All
+router.post('/updateAll',function (req, res) {
+  // body...
+
+  var inedot_id_update      = req.body._id
+  var connectState_update   = req.body.connectState
+  var name_update           = req.body.name
+  var battery_update        = req.body.battery
+  var pushGroup_update      = req.body.pushGroup_update
+  var situation_update      = req.body.situation
+
+  if (!inedot_id_update) {
+    return res.json({result : false,
+                     message : "fail,lost some params(inedot_id)"})
+  }
+
+  inedot.updateAll(inedot_id_update, connectState_update, name_update, battery_update,
+                   pushGroup_update, situation_update,
+                 function (error, result) {
+                   // body...
+                   if (error) {
+                     return res.send(error)
+                   }
+                   if (result.result == false) {
+                     return res.json(result)
+                   }
+                   res.json(result)
+                 })
+
+})
 
 //Update ConnectState
+router.post('/updateConnectState',function (req, res) {
+  // body...
+
+  var inedot_id_update      = req.body._id
+  var connectState_update   = req.body.connectState
+
+  if (!inedot_id_update || !connectState_update) {
+    return res.json({result : false,
+                     message : "fail,lost some params(inedot_id,connectState)"})
+  }
+
+  inedot.updateConnectState(inedot_id_update, connectState_update,
+                 function (error, result) {
+                   // body...
+                   if (error) {
+                     return res.send(error)
+                   }
+                   if (result.result == false) {
+                     return res.json(result)
+                   }
+                   res.json(result)
+                 })
+})
 
 //Update Name
+router.post('/updateName',function (req, res) {
+  // body...
+
+  var inedot_id_update      = req.body._id
+  var name_update           = req.body.name
+
+  if (!inedot_id_update || !name_update) {
+    return res.json({result : false,
+                     message : "fail,lost some params(inedot_id,name_update)"})
+  }
+
+  inedot.updateName(inedot_id_update, name_update,
+                 function (error, result) {
+                   // body...
+                   if (error) {
+                     return res.send(error)
+                   }
+                   if (result.result == false) {
+                     return res.json(result)
+                   }
+                   res.json(result)
+                 })
+})
 
 //Update Battery
+router.post('/updateBattery',function (req, res) {
+  // body...
+
+  var inedot_id_update      = req.body._id
+  var battery_update           = req.body.battert
+
+  if (!inedot_id_update || !battery_update) {
+    return res.json({result : false,
+                     message : "fail,lost some params(inedot_id,battery_update)"})
+  }
+
+  inedot.updateBattery(inedot_id_update, battery_update,
+                 function (error, result) {
+                   // body...
+                   if (error) {
+                     return res.send(error)
+                   }
+                   if (result.result == false) {
+                     return res.json(result)
+                   }
+                   res.json(result)
+                 })
+})
 
 //Update PushGroup
+router.post('/updatePushGroup',function (req, res) {
+  // body...
+
+  var inedot_id_update      = req.body._id
+  var pushGroup_update      = req.body.pushGroup
+
+  if (!inedot_id_update || !pushGroup_update) {
+    return res.json({result : false,
+                     message : "fail,lost some params(inedot_id,pushGroup_update)"})
+  }
+
+  inedot.updatePushGroup(inedot_id_update, pushGroup_update,
+                 function (error, result) {
+                   // body...
+                   if (error) {
+                     return res.send(error)
+                   }
+                   if (result.result == false) {
+                     return res.json(result)
+                   }
+                   res.json(result)
+                 })
+})
 
 //Update Situation
+router.post('/updateSituation',function (req, res) {
+  // body...
+
+  var inedot_id_update      = req.body._id
+  var situation_update      = req.body.situation
+
+  if (!inedot_id_update || !situation_update) {
+    return res.json({result : false,
+                     message : "fail,lost some params(inedot_id,situation_update)"})
+  }
+
+  inedot.updateSituation(inedot_id_update, situation_update,
+                 function (error, result) {
+                   // body...
+                   if (error) {
+                     return res.send(error)
+                   }
+                   if (result.result == false) {
+                     return res.json(result)
+                   }
+                   res.json(result)
+                 })
+})
 
 
 
