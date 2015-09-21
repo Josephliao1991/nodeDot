@@ -14,9 +14,9 @@ function checkPersoniNeDotExist(person_id, inedot_id, callback) {
     if (error) {
       return callback(error)
     }
-    if (exist) {
+    if (!exist) {
       return callback(null,{result : false,
-                            message : "fail,person is regist"})
+                            message : "fail,person is not regist"})
     }
 
     //2. Check inedot Exist Or Not
@@ -25,9 +25,9 @@ function checkPersoniNeDotExist(person_id, inedot_id, callback) {
       if (error) {
         return callback(error)
       }
-      if (exist) {
+      if (!exist) {
         return callback(null,{result  : false,
-                              message : "fail,phone is exist"})
+                              message : "fail,inedot is not exist"})
       }
 
       callback(null,{reslut : true})
@@ -162,7 +162,7 @@ router.post('/delete',function (req, res) {
     }
 
     //2. Delete iNeDot
-    inedot.deleteById(inedot_id, function (error, result) {
+    inedot.deleteById(inedot_id_delete, function (error, result) {
       // body...
       if (error) {
         return res.send(error)
