@@ -22,7 +22,7 @@ router.post('/create',function (req, res) {
           if (error) {
             return res.send(error)
           }
-          res.send(result)
+          res.send("result: "+result)
 
         })
 
