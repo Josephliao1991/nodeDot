@@ -187,6 +187,7 @@ function deleteById(_id, callback) {
 
 module.exports = {
 
+  checkExistByUUID  : checkExistByUUID,
   checkExistById  : checkExistById,
   findAll         : findAll,
   findByUUID      : findByUUID,

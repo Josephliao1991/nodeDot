@@ -4,7 +4,7 @@ var Person    = mongoose.model('person')
 
 /*=======================================================================================*/
 //cehck function
-function checkExist(ssid, callback) {
+function checkExistBySSID(ssid, callback) {
   // body...
   Person.find({ssid : ssid},function (error, person) {
     // body...
@@ -166,7 +166,7 @@ function create(ssid, pwd, callback) {
        return callback(error)
      }
 
-     if (person.length>0) {
+     if (!person) {
        console.log('/Person/addPhone => no such person');
        return callback(null, {result  : false,
                               message : 'no such person'});
@@ -299,9 +299,9 @@ function create(ssid, pwd, callback) {
      }
      //1. Check person is exist
      if (!person) {
-       console.log('/Person/addJoinGroup => no such person');
+       console.log('/Person/addJoinGroup => fail,person is not regist');
        return callback(null, {result  : false,
-                              message : 'no such person'});
+                              message : 'fail,person is not regist'});
        }
 
      //2.check member is not in this group
@@ -533,6 +533,7 @@ function create(ssid, pwd, callback) {
 
  module.exports = {
 
+   checkExistBySSID : checkExistBySSID,
    checkExistById : checkExistById,
 
    findById       : findById,
