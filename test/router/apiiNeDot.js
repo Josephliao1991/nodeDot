@@ -55,21 +55,49 @@ router.post('/create',function (req, res) {
   var pushGroup_create      = req.body.pushGroup
   var situation_create      = req.body.situation
 
-  inedot.create(macAddr_create, owner_create, connectState_create,
-                name_create,  battery_create, pushGroup_create, situation_create,
-        function (error, result) {
-          // body...
-          if (error) {
-            return res.send(error)
-          }
-          if (result.result == false) {
-            return res.json(result)
-          }
-          res.json(result)
-        })
+  var person_id             = req.body.person_id
 
+  //1. Check Person Exist Or Not
+  person.checkExistById(person_id, function (error, exist) {
+    // body...
+    if (error) {
+      return res.send(error)
+    }
+    if (!exist) {
+      return res.json({result : false,
+                       message : "fail,person is not regist"})
+    }
+    //2. Create iNeDot
+    inedot.create(macAddr_create, owner_create, connectState_create,
+                  name_create,  battery_create, pushGroup_create, situation_create,
+          function (error, result) {
+            // body...
+            if (error) {
+              return res.send(error)
+            }
+            if (result.result == false) {
+              return res.json(result)
+            }
+            var inedot_id = result.data._id
+            //3. connect Person & iNeDot
+            person.addiNedot(person_id, inedot_id, function (error, result) {
+              // body...
+              if (error) {
+                return res.send(error)
+              }
 
+              if (result.result == false) {
+                return res.json(result)
+              }
+              res.json(result)
+            })
+          })
+  })
 })
+
+
+
+
 
 
 
