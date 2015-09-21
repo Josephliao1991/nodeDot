@@ -115,19 +115,19 @@ router.post('/regist',function (req, res) {
       phone.create(operation_regist, uuid_regist, token_regist, function (error, result) {
         // body...
         if (error) {
-          person.deleteById(person_id, function (error) {
-            // body...
-            //if fail ,delete person Account
-            return res.send(error)
-          })
+          return person.deleteById(person_id, function (error) {
+                  // body...
+                  //if fail ,delete person Account
+                  res.send(error)
+                  })
         }
 
         if (result.result == false) {
           //if fail ,delete person Account
-          person.deleteById(person_id, function (error) {
-            // body...
-            return res.json(result)
-          })
+          return person.deleteById(person_id, function (error) {
+                  // body...
+                  res.json(result)
+                 })
         }
 
         var phone_id = result.data._id
