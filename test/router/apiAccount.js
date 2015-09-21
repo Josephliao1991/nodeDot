@@ -153,10 +153,10 @@ router.post('/regist',function (req, res) {
 //Add delete Account Function In The feature
 
 //Add more Phone In the Feature
-router.post('/addPhone',function (req, res) {
-
-  
-
-}
+// router.post('/addPhone',function (req, res) {
+//
+//
+//
+// }
 
 module.exports = router
