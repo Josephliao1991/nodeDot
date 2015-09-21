@@ -115,12 +115,13 @@ router.post('/regist',function (req, res) {
       phone.create(operation_regist, uuid_regist, token_regist, function (error, result) {
         // body...
         if (error) {
-          // person.deleteById(person_id, function (error) {
+          person.deleteById(person_id, function (error) {
             // body...
             //if fail ,delete person Account
             return res.send(error)
-          // })
+          })
         }
+
         if (result.result == false) {
           //if fail ,delete person Account
           person.deleteById(person_id, function (error) {
@@ -129,7 +130,7 @@ router.post('/regist',function (req, res) {
           })
         }
 
-        var phone_id = result.date._id
+        var phone_id = result.data._id
         console.log("Phone_id : "+phone_id);
         //4. Connect Person & Phone` Refdb
           person.addPhone(person_id, phone_id, function (error, result) {
