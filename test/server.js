@@ -29,7 +29,7 @@ app.use('/device',apiDevice)
 
 app.get('/alamofireGET',function (req, res) {
   // body...
-  var name    = req.query.name
+  var name    = req.query.name+''
 
   var NAME = name.toUpperCase();
 
@@ -39,7 +39,7 @@ app.get('/alamofireGET',function (req, res) {
 
 app.post('/alamofirePOST',function (req, res) {
   // body...
-  var name    = req.body.name
+  var name    = req.body.name+''
 
   var NAME = name.toUpperCase();
 
