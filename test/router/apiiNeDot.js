@@ -123,6 +123,7 @@ router.post('/create',function (req, res) {
                   name_create,  battery_create, pushGroup_create,// situation_create,
           function (error, result) {
             // body...
+            console.log("result: "+result);
             if (error) {
               return res.send(error)
             }
