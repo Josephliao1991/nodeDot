@@ -45,7 +45,7 @@ app.post('/alamofirePOST',function (req, res) {
   if (!req.body.name) {
     return res.send({resutl : "FAIL"})
   }
-  
+
   var name    = req.body.name+''
   var NAME = name.toUpperCase();
 
@@ -95,12 +95,12 @@ dbref.deleteStories(function (error, result) {
 
 })
 
-app.listen(8080,function (error) {
+app.listen(80,function (error) {
   // body...
   if (error) {
     console.log(error);
   }
 
-  console.log("Server is Start Right Now, Enter Ctrl+C Twice Times If You Need To Close Service!");
+  console.log("iNeDot Server is Start Right Now, Enter Ctrl+C Twice Times If You Need To Close Service!");
 
 })
