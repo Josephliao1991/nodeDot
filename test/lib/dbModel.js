@@ -83,10 +83,10 @@ var inedot  = new Schema({
   pushGroup      : [{type: Schema.ObjectId, ref: 'group'}],  //[_id, _id, _id,,,]
   pushPoeple     : [{type: Schema.ObjectId, ref: 'person'}],  //[deviceToken, deviceToken,,,]
 
-  situation      : {type     :  String,// 0 => mornitor , 1 => normal
-                    mornitor : {alert : {enable : Boolean, value : String},
-                                temp  : {enable : Boolean, value : String},
-                                humi  : {enable : Boolean, value : String},
+  situation      : {type     :  Number,// 0 => mornitor , 1 => normal
+                    mornitor : {alert : {enable : Boolean, value : Number},
+                                temp  : {enable : Boolean, value : Number},
+                                humi  : {enable : Boolean, value : Number},
                                 baby  : {enable : Boolean},
                                 area  : {enable : Boolean},
                                 mesg  : {enable : Boolean, value : String}
