@@ -77,6 +77,20 @@ function create(macAddr, owner, connectState, name, battery, pushGroup, /*situat
   var battery        = battery
   var pushGroup      = pushGroup
   var situation      = situation
+  var type = situation.type
+  var mornitor = situation.mornitor
+  var alert    = mornitor.alert
+  var temp     = mornitor.temp
+  var humi     = mornitor.humi
+  var baby     = mornitor.body
+  var area     = mornitor.area
+  var mesg     = mornitor.mesg
+
+  var normal   = situation.normal
+  var sport    = normal.sport
+  var pet      = normal.pet
+  var find     = normal.find
+  var drop     = normal.drop
 
   //1. Check iNeDot Exist Or Not
   checkExistByMacAddr(macAddr, function (error, exist) {
@@ -98,7 +112,20 @@ function create(macAddr, owner, connectState, name, battery, pushGroup, /*situat
       battery        : battery,
       pushGroup      : pushGroup,
       pushPoeple     : []//,
-      // situation      : situation
+      situation      : {type     :  type,// 0 => mornitor , 1 => normal
+                        mornitor : {alert : {enable : alert.enable, value : alert.value},
+                                    temp  : {enable : temp.enable,  value : temp.value},
+                                    humi  : {enable : humi.enable,  value : humi.value},
+                                    baby  : {enable : baby.enable},
+                                    area  : {enable : area.enable},
+                                    mesg  : {enable : mesg.enable,  value : mesg.value}
+                                  },
+                        normal   : {sport : {enable : sport.enable},
+                                    pet   : {enable : pet.enable},
+                                    find  : {enable : find.enable},
+                                    drop  : {enable : drop.enable}
+                                  }
+                        }
 
     },function (error, inedot) {
       // body...

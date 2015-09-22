@@ -88,7 +88,7 @@ router.post('/create',function (req, res) {
   var name_create           = req.body.name
   var battery_create        = req.body.battery
   var pushGroup_create      = req.body.pushGroup
-  // pushGroup_create  = 
+  // pushGroup_create  =
   var situation_create      = req.body.situation
 
   // console.log('macAddr_create: '+macAddr_create);
@@ -98,8 +98,6 @@ router.post('/create',function (req, res) {
   // console.log('battery_create: '+battery_create);
   console.log('pushGroup_create: '+pushGroup_create.length);
   console.log('situation_create: '+situation_create.mornitor.alert.value);
-
-  // var person_id             = req.body.person_id
 
   if (!macAddr_create || !owner_create || !connectState_create ||
       !name_create || !battery_create || !pushGroup_create //||
