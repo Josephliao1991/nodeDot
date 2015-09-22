@@ -87,7 +87,8 @@ router.post('/create',function (req, res) {
   var connectState_create   = req.body.connectState
   var name_create           = req.body.name
   var battery_create        = req.body.battery
-  var pushGroup_create      = req.body.pushGroup
+  var pushGroup_create      = []
+  pushGroup_create  = req.body.pushGroup
   var situation_create      = req.body.situation
 
   // var person_id             = req.body.person_id
