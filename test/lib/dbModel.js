@@ -83,7 +83,20 @@ var inedot  = new Schema({
   pushGroup      : [{type: Schema.ObjectId, ref: 'group'}],  //[_id, _id, _id,,,]
   pushPoeple     : [{type: Schema.ObjectId, ref: 'person'}],  //[deviceToken, deviceToken,,,]
 
-  situation      : {type     :  Number},
+  situation      : {type     :  String,// 0 => mornitor , 1 => normal
+                    mornitor : {alert : {enable : Boolean, value : String},
+                                temp  : {enable : Boolean, value : String},
+                                humi  : {enable : Boolean, value : String},
+                                baby  : {enable : Boolean},
+                                area  : {enable : Boolean},
+                                mesg  : {enable : Boolean, value : String}
+                              },
+                    normal   : {sport : {enable : Boolean},
+                                pet   : {enable : Boolean},
+                                find  : {enable : Boolean},
+                                drop  : {enable : Boolean}
+                              }
+                            },
 
 })
 mongoose.model( 'inedot', inedot );
