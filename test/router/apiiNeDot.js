@@ -100,8 +100,7 @@ router.post('/create',function (req, res) {
   console.log('situation_create: '+situation_create.mornitor.alert.value);
 
   if (!macAddr_create || !owner_create || !connectState_create ||
-      !name_create || !battery_create || !pushGroup_create //||
-    /*!situation_create*/) {
+      !name_create || !battery_create || !pushGroup_create || !situation_create) {
         return res.json({result : false,
                          message : "fail,lost some params"})
   }
@@ -118,7 +117,7 @@ router.post('/create',function (req, res) {
     }
     //2. Create iNeDot
     inedot.create(macAddr_create, owner_create, connectState_create,
-                  name_create,  battery_create, pushGroup_create,// situation_create,
+                  name_create,  battery_create, pushGroup_create, situation_create,
           function (error, result) {
             // body...
             if (error) {

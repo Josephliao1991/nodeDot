@@ -68,7 +68,7 @@ function findById(_id, callback) {
 
 }
 
-function create(macAddr, owner, connectState, name, battery, pushGroup, /*situation,*/ callback) {
+function create(macAddr, owner, connectState, name, battery, pushGroup, situation, callback) {
   // body...
   var macAddr        = macAddr
   var owner          = owner
@@ -111,7 +111,7 @@ function create(macAddr, owner, connectState, name, battery, pushGroup, /*situat
       name           : name,
       battery        : battery,
       pushGroup      : pushGroup,
-      pushPoeple     : []//,
+      pushPoeple     : [],
       situation      : {type     :  type,// 0 => mornitor , 1 => normal
                         mornitor : {alert : {enable : alert.enable, value : alert.value},
                                     temp  : {enable : temp.enable,  value : temp.value},
