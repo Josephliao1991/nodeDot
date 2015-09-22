@@ -87,8 +87,8 @@ router.post('/create',function (req, res) {
   var connectState_create   = req.body.connectState
   var name_create           = req.body.name
   var battery_create        = req.body.battery
-  var pushGroup_create      = []
-  pushGroup_create  = req.body.pushGroup
+  var pushGroup_create      = req.body.pushGroup
+  // pushGroup_create  = 
   var situation_create      = req.body.situation
 
   // console.log('macAddr_create: '+macAddr_create);
@@ -123,7 +123,6 @@ router.post('/create',function (req, res) {
                   name_create,  battery_create, pushGroup_create,// situation_create,
           function (error, result) {
             // body...
-            console.log("result: "+result);
             if (error) {
               return res.send(error)
             }
