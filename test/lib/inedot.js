@@ -97,8 +97,8 @@ function create(macAddr, owner, connectState, name, battery, pushGroup, situatio
       name           : name,
       battery        : battery,
       pushGroup      : pushGroup,
-      pushPoeple     : [],
-      situation      : situation
+      pushPoeple     : []//,
+      // situation      : situation
 
     },function (error, inedot) {
       // body...
