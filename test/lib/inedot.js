@@ -87,6 +87,19 @@ function create(macAddr, owner, connectState, name, battery, pushGroup, situatio
   var area     = mornitor.area
   var mesg     = mornitor.mesg
 
+  var alert_e    = alert.enable
+  var temp_e     = temp.enable
+  var humi_e     = humi.enable
+  var baby_e     = baby.enable
+  var area_e     = area.enable
+  var mesg_e     = mesg.enable
+
+  var alert_v    = alert.value
+  var temp_v     = temp.value
+  var humi_v     = humi.value
+  var mesg_v     = mesg.value
+
+
   console.log('type: '+type);
   console.log('mornitor: '+mornitor);
   console.log('alert: '+alert.enable);
@@ -103,6 +116,11 @@ function create(macAddr, owner, connectState, name, battery, pushGroup, situatio
   var pet      = normal.pet
   var find     = normal.find
   var drop     = normal.drop
+
+  var sport_e    = sport.enable
+  var pet_e      = pet.enable
+  var find_e     = find.enable
+  var drop_e     = drop.enable
 
   console.log('normal: '+normal);
   console.log('sport: '+sport.enable);
@@ -132,17 +150,17 @@ function create(macAddr, owner, connectState, name, battery, pushGroup, situatio
       pushGroup      : pushGroup,
       pushPoeple     : [],
       situation      : {type     :  type,// 0 => mornitor , 1 => normal
-                        mornitor : {alert : {enable : alert.enable, value : alert.value},
-                                    temp  : {enable : temp.enable,  value : temp.value},
-                                    humi  : {enable : humi.enable,  value : humi.value},
-                                    baby  : {enable : baby.enable},
-                                    area  : {enable : area.enable},
-                                    mesg  : {enable : mesg.enable,  value : mesg.value}
+                        mornitor : {alert : {enable : alert_e, value : alert_v},
+                                    temp  : {enable : temp_e,  value : temp_v},
+                                    humi  : {enable : humi_e,  value : humi_v},
+                                    baby  : {enable : baby_e},
+                                    area  : {enable : area_e},
+                                    mesg  : {enable : mesg_e,  value : mesg_v}
                                   },
-                        normal   : {sport : {enable : sport.enable},
-                                    pet   : {enable : pet.enable},
-                                    find  : {enable : find.enable},
-                                    drop  : {enable : drop.enable}
+                        normal   : {sport : {enable : sport_e},
+                                    pet   : {enable : pet_e},
+                                    find  : {enable : find_e},
+                                    drop  : {enable : drop_e}
                                   }
                         }
 
