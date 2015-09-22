@@ -110,7 +110,6 @@ function create(macAddr, owner, connectState, name, battery, pushGroup, situatio
   console.log('mesg: '+mesg.enable);
 
 
-
   var normal   = situation.normal
   var sport    = normal.sport
   var pet      = normal.pet
@@ -149,19 +148,20 @@ function create(macAddr, owner, connectState, name, battery, pushGroup, situatio
       battery        : battery,
       pushGroup      : pushGroup,
       pushPoeple     : [],
-      situation      : {type     :  type,// 0 => mornitor , 1 => normal
-                        mornitor : {alert : {enable : alert_e, value : alert_v},
-                                    temp  : {enable : temp_e,  value : temp_v},
-                                    humi  : {enable : humi_e,  value : humi_v},
-                                    baby  : {enable : baby_e},
-                                    area  : {enable : area_e},
-                                    mesg  : {enable : mesg_e,  value : mesg_v}
-                                  },
-                        normal   : {sport : {enable : sport_e},
-                                    pet   : {enable : pet_e},
-                                    find  : {enable : find_e},
-                                    drop  : {enable : drop_e}
-                                  }
+      situation      : {type     :  type
+        // ,// 0 => mornitor , 1 => normal
+        //                 mornitor : {alert : {enable : alert_e, value : alert_v},
+        //                             temp  : {enable : temp_e,  value : temp_v},
+        //                             humi  : {enable : humi_e,  value : humi_v},
+        //                             baby  : {enable : baby_e},
+        //                             area  : {enable : area_e},
+        //                             mesg  : {enable : mesg_e,  value : mesg_v}
+        //                           },
+        //                 normal   : {sport : {enable : sport_e},
+        //                             pet   : {enable : pet_e},
+        //                             find  : {enable : find_e},
+        //                             drop  : {enable : drop_e}
+        //                           }
                         }
 
     },function (error, inedot) {
