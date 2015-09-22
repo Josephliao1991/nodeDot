@@ -89,12 +89,12 @@ function create(macAddr, owner, connectState, name, battery, pushGroup, situatio
 
   console.log('type: '+type);
   console.log('mornitor: '+mornitor);
-  console.log('alert: '+alert);
-  console.log('temp: '+temp);
-  console.log('humi: '+humi);
-  console.log('baby: '+baby);
-  console.log('area: '+area);
-  console.log('mesg: '+mesg);
+  console.log('alert: '+alert.enable);
+  console.log('temp: '+temp.enable);
+  console.log('humi: '+humi.enable);
+  console.log('baby: '+baby.enable);
+  console.log('area: '+area.enable);
+  console.log('mesg: '+mesg.enable);
 
 
 
@@ -105,10 +105,10 @@ function create(macAddr, owner, connectState, name, battery, pushGroup, situatio
   var drop     = normal.drop
 
   console.log('normal: '+normal);
-  console.log('sport: '+sport);
-  console.log('pet: '+pet);
-  console.log('find: '+find);
-  console.log('drop: '+drop);
+  console.log('sport: '+sport.enable);
+  console.log('pet: '+pet.enable);
+  console.log('find: '+find.enable);
+  console.log('drop: '+drop.enable);
 
 
   //1. Check iNeDot Exist Or Not
