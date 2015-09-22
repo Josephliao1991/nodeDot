@@ -82,7 +82,7 @@ function create(macAddr, owner, connectState, name, battery, pushGroup, situatio
   var alert    = mornitor.alert
   var temp     = mornitor.temp
   var humi     = mornitor.humi
-  var baby     = mornitor.body
+  var baby     = mornitor.bady
   var area     = mornitor.area
   var mesg     = mornitor.mesg
 
