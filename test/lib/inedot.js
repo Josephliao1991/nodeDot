@@ -131,7 +131,7 @@ function create(macAddr, owner, connectState, name, battery, pushGroup, situatio
       battery        : battery,
       pushGroup      : pushGroup,
       pushPoeple     : [],
-      situation      : {type     :  type,// 0 => mornitor , 1 => normal
+      situation      : type     :  type,// 0 => mornitor , 1 => normal
                         mornitor : {alert : {enable : alert.enable, value : alert.value},
                                     temp  : {enable : temp.enable,  value : temp.value},
                                     humi  : {enable : humi.enable,  value : humi.value},
@@ -144,7 +144,7 @@ function create(macAddr, owner, connectState, name, battery, pushGroup, situatio
                                     find  : {enable : find.enable},
                                     drop  : {enable : drop.enable}
                                   }
-                        }
+                        
 
     },function (error, inedot) {
       // body...

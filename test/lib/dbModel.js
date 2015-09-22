@@ -96,7 +96,7 @@ var inedot  = new Schema({
                                 find  : {enable : Boolean},
                                 drop  : {enable : Boolean}
                               }
-                            },
+                            }
 
 })
 mongoose.model( 'inedot', inedot );
