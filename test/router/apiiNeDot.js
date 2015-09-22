@@ -88,7 +88,6 @@ router.post('/create',function (req, res) {
   var name_create           = req.body.name
   var battery_create        = req.body.battery
   var pushGroup_create      = req.body.pushGroup
-  // pushGroup_create  =
   var situation_create      = req.body.situation
 
   // console.log('macAddr_create: '+macAddr_create);
@@ -96,8 +95,8 @@ router.post('/create',function (req, res) {
   // console.log('connectState_create: '+connectState_create);
   // console.log('name_create: '+name_create);
   // console.log('battery_create: '+battery_create);
-  console.log('pushGroup_create: '+pushGroup_create.length);
-  console.log('situation_create: '+situation_create.mornitor.alert.value);
+  // console.log('pushGroup_create: '+pushGroup_create.length);
+  // console.log('situation_create: '+situation_create.mornitor.alert.value);
 
   if (!macAddr_create || !owner_create || !connectState_create ||
       !name_create || !battery_create || !pushGroup_create || !situation_create) {
@@ -157,7 +156,7 @@ router.post('/updateAll',function (req, res) {
 
   if (!inedot_id_update) {
     return res.json({result : false,
-                     message : "fail,lost some params(inedot_id)"})
+                     message : "fail,lost some params(_id)"})
   }
 
   inedot.updateAll(inedot_id_update, connectState_update, name_update, battery_update,
@@ -184,7 +183,7 @@ router.post('/updateConnectState',function (req, res) {
 
   if (!inedot_id_update || !connectState_update) {
     return res.json({result : false,
-                     message : "fail,lost some params(inedot_id,connectState)"})
+                     message : "fail,lost some params(_id,connectState)"})
   }
 
   inedot.updateConnectState(inedot_id_update, connectState_update,
@@ -209,7 +208,7 @@ router.post('/updateName',function (req, res) {
 
   if (!inedot_id_update || !name_update) {
     return res.json({result : false,
-                     message : "fail,lost some params(inedot_id,name_update)"})
+                     message : "fail,lost some params(_id,name)"})
   }
 
   inedot.updateName(inedot_id_update, name_update,
@@ -234,7 +233,7 @@ router.post('/updateBattery',function (req, res) {
 
   if (!inedot_id_update || !battery_update) {
     return res.json({result : false,
-                     message : "fail,lost some params(inedot_id,battery_update)"})
+                     message : "fail,lost some params(_id,battery)"})
   }
 
   inedot.updateBattery(inedot_id_update, battery_update,
@@ -259,7 +258,7 @@ router.post('/updatePushGroup',function (req, res) {
 
   if (!inedot_id_update || !pushGroup_update) {
     return res.json({result : false,
-                     message : "fail,lost some params(inedot_id,pushGroup_update)"})
+                     message : "fail,lost some params(_id,pushGroup)"})
   }
 
   inedot.updatePushGroup(inedot_id_update, pushGroup_update,
@@ -284,7 +283,7 @@ router.post('/updateSituation',function (req, res) {
 
   if (!inedot_id_update || !situation_update) {
     return res.json({result : false,
-                     message : "fail,lost some params(inedot_id,situation_update)"})
+                     message : "fail,lost some params(_id,situation)"})
   }
 
   inedot.updateSituation(inedot_id_update, situation_update,
