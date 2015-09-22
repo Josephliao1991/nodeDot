@@ -102,8 +102,8 @@ router.post('/create',function (req, res) {
   // var person_id             = req.body.person_id
 
   if (!macAddr_create || !owner_create || !connectState_create ||
-      !name_create || !battery_create || !pushGroup_create ||
-      !situation_create) {
+      !name_create || !battery_create || !pushGroup_create //||
+    /*!situation_create*/) {
         return res.json({result : false,
                          message : "fail,lost some params"})
   }
