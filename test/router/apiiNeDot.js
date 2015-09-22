@@ -96,7 +96,7 @@ router.post('/create',function (req, res) {
   // console.log('connectState_create: '+connectState_create);
   // console.log('name_create: '+name_create);
   // console.log('battery_create: '+battery_create);
-  // console.log('pushGroup_create: '+pushGroup_create);
+  console.log('pushGroup_create: '+pushGroup_create.length);
   console.log('situation_create: '+situation_create.type);
 
   // var person_id             = req.body.person_id
