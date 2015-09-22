@@ -148,7 +148,8 @@ function create(macAddr, owner, connectState, name, battery, pushGroup, situatio
       battery        : battery,
       pushGroup      : pushGroup,
       pushPoeple     : [],
-      situation      : "type"
+      situation      : 'SSST'
+      // {'type'     :  "type"
         // ,// 0 => mornitor , 1 => normal
         //                 mornitor : {alert : {enable : alert_e, value : alert_v},
         //                             temp  : {enable : temp_e,  value : temp_v},
@@ -162,7 +163,7 @@ function create(macAddr, owner, connectState, name, battery, pushGroup, situatio
         //                             find  : {enable : find_e},
         //                             drop  : {enable : drop_e}
         //                           }
-                        }
+                        // }
 
     },function (error, inedot) {
       // body...
