@@ -87,11 +87,29 @@ function create(macAddr, owner, connectState, name, battery, pushGroup, situatio
   var area     = mornitor.area
   var mesg     = mornitor.mesg
 
+  console.log('type: '+type);
+  console.log('mornitor: '+mornitor);
+  console.log('alert: '+alert);
+  console.log('temp: '+temp);
+  console.log('humi: '+humi);
+  console.log('baby: '+baby);
+  console.log('area: '+area);
+  console.log('mesg: '+mesg);
+
+
+
   var normal   = situation.normal
   var sport    = normal.sport
   var pet      = normal.pet
   var find     = normal.find
   var drop     = normal.drop
+
+  console.log('normal: '+normal);
+  console.log('sport: '+sport);
+  console.log('pet: '+pet);
+  console.log('find: '+find);
+  console.log('drop: '+drop);
+
 
   //1. Check iNeDot Exist Or Not
   checkExistByMacAddr(macAddr, function (error, exist) {
