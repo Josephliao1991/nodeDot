@@ -148,7 +148,7 @@ function create(macAddr, owner, connectState, name, battery, pushGroup, situatio
       battery        : battery,
       pushGroup      : pushGroup,
       pushPoeple     : [],
-      situation      : {'type'     :  "type"
+      situation      : "type"
         // ,// 0 => mornitor , 1 => normal
         //                 mornitor : {alert : {enable : alert_e, value : alert_v},
         //                             temp  : {enable : temp_e,  value : temp_v},
