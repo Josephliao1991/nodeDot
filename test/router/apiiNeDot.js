@@ -89,15 +89,15 @@ router.post('/create',function (req, res) {
   var battery_create        = req.body.battery
   var pushGroup_create      = []
   pushGroup_create  = req.body.pushGroup
-  // var situation_create      = req.body.situation
+  var situation_create      = req.body.situation
 
-  console.log('macAddr_create: '+macAddr_create);
-  console.log('owner_create: '+owner_create);
-  console.log('connectState_create: '+connectState_create);
-  console.log('name_create: '+name_create);
-  console.log('battery_create: '+battery_create);
-  console.log('pushGroup_create: '+pushGroup_create);
-  // console.log('situation_create: '+situation_create);
+  // console.log('macAddr_create: '+macAddr_create);
+  // console.log('owner_create: '+owner_create);
+  // console.log('connectState_create: '+connectState_create);
+  // console.log('name_create: '+name_create);
+  // console.log('battery_create: '+battery_create);
+  // console.log('pushGroup_create: '+pushGroup_create);
+  console.log('situation_create: '+situation_create.type);
 
   // var person_id             = req.body.person_id
 
