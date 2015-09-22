@@ -89,7 +89,7 @@ router.post('/create',function (req, res) {
   var battery_create        = req.body.battery
   var pushGroup_create      = []
   pushGroup_create  = req.body.pushGroup
-  var situation_create      = req.body.situation
+  // var situation_create      = req.body.situation
 
   console.log('macAddr_create: '+macAddr_create);
   console.log('owner_create: '+owner_create);
