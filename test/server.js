@@ -5,7 +5,9 @@ var methodOverride = require('method-override');
 
 var apiGroup    = require('./router/apiGroup.js');
 var apiAccount  = require('./router/apiAccount.js');
-var apiDevice   = require('./router/apiDevice.js');
+var apiiNeDot = require('./router/apiiNeDot.js');
+var apiCenter = require('./router/apiCenter.js');
+// var apiDevice   = require('./router/apiDevice.js');
 
 var app = express();
 app.use(bodyParser.json())
@@ -17,14 +19,18 @@ app.use(methodOverride())
 var be_ip   = "10.240.17.142:80"
 var dbName  = "/mongoTest"
 mongoose.connect('mongodb://'+be_ip+dbName)
+
 app.get('/',function (req, res) {
   // body...
   res.send("Hellow World! This is iNeDot Server!!")
-
 })
+
+
 app.use('/group',apiGroup);
 app.use('/account',apiAccount)
-app.use('/device',apiDevice)
+// app.use('/device',apiDevice)
+app.use('/device/inedot',apiiNeDot)
+app.use('/device/center',apiCenter)
 
 
 var dbref = require('./dbref.js');
@@ -68,12 +74,12 @@ dbref.deleteStories(function (error, result) {
 
 })
 
-app.listen(80,function (error) {
+app.listen(8080,function (error) {
   // body...
   if (error) {
     console.log(error);
   }
 
-  console.log("iNeDot Server is Start Right Now, Enter Ctrl+C Twice Times If You Need To Close Service!");
+  console.log("Server is Start Right Now, Enter Ctrl+C Twice Times If You Need To Close Service!");
 
 })

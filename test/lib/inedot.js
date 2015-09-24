@@ -78,6 +78,7 @@ function create(macAddr, owner, connectState, name, battery, pushGroup, situatio
   var pushGroup      = pushGroup
   var situation      = situation
 
+
   var type = situation.type
   var center   = situation.center
   var mornitor = situation.mornitor
