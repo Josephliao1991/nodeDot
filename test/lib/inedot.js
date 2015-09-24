@@ -51,7 +51,7 @@ function findByMacAddr(macAddr, callback) {
     if (error) {
       return callback(error)
     }
-    callback(null,inedot)
+    callback(null,null)
   })
 
 }
@@ -63,7 +63,7 @@ function findById(_id, callback) {
     if (error) {
       return callback(error)
     }
-    callback(null,inedot)
+    callback(null,null)
   })
 
 }
