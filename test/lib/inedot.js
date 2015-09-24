@@ -79,6 +79,7 @@ function create(macAddr, owner, connectState, name, battery, pushGroup, situatio
   var situation      = situation
 
   var type = situation.type
+  var center   = situation.center
   var mornitor = situation.mornitor
   var alert    = mornitor.alert
   var temp     = mornitor.temp
@@ -148,8 +149,9 @@ function create(macAddr, owner, connectState, name, battery, pushGroup, situatio
       battery        : battery,
       pushGroup      : pushGroup,
       pushPoeple     : [],
-      situation      : [
-      {type     :  type,// 0 => mornitor , 1 => normal
+      situation      : [{
+                        type     :  type,// 0 => mornitor , 1 => normal
+                        center   :  center,//center_id
                         mornitor : {alert : {enable : alert_e, value : alert_v},
                                     temp  : {enable : temp_e,  value : temp_v},
                                     humi  : {enable : humi_e,  value : humi_v},
