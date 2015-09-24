@@ -79,7 +79,6 @@ function create(macAddr, owner, connectState, name, battery, pushGroup, situatio
   var situation      = situation
 
   var type = situation.type
-  var center  = situation.center
   var mornitor = situation.mornitor
   var alert    = mornitor.alert
   var temp     = mornitor.temp
@@ -100,14 +99,15 @@ function create(macAddr, owner, connectState, name, battery, pushGroup, situatio
   var humi_v     = humi.value
   var mesg_v     = mesg.value
 
-  // console.log('type: '+type);
-  // console.log('mornitor: '+mornitor);
-  // console.log('alert: '+alert.enable);
-  // console.log('temp: '+temp.enable);
-  // console.log('humi: '+humi.enable);
-  // console.log('baby: '+baby.enable);
-  // console.log('area: '+area.enable);
-  // console.log('mesg: '+mesg.enable);
+
+  console.log('type: '+type);
+  console.log('mornitor: '+mornitor);
+  console.log('alert: '+alert.enable);
+  console.log('temp: '+temp.enable);
+  console.log('humi: '+humi.enable);
+  console.log('baby: '+baby.enable);
+  console.log('area: '+area.enable);
+  console.log('mesg: '+mesg.enable);
 
 
   var normal   = situation.normal
@@ -121,11 +121,11 @@ function create(macAddr, owner, connectState, name, battery, pushGroup, situatio
   var find_e     = find.enable
   var drop_e     = drop.enable
 
-  // console.log('normal: '+normal);
-  // console.log('sport: '+sport.enable);
-  // console.log('pet: '+pet.enable);
-  // console.log('find: '+find.enable);
-  // console.log('drop: '+drop.enable);
+  console.log('normal: '+normal);
+  console.log('sport: '+sport.enable);
+  console.log('pet: '+pet.enable);
+  console.log('find: '+find.enable);
+  console.log('drop: '+drop.enable);
 
 
   //1. Check iNeDot Exist Or Not
@@ -148,9 +148,8 @@ function create(macAddr, owner, connectState, name, battery, pushGroup, situatio
       battery        : battery,
       pushGroup      : pushGroup,
       pushPoeple     : [],
-      situation      : [{
-                        type     :  type,// 0 => mornitor , 1 => normal
-                        center   :  center,//center_id
+      situation      : [
+      {type     :  type,// 0 => mornitor , 1 => normal
                         mornitor : {alert : {enable : alert_e, value : alert_v},
                                     temp  : {enable : temp_e,  value : temp_v},
                                     humi  : {enable : humi_e,  value : humi_v},

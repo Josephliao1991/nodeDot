@@ -75,7 +75,7 @@ mongoose.model( 'center', center );
 
 var inedot  = new Schema({
   macAddr        : String, //macAddr
-  owner          : {type: Schema.ObjectId, ref: 'person'}, //person_id
+  owner          : {type: Schema.ObjectId, ref: 'person'}, //person_id or cneter_id
   connectState   : Boolean,
   name           : String,
   battery        : Number,
