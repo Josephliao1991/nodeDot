@@ -74,7 +74,7 @@ dbref.deleteStories(function (error, result) {
 
 })
 
-app.listen(8080,function (error) {
+app.listen(80,function (error) {
   // body...
   if (error) {
     console.log(error);
