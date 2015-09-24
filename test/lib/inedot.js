@@ -101,14 +101,14 @@ function create(macAddr, owner, connectState, name, battery, pushGroup, situatio
   var mesg_v     = mesg.value
 
 
-  console.log('type: '+type);
-  console.log('mornitor: '+mornitor);
-  console.log('alert: '+alert.enable);
-  console.log('temp: '+temp.enable);
-  console.log('humi: '+humi.enable);
-  console.log('baby: '+baby.enable);
-  console.log('area: '+area.enable);
-  console.log('mesg: '+mesg.enable);
+  // console.log('type: '+type);
+  // console.log('mornitor: '+mornitor);
+  // console.log('alert: '+alert.enable);
+  // console.log('temp: '+temp.enable);
+  // console.log('humi: '+humi.enable);
+  // console.log('baby: '+baby.enable);
+  // console.log('area: '+area.enable);
+  // console.log('mesg: '+mesg.enable);
 
 
   var normal   = situation.normal
@@ -122,11 +122,11 @@ function create(macAddr, owner, connectState, name, battery, pushGroup, situatio
   var find_e     = find.enable
   var drop_e     = drop.enable
 
-  console.log('normal: '+normal);
-  console.log('sport: '+sport.enable);
-  console.log('pet: '+pet.enable);
-  console.log('find: '+find.enable);
-  console.log('drop: '+drop.enable);
+  // console.log('normal: '+normal);
+  // console.log('sport: '+sport.enable);
+  // console.log('pet: '+pet.enable);
+  // console.log('find: '+find.enable);
+  // console.log('drop: '+drop.enable);
 
 
   //1. Check iNeDot Exist Or Not
