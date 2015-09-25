@@ -134,7 +134,7 @@ function updateName(_id, name, callback) {
         console.log('/device/center/updateName => fail to update \n center_id: '+_id);
         return callback(error)
       }
-      console.log('/device/center/updateName => success, center is update \n center_id: '+_id+' Name: '+inedot.name);
+      console.log('/device/center/updateName => success, center is update \n center_id: '+_id+' Name: '+center.name);
       callback(null,{result : true,
                      data   : center})
     })
@@ -166,7 +166,7 @@ function updateConnectState(_id, connectState, callback) {
         console.log('/device/center/updateConnectState => fail to update \n center_id: '+_id);
         return callback(error)
       }
-      console.log('/device/center/updateConnectState => success, center is update \n center_id: '+_id+' Name: '+inedot.name);
+      console.log('/device/center/updateConnectState => success, center is update \n center_id: '+_id+' Name: '+center.name);
       callback(null,{result : true,
                      data   : center})
     })
