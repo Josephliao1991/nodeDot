@@ -172,7 +172,7 @@ router.post('/updateConnectState',function (req, res) {
   var connectState_update   = req.body.connectState
 
   console.log("center_id_update : "+center_id_update +'\n'+"connectState_update : "+connectState_update);
-  if (!center_id_update || !connectState_update) {
+  if (!center_id_update || (connectState_update == null)) {
     return res.json({result : false,
                      message : "fail,lost some params(_id,connectState)"})
   }
