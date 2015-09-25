@@ -127,7 +127,8 @@ function updateName(_id, name, callback) {
 
     if (name) {center.name= name}
     console.log("Now Update Center Name : center_id : "+_id +"NewName : "+center.name);
-    center.save(function (error, center) {
+
+    return center.save(function (error, center) {
       // body...
       if (error) {
         console.log('/device/center/updateName => fail to update \n center_id: '+_id);
