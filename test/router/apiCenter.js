@@ -81,27 +81,20 @@ router.get('/findByMacAddr',function (req, res) {
 })
 
 
-
 router.post('/create',function (req, res) {
   // body...
   var macAddr_create        = req.body.macAddr
   var owner_create          = req.body.owner
   var connectState_create   = req.body.connectState
   var name_create           = req.body.name
-  var battery_create        = req.body.battery
-  var pushGroup_create      = req.body.pushGroup
-  var situation_create      = req.body.situation
 
-  // console.log('macAddr_create: '+macAddr_create);
-  // console.log('owner_create: '+owner_create);
-  // console.log('connectState_create: '+connectState_create);
-  // console.log('name_create: '+name_create);
-  // console.log('battery_create: '+battery_create);
-  // console.log('pushGroup_create: '+pushGroup_create.length);
-  // console.log('situation_create: '+situation_create.mornitor.alert.value);
+  console.log('macAddr_create: '+macAddr_create);
+  console.log('owner_create: '+owner_create);
+  console.log('connectState_create: '+connectState_create);
+  console.log('name_create: '+name_create);
 
-  if (!macAddr_create || !owner_create || !connectState_create ||
-      !name_create || !battery_create || !pushGroup_create || !situation_create) {
+
+  if (!macAddr_create || !owner_create || !connectState_create || !name_create) {
         return res.json({result : false,
                          message : "fail,lost some params"})
   }
@@ -117,8 +110,7 @@ router.post('/create',function (req, res) {
                        message : "fail,person is not regist"})
     }
     //2. Create Center
-    center.create(macAddr_create, owner_create, connectState_create,
-                  name_create,  battery_create, pushGroup_create, situation_create,
+    center.create(macAddr_create, owner_create, connectState_create, name_create,
           function (error, result) {
             // body...
             if (error) {
@@ -128,13 +120,12 @@ router.post('/create',function (req, res) {
               return res.json(result)
             }
             var center_id = result.data._id
-            //3. connect Person & iNeDot
+            //3. connect Person & Center
             person.addCenter(owner_create, center_id, function (error, result) {
               // body...
               if (error) {
                 return res.send(error)
               }
-
               if (result.result == false) {
                 return res.json(result)
               }
@@ -145,24 +136,19 @@ router.post('/create',function (req, res) {
 })
 
 //Update Data Next Step
-//Update All
-router.post('/updateAll',function (req, res) {
+//Update Name
+router.post('/updateName',function (req, res) {
   // body...
 
-  var inedot_id_update      = req.body._id
-  var connectState_update   = req.body.connectState
+  var center_id_update      = req.body._id
   var name_update           = req.body.name
-  var battery_update        = req.body.battery
-  var pushGroup_update      = req.body.pushGroup_update
-  var situation_update      = req.body.situation
 
-  if (!inedot_id_update) {
+  if (!center_id_update || !name_update) {
     return res.json({result : false,
-                     message : "fail,lost some params(_id)"})
+                     message : "fail,lost some params(_id, name)"})
   }
 
-  center.updateAll(inedot_id_update, connectState_update, name_update, battery_update,
-                   pushGroup_update, situation_update,
+  center.updateAll(center_id_update, name_update,
                  function (error, result) {
                    // body...
                    if (error) {
@@ -180,40 +166,15 @@ router.post('/updateAll',function (req, res) {
 router.post('/updateConnectState',function (req, res) {
   // body...
 
-  var inedot_id_update      = req.body._id
+  var center_id_update      = req.body._id
   var connectState_update   = req.body.connectState
 
-  if (!inedot_id_update || !connectState_update) {
+  if (!center_id_update || !connectState_update) {
     return res.json({result : false,
                      message : "fail,lost some params(_id,connectState)"})
   }
 
-  inedot.updateConnectState(inedot_id_update, connectState_update,
-                 function (error, result) {
-                   // body...
-                   if (error) {
-                     return res.send(error)
-                   }
-                   if (result.result == false) {
-                     return res.json(result)
-                   }
-                   res.json(result)
-                 })
-})
-
-//Update Name
-router.post('/updateName',function (req, res) {
-  // body...
-
-  var inedot_id_update      = req.body._id
-  var name_update           = req.body.name
-
-  if (!inedot_id_update || !name_update) {
-    return res.json({result : false,
-                     message : "fail,lost some params(_id,name)"})
-  }
-
-  inedot.updateName(inedot_id_update, name_update,
+  inedot.updateConnectState(center_id_update, connectState_update,
                  function (error, result) {
                    // body...
                    if (error) {
@@ -230,15 +191,15 @@ router.post('/updateName',function (req, res) {
 router.post('/delete',function (req, res) {
   // body...
   var person_id_delete    = req.body.person_id
-  var inedot_id_delete    = req.body.inedot_id
+  var center_id_delete    = req.body.inedot_id
 
-  if (!person_id_delete || !inedot_id_delete) {
+  if (!person_id_delete || !center_id_delete) {
     return res.json({result : false,
                      message : "fail,lost some params"})
   }
 
   //1. check Person & iNeDot Exist
-  checkPersonCenterExist(person_id_delete, inedot_id_delete, function (error, result) {
+  checkPersonCenterExist(person_id_delete, center_id_delete, function (error, result) {
     // body...
     if (error) {
       return callback(error)
@@ -248,8 +209,8 @@ router.post('/delete',function (req, res) {
       return res.json(result)
     }
 
-    //2. Delete iNeDot
-    inedot.deleteById(inedot_id_delete, function (error, result) {
+    //2. Delete Center
+    center.deleteById(center_id_delete, function (error, result) {
       // body...
       if (error) {
         return res.send(error)
@@ -258,8 +219,8 @@ router.post('/delete',function (req, res) {
         return res.json(result)
       }
 
-      //3. Delete person
-      person.deleteiNedot(person_id_delete, inedot_id_delete, function (error, result) {
+      //3. Delete center in person.centers
+      person.deleteCenter(person_id_delete, center_id_delete, function (error, result) {
         // body...
         if (error) {
           return res.send(error)

@@ -68,7 +68,7 @@ function findById(_id, callback) {
 
 }
 
-function create() {
+function create(macAddr, owner, connectState, name, callback) {
   // body...
 
   //1. Check Center Exist Or Not
@@ -80,11 +80,18 @@ function create() {
     if (exist) {
       console.log('/device/center/create => fail,center is exist \n macAddr: '+macAddr+' Name: '+name);
       return callback(null,{result  : false,
-                            message : "fail,inedot is exist"})
+                            message : "fail,center is exist"})
     }
-    //2. Create iNeDot
+    //2. Create Center
     Center.create({
+      macAddr : macAddr,
+      owner   : owner,
+      name    : name,
 
+      connectState  : connectState,
+
+      deviceList    : [],
+      connectingDevice  : []
 
     },function (error, center) {
       // body...
@@ -92,7 +99,7 @@ function create() {
         console.log('/device/center/create => fail to create center \n macAddr: '+macAddr+' Name: '+name);
         return callback(error)
       }
-      console.log('/device/center/create => success,center is createNow \n macAddr: '+macAddr+' Name: '+name);
+      console.log('/device/center/create => success,center is created Now \n macAddr: '+macAddr+' Name: '+name);
       callback(null, {result  : true,
                       data    : center});
 
@@ -104,7 +111,7 @@ function create() {
 
 //Update Data Next Step
 //Update All
-function updateAll(_id,  callback) {
+function updateName(_id, name, callback) {
   // body...
   Center.findById({_id : _id}, function (error, center) {
     // body...
@@ -112,59 +119,218 @@ function updateAll(_id,  callback) {
       return callback(error)
     }
     if (!center) {
-      console.log('/device/center/updateAll => fail,center is not exist \n center_id: '+_id);
+      console.log('/device/center/updateName => fail,center is not exist \n center_id: '+_id);
       return callback(null,{result  : false,
                             message : "fail,center is not exist"})
     }
 
-    // if (connectState) {inedot.connectState = connectState}
-    // if (name)         {inedot.name= name}
-    // if (battery)      {inedot.battery = battery}
-    // if (pushGroup)    {inedot.pushGroup = pushGroup}
-    // if (situation)    {inedot.situation = situation}
+    if (connectState) {center.connectState = connectState}
+    if (name)         {center.name= name}
 
     return center.save(function (error, center) {
       // body...
       if (error) {
-        console.log('/device/center/updateAll => fail to update \n center_id: '+_id);
+        console.log('/device/center/updateName => fail to update \n center_id: '+_id);
         return callback(error)
       }
-      console.log('/device/center/updateAll => success, center is update \n center_id: '+_id+' Name: '+inedot.name);
+      console.log('/device/center/updateName => success, center is update \n center_id: '+_id+' Name: '+inedot.name);
       callback(null,{result : true,
                      data   : center})
     })
   })
 }
 
-//Update PushGroup
-function updatePushGroup(_id, pushGroup, callback) {
+
+//Update ConnectState
+function updateConnectState(_id, connectState, callback) {
   // body...
-  iNeDot.findById({_id : _id}, function (error, inedot) {
+  Center.findById({_id : _id}, function (error, center) {
     // body...
     if (error) {
       return callback(error)
     }
-    if (!inedot) {
-      console.log('/device/inedot/updatePushGroup => fail,inedot is not exist \n inedot_id: '+_id);
+    if (!center) {
+      console.log('/device/center/updateConnectState => fail,center is not exist \n center_id: '+_id);
       return callback(null,{result  : false,
-                            message : "fail,inedot is not exist"})
+                            message : "fail,center is not exist"})
     }
 
-    if (pushGroup) {inedot.pushGroup = pushGroup}
+    if (connectState) {center.connectState = connectState}
 
-    return inedot.save(function (error, inedot) {
+    return center.save(function (error, center) {
       // body...
       if (error) {
-        console.log('/device/inedot/updatePushGroup => fail to update \n inedot_id: '+_id);
+        console.log('/device/center/updateConnectState => fail to update \n center_id: '+_id);
         return callback(error)
       }
-      console.log('/device/inedot/updatePushGroup => success, inedot is update \n inedot_id: '+_id+' Name: '+inedot.name);
+      console.log('/device/center/updateConnectState => success, center is update \n center_id: '+_id+' Name: '+inedot.name);
       callback(null,{result : true,
-                     data   : inedot})
+                     data   : center})
     })
   })
 }
 
+//Add DeviceList
+function addDeviceList(_id, inedot_id, callback) {
+  // body...
+  Center.findById({_id : _id},function (error, center) {
+    // body...
+    if (error) {
+      return callback(error)
+    }
+    //1. Check Center is exist
+    if (!center) {
+      console.log('/device/center/addDeviceList => no such center');
+      return callback(null, {result  : false,
+                             message : 'no such center'});
+      }
+
+    //2.check inedot is not in this deviceList
+    var deviceList = center.deviceList
+    for (var i = 0; i < deviceList.length; i++) {
+
+      if (deviceList[i] == inedot_id) {
+        return callback(null, {result  : false,
+                               message : 'inedot is already in use'});
+      }
+    }
+
+    //3.Add inedot in to center.deviceList
+    center.DeviceList.push(inedot_id)
+
+    return center.save(function (error, center) {
+      // body...
+      if (error) {
+        console.log('/device/center/addDeviceList => fail to update');
+        return callback(error)
+      }
+      console.log('/device/center/addDeviceList => success, center is update');
+      callback(null,{result : true,
+                     data   : center})
+
+    })
+  })
+
+}
+
+
+//delete DeviceList
+function deleteDeviceList(_id, inedot_id, callback) {
+  // body...
+  Center.findById({_id : _id},function (error, center) {
+    // body...
+    if (error) {
+      return callback(error)
+    }
+
+    if (!center) {
+      console.log('/device/center/deleteDeviceList => no such person');
+      return callback(null, {result  : false,
+                             message : 'no such person'});
+      }
+
+     var deviceList = center.deviceList
+     for (var i = 0; i < deviceList.length; i++) {
+        if (deviceList[i] == inedot_id) {
+          center.deviceList.splice(i, 1)
+          break;
+        }
+      }
+
+    return center.save(function (error, center) {
+      // body...
+      if (error) {
+        console.log('/device/center/deleteDeviceList => fail to update');
+        return callback(error)
+      }
+      console.log('/device/center/deleteDeviceList => success, center is update');
+      callback(null,{result : true,
+                     data   : center})
+    })
+  })
+
+}
+
+
+//Add ConnectingDevice
+function addConnectingDevice(argument) {
+  // body...
+  Center.findById({_id : _id},function (error, center) {
+    // body...
+    if (error) {
+      return callback(error)
+    }
+    //1. Check Center is exist
+    if (!center) {
+      console.log('/device/center/addConnectingDevice => no such center');
+      return callback(null, {result  : false,
+                             message : 'no such center'});
+      }
+
+    //2.check inedot is not in this connectingDevice
+    var connectingDevice = center.connectingDevice
+    for (var i = 0; i < connectingDevice.length; i++) {
+
+      if (connectingDevice[i] == inedot_id) {
+        return callback(null, {result  : false,
+                               message : 'inedot is already in use'});
+      }
+    }
+
+    //3.Add inedot in to center.connectingDevice
+    center.connectingDevice.push(inedot_id)
+
+    return center.save(function (error, center) {
+      // body...
+      if (error) {
+        console.log('/device/center/addConnectingDevice => fail to update');
+        return callback(error)
+      }
+      console.log('/device/center/addConnectingDevice => success, center is update');
+      callback(null,{result : true,
+                     data   : center})
+
+    })
+  })
+
+}
+
+//Delete ConnectingDevice
+function deleteConnectingDevice(argument) {
+  // body...
+  Center.findById({_id : _id},function (error, center) {
+    // body...
+    if (error) {
+      return callback(error)
+    }
+
+    if (!center) {
+      console.log('/device/center/deleteConnectingDevice => no such person');
+      return callback(null, {result  : false,
+                             message : 'no such person'});
+      }
+
+     var connectingDevice = center.connectingDevice
+     for (var i = 0; i < connectingDevice.length; i++) {
+        if (connectingDevice[i] == inedot_id) {
+          center.connectingDevice.splice(i, 1)
+          break;
+        }
+      }
+
+    return center.save(function (error, center) {
+      // body...
+      if (error) {
+        console.log('/device/center/deleteConnectingDevice => fail to update');
+        return callback(error)
+      }
+      console.log('/device/center/deleteConnectingDevice => success, center is update');
+      callback(null,{result : true,
+                     data   : center})
+    })
+  })
+
+}
 
 function deleteById(_id, callback) {
   // body...

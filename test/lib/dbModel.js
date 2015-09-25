@@ -67,10 +67,9 @@ var center  = new Schema({
   connectState      : Boolean,  //state True/False
   deviceList        : [{type: Schema.ObjectId, ref: 'inedot'}],    //[macAddr, macAddr, macAddr,,,]
   connectingDevice  : [{type: Schema.ObjectId, ref: 'inedot'}],    //[macAddr, macAddr, macAddr,,,]
-  group_id          : String
+  // group_id          : String
 })
 mongoose.model( 'center', center );
-
 
 
 var inedot  = new Schema({

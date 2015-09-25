@@ -272,6 +272,7 @@ function create(ssid, pwd, callback) {
          if (selfGroups[i] == group_id) {
            person.selfGroups.splice(i, 1)
            // console.log('aaron.stories[i]'+aaron.stories[i]);
+           break;
          }
        }
 
@@ -418,6 +419,7 @@ function create(ssid, pwd, callback) {
          if (centers[i] == center_id) {
            person.centers.splice(i, 1)
            // console.log('aaron.stories[i]'+aaron.stories[i]);
+           break;
          }
        }
 
@@ -484,6 +486,7 @@ function create(ssid, pwd, callback) {
          if (inedots[i] == inedot_id) {
            person.inedots.splice(i, 1)
            // console.log('aaron.stories[i]'+aaron.stories[i]);
+           break;
          }
        }
 
