@@ -371,7 +371,12 @@ module.exports = {
 
   create              : create,
 
-  updateAll           : updateAll,
+  updateName          : updateName,
+  updateConnectState  : updateConnectState,
+  addDeviceList       : addDeviceList,
+  deleteDeviceList    : deleteDeviceList,
+  addConnectingDevice : addConnectingDevice,
+  deleteConnectingDevice  : deleteConnectingDevice,
 
   deleteById          : deleteById
 
