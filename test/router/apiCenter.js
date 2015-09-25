@@ -1,9 +1,10 @@
 var express = require('express');
 var router = express.Router();
 
-var mongoose = require('mongoose');
-var center = require('../lib/center.js');
-var person = require('../lib/person.js');
+var mongoose  = require('mongoose');
+var center  = require('../lib/center.js');
+var person  = require('../lib/person.js');
+var cpush   = require('../lib/cpush.js');
 
 //Wait For Fix
 /*==><==*/
@@ -236,7 +237,5 @@ router.post('/delete',function (req, res) {
     })
   })
 })
-
-
 
 module.exports = router;

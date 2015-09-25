@@ -123,10 +123,9 @@ function updateName(_id, name, callback) {
       return callback(null,{result  : false,
                             message : "fail,center is not exist"})
     }
-    console.log("Now Update Center Name : center_id : "+_id +"oldName : "+center.name);
-
+    // console.log("Now Update Center Name : center_id : "+_id +"oldName : "+center.name);
     if (name) {center.name= name}
-    console.log("Now Update Center Name : center_id : "+_id +"NewName : "+center.name);
+    // console.log("Now Update Center Name : center_id : "+_id +"NewName : "+center.name);
 
     return center.save(function (error, center) {
       // body...
@@ -156,9 +155,9 @@ function updateConnectState(_id, connectState, callback) {
                             message : "fail,center is not exist"})
     }
     console.log("connectState : "+connectState);
-    console.log("Now Update Center Name : center_id : "+_id +"oldConnectState : "+center.connectState);
+    // console.log("Now Update Center Name : center_id : "+_id +"oldConnectState : "+center.connectState);
     if ((connectState != null)) {center.connectState = connectState}
-    console.log("Now Update Center Name : center_id : "+_id +"NewConnectState : "+center.connectState);
+    // console.log("Now Update Center Name : center_id : "+_id +"NewConnectState : "+center.connectState);
 
     return center.save(function (error, center) {
       // body...

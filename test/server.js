@@ -7,7 +7,7 @@ var apiGroup    = require('./router/apiGroup.js');
 var apiAccount  = require('./router/apiAccount.js');
 var apiiNeDot   = require('./router/apiiNeDot.js');
 var apiCenter   = require('./router/apiCenter.js');
-// var apiDevice   = require('./router/apiDevice.js');
+var apiCPush_test = require('./router/apiCPush_test.js');
 
 var app = express();
 app.use(bodyParser.json())
@@ -28,10 +28,9 @@ app.get('/',function (req, res) {
 
 app.use('/group',apiGroup);
 app.use('/account',apiAccount)
-// app.use('/device',apiDevice)
 app.use('/device/inedot',apiiNeDot)
 app.use('/device/center',apiCenter)
-
+app.use('/cpush_test',apiCPush_test)
 
 var dbref = require('./dbref.js');
 app.get('/dbref',function (req, res) {
