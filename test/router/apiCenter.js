@@ -191,7 +191,7 @@ router.post('/updateConnectState',function (req, res) {
 router.post('/delete',function (req, res) {
   // body...
   var person_id_delete    = req.body.person_id
-  var center_id_delete    = req.body.inedot_id
+  var center_id_delete    = req.body.center_id
 
   if (!person_id_delete || !center_id_delete) {
     return res.json({result : false,
