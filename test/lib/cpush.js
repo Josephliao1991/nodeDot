@@ -15,9 +15,9 @@ function findAll(callback) {
   })
 }
 
-function findByMacAddr(macAddr, callback) {
+function findByMacAddr(center_macAddr, callback) {
   // body...
-  CPush.find({macAddr  : macAddr}, function (error, cpushs) {
+  CPush.find({center_macAddr  : center_macAddr}, function (error, cpushs) {
     // body...
     if (error) {
       return callback(error)
@@ -121,9 +121,9 @@ function deleteById(_id, callback) {
 }
 
 
-function Center_FindByMacAddr(macAddr, callback) {
+function Center_FindByMacAddr(center_macAddr, callback) {
   // body...
-  CPush.find({macAddr  : macAddr, checkMark : false},
+  CPush.find({center_macAddr  : center_macAddr, checkMark : false},
   function (error, cpushs) {
     // body...
     if (error) {
