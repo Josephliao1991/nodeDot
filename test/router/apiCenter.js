@@ -148,7 +148,7 @@ router.post('/updateName',function (req, res) {
                      message : "fail,lost some params(_id, name)"})
   }
 
-  center.updateAll(center_id_update, name_update,
+  center.updateName(center_id_update, name_update,
                  function (error, result) {
                    // body...
                    if (error) {
