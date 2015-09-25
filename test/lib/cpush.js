@@ -65,7 +65,7 @@ function create(center_macAddr, inedot_macAddr, command, callback) {
 //Update CheckMark
 function updateCheckMark(_id, callback) {
   // body...
-  Cpush.findById({_id : _id}, function (error, cpush) {
+  CPush.findById({_id : _id}, function (error, cpush) {
     // body...
     if (error) {
       return callback(error)
@@ -95,7 +95,7 @@ function updateCheckMark(_id, callback) {
 
 function deleteById(_id, callback) {
   // body...
-  Cpush.findOne({_id : _id},function (error, cpush) {
+  CPush.findOne({_id : _id},function (error, cpush) {
     // body...
     if (error) {
       callback(error)

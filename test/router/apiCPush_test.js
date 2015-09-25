@@ -127,7 +127,7 @@ router.post('/delete',function (req, res) {
   }
 
   //2. Delete Center
-  center.deleteById(center_id_delete, function (error, result) {
+  cpush.deleteById(_id_delete, function (error, result) {
     // body...
     if (error) {
       return res.send(error)
