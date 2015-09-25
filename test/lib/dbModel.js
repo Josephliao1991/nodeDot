@@ -63,6 +63,7 @@ mongoose.model('phone', phone)
 
 var center  = new Schema({
   macAddr           : String,   //macAddr
+  name              : String,
   owner             : {type: Schema.ObjectId, ref: 'person'},   //person_id
   connectState      : Boolean,  //state True/False
   deviceList        : [{type: Schema.ObjectId, ref: 'inedot'}],    //[macAddr, macAddr, macAddr,,,]
