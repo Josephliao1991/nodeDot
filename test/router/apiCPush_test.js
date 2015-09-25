@@ -44,7 +44,7 @@ router.get('/findByMacAddr',function (req, res) {
   })
 })
 
-router.get('/findByMacAddr',function (req, res) {
+router.get('/centerFindByMacAddr',function (req, res) {
   // body...
   var macAddr_find = req.query.macAddr
 
