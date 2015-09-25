@@ -161,7 +161,8 @@ function updateConnectState(_id, connectState, callback) {
     return center.save(function (error, center) {
       // body...
       console.log("savesuccess");
-      if (error) {
+      console.log(error);
+      if(error) {
         console.log('/device/center/updateConnectState => fail to update \n center_id: '+_id);
         return callback(error)
       }
