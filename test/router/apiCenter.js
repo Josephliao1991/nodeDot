@@ -148,6 +148,7 @@ router.post('/updateName',function (req, res) {
                      message : "fail,lost some params(_id, name)"})
   }
 
+  console.log("Now Update Center Name : center_id : "+center_id_update);
   center.updateName(center_id_update, name_update,
                  function (error, result) {
                    // body...
