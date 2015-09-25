@@ -66,6 +66,9 @@ router.post('/create',function (req, res) {
   var inedot_macAddr_create   = req.body.inedot_macAddr
   var command_create          = req.body.command
 
+  console.log("center_macAddr_create : "+center_macAddr_create);
+  console.log("inedot_macAddr_create : "+inedot_macAddr_create);
+  console.log("command_create : "+command_create);
 
   if (!center_macAddr_create || !inedot_macAddr_create || !command_create) {
         return res.json({result : false,
