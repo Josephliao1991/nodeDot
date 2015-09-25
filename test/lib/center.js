@@ -155,7 +155,7 @@ function updateConnectState(_id, connectState, callback) {
       return callback(null,{result  : false,
                             message : "fail,center is not exist"})
     }
-
+    console.log("connectState : "+connectState);
     console.log("Now Update Center Name : center_id : "+_id +"oldConnectState : "+center.connectState);
     if (connectState) {center.connectState = connectState}
     console.log("Now Update Center Name : center_id : "+_id +"NewConnectState : "+center.connectState);
