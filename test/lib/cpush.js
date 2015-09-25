@@ -137,9 +137,9 @@ function Center_FindByMacAddr(macAddr, callback) {
       var inedot_macAddr  = cpushs[i].inedot_macAddr
       var command         = cpushs[i].command
 
-      let cpush = {"_id"            : _id,
-                  "inedot_macAddr"  : inedot_macAddr,
-                  "command"         : command}
+      var _cpush = {"_id"             : _id,
+                    "inedot_macAddr"  : inedot_macAddr,
+                    "command"         : command}
 
       result.push(cpush)
     }
