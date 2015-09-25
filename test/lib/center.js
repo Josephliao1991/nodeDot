@@ -123,8 +123,7 @@ function updateName(_id, name, callback) {
       return callback(null,{result  : false,
                             message : "fail,center is not exist"})
     }
-
-    if (connectState) {center.connectState = connectState}
+    
     if (name)         {center.name= name}
 
     return center.save(function (error, center) {
