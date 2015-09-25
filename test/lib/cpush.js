@@ -132,11 +132,11 @@ function Center_FindByMacAddr(macAddr, callback) {
 
     var result = []
     for (var i = 0; i < cpushs.length; i++) {
-      let cpush = {
+      let cpush = JSON({
         _id             : cpushs[i]._id,
         inedot_macAddr  : cpushs[i].inedot_macAddr,
         command         : cpushs[i].command
-      }
+      })
       result.push(cpush)
     }
 
