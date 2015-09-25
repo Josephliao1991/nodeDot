@@ -177,7 +177,7 @@ router.post('/updateConnectState',function (req, res) {
                      message : "fail,lost some params(_id,connectState)"})
   }
 
-  inedot.updateConnectState(center_id_update, connectState_update,
+  center.updateConnectState(center_id_update, connectState_update,
                  function (error, result) {
                    // body...
                    if (error) {
