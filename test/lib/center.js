@@ -156,12 +156,12 @@ function updateConnectState(_id, connectState, callback) {
                             message : "fail,center is not exist"})
     }
 
+    console.log("Now Update Center Name : center_id : "+_id +"oldConnectState : "+center.connectState);
     if (connectState) {center.connectState = connectState}
+    console.log("Now Update Center Name : center_id : "+_id +"NewConnectState : "+center.connectState);
 
     return center.save(function (error, center) {
       // body...
-      console.log("savesuccess");
-      console.log(error);
       if(error) {
         console.log('/device/center/updateConnectState => fail to update \n center_id: '+_id);
         return callback(error)
