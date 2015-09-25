@@ -186,7 +186,7 @@ router.post('/updateConnectState',function (req, res) {
   var inedot_id_update      = req.body._id
   var connectState_update   = req.body.connectState
 
-  if (!inedot_id_update || !connectState_update) {
+  if (!inedot_id_update || (connectState == null)) {
     return res.json({result : false,
                      message : "fail,lost some params(_id,connectState)"})
   }

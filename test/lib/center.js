@@ -157,7 +157,7 @@ function updateConnectState(_id, connectState, callback) {
     }
     console.log("connectState : "+connectState);
     console.log("Now Update Center Name : center_id : "+_id +"oldConnectState : "+center.connectState);
-    if (connectState) {center.connectState = connectState}
+    if ((connectState != null)) {center.connectState = connectState}
     console.log("Now Update Center Name : center_id : "+_id +"NewConnectState : "+center.connectState);
 
     return center.save(function (error, center) {

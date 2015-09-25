@@ -216,7 +216,7 @@ function updateConnectState(_id, connectState, callback) {
                             message : "fail,inedot is not exist"})
     }
 
-    if (connectState) {inedot.connectState = connectState}
+    if ((connectState != null)) {inedot.connectState = connectState}
 
     return inedot.save(function (error, inedot) {
       // body...
