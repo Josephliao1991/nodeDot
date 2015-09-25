@@ -45,7 +45,7 @@ function create(center_macAddr, inedot_macAddr, command, callback) {
       center_macAddr  : center_macAddr,
       inedot_macAddr  : inedot_macAddr,
       command         : command,
-      cehekMark       : false
+      checkMark       : false
 
     },function (error, cpush) {
       // body...
