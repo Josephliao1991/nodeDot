@@ -57,7 +57,7 @@ router.get('/findById',function (req, res) {
                      message : "fail,lost some params"})
   }
 
-  person.findById(_id_find,function (error,inedots) {
+  inedot.findById(_id_find,function (error,inedots) {
     // body...
     res.json(inedots)
   })

@@ -8,7 +8,7 @@ var person = require('../lib/person.js');
 //Wait For Fix
 /*==><==*/
 
-function checkPersoniNeDotExist(person_id, inedot_id, callback) {
+function checkPersonCenterExist(person_id, center_id, callback) {
   // body...
   //1. Check Person Exist Or Not
   person.checkExistById(person_id, function (error, exist) {
@@ -22,14 +22,14 @@ function checkPersoniNeDotExist(person_id, inedot_id, callback) {
     }
 
     //2. Check inedot Exist Or Not
-    inedot.checkExistById(inedot_id, function (error, exist) {
+    center.checkExistById(center_id, function (error, exist) {
       // body...
       if (error) {
         return callback(error)
       }
       if (!exist) {
         return callback(null,{result  : false,
-                              message : "fail,inedot is not exist"})
+                              message : "fail,center is not exist"})
       }
 
       callback(null,{reslut : true})
@@ -44,9 +44,9 @@ function checkPersoniNeDotExist(person_id, inedot_id, callback) {
 
 router.get('/findAll',function (req, res) {
   // body...
-  inedot.findAll(function (error,inedots) {
+  center.findAll(function (error,centers) {
     // body...
-    res.json(inedots)
+    res.json(centers)
   })
 })
 
@@ -59,9 +59,9 @@ router.get('/findById',function (req, res) {
                      message : "fail,lost some params"})
   }
 
-  person.findById(_id_find,function (error,inedots) {
+  center.findById(_id_find,function (error,centers) {
     // body...
-    res.json(inedots)
+    res.json(centers)
   })
 })
 
@@ -74,9 +74,9 @@ router.get('/findByMacAddr',function (req, res) {
                      message : "fail,lost some params"})
   }
 
-  inedot.findByMacAddr(macAddr_find,function (error,inedot) {
+  center.findByMacAddr(macAddr_find,function (error,center) {
     // body...
-    res.json(inedot)
+    res.json(center)
   })
 })
 
@@ -116,8 +116,8 @@ router.post('/create',function (req, res) {
       return res.json({result : false,
                        message : "fail,person is not regist"})
     }
-    //2. Create iNeDot
-    inedot.create(macAddr_create, owner_create, connectState_create,
+    //2. Create Center
+    center.create(macAddr_create, owner_create, connectState_create,
                   name_create,  battery_create, pushGroup_create, situation_create,
           function (error, result) {
             // body...
@@ -127,9 +127,9 @@ router.post('/create',function (req, res) {
             if (result.result == false) {
               return res.json(result)
             }
-            var inedot_id = result.data._id
+            var center_id = result.data._id
             //3. connect Person & iNeDot
-            person.addiNedot(owner_create, inedot_id, function (error, result) {
+            person.addCenter(owner_create, center_id, function (error, result) {
               // body...
               if (error) {
                 return res.send(error)
@@ -161,7 +161,7 @@ router.post('/updateAll',function (req, res) {
                      message : "fail,lost some params(_id)"})
   }
 
-  inedot.updateAll(inedot_id_update, connectState_update, name_update, battery_update,
+  center.updateAll(inedot_id_update, connectState_update, name_update, battery_update,
                    pushGroup_update, situation_update,
                  function (error, result) {
                    // body...
@@ -226,82 +226,6 @@ router.post('/updateName',function (req, res) {
                  })
 })
 
-//Update Battery
-router.post('/updateBattery',function (req, res) {
-  // body...
-
-  var inedot_id_update      = req.body._id
-  var battery_update           = req.body.battery
-
-  if (!inedot_id_update || !battery_update) {
-    return res.json({result : false,
-                     message : "fail,lost some params(_id,battery)"})
-  }
-
-  inedot.updateBattery(inedot_id_update, battery_update,
-                 function (error, result) {
-                   // body...
-                   if (error) {
-                     return res.send(error)
-                   }
-                   if (result.result == false) {
-                     return res.json(result)
-                   }
-                   res.json(result)
-                 })
-})
-
-//Update PushGroup
-router.post('/updatePushGroup',function (req, res) {
-  // body...
-
-  var inedot_id_update      = req.body._id
-  var pushGroup_update      = req.body.pushGroup
-
-  if (!inedot_id_update || !pushGroup_update) {
-    return res.json({result : false,
-                     message : "fail,lost some params(_id,pushGroup)"})
-  }
-
-  inedot.updatePushGroup(inedot_id_update, pushGroup_update,
-                 function (error, result) {
-                   // body...
-                   if (error) {
-                     return res.send(error)
-                   }
-                   if (result.result == false) {
-                     return res.json(result)
-                   }
-                   res.json(result)
-                 })
-})
-
-//Update Situation
-router.post('/updateSituation',function (req, res) {
-  // body...
-
-  var inedot_id_update      = req.body._id
-  var situation_update      = req.body.situation
-
-  if (!inedot_id_update || !situation_update) {
-    return res.json({result : false,
-                     message : "fail,lost some params(_id,situation)"})
-  }
-
-  inedot.updateSituation(inedot_id_update, situation_update,
-                 function (error, result) {
-                   // body...
-                   if (error) {
-                     return res.send(error)
-                   }
-                   if (result.result == false) {
-                     return res.json(result)
-                   }
-                   res.json(result)
-                 })
-})
-
-
 
 router.post('/delete',function (req, res) {
   // body...
@@ -314,7 +238,7 @@ router.post('/delete',function (req, res) {
   }
 
   //1. check Person & iNeDot Exist
-  checkPersoniNeDotExist(person_id_delete, inedot_id_delete, function (error, result) {
+  checkPersonCenterExist(person_id_delete, inedot_id_delete, function (error, result) {
     // body...
     if (error) {
       return callback(error)
