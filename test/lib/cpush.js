@@ -158,7 +158,7 @@ module.exports = {
 
   create              : create,
 
-  updateCheckMark     ;updateCheckMark,
+  updateCheckMark     : updateCheckMark,
 
   deleteById          : deleteById,
 
