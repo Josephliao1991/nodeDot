@@ -70,7 +70,7 @@ router.post('/create',function (req, res) {
   console.log("inedot_macAddr_create : "+inedot_macAddr_create);
   console.log("command_create : "+command_create);
 
-  if (!center_macAddr_create || !inedot_macAddr_create || !command_create) {
+  if (!center_macAddr_create || !inedot_macAddr_create || (command_create == null)) {
         return res.json({result : false,
                          message : "fail,lost some params"})
   }
