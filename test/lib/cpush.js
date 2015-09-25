@@ -106,7 +106,7 @@ function deleteById(_id, callback) {
                             message : "fail,cpush is not exist"})
     }
 
-    center.remove(function (error) {
+    cpush.remove(function (error) {
       // body...
       if (error) {
         console.log('CPush deleteById => fail,cpush can not delete ');
