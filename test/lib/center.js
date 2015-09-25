@@ -24,7 +24,7 @@ function checkExistById(_id, callback) {
     if (error) {
       return callback(error)
     }
-    if (inedot.length > 0) {
+    if (center.length > 0) {
       return callback(null,1)
     }
     callback(null,null)
