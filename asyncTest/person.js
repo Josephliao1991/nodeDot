@@ -38,19 +38,20 @@ function checkExistById(_id, callback) {
 
 //Check Which Element Is Exist At Index
 var indexOf = function(needle) {
+
     if(typeof Array.prototype.indexOf === 'function') {
         indexOf = Array.prototype.indexOf;
     } else {
         indexOf = function(needle) {
             var i = -1, index = -1;
-
+            console.log("Before Index : "+index);
             for(i = 0; i < this.length; i++) {
                 if(this[i] === needle) {
                     index = i;
                     break;
                 }
             }
-
+            console.log("After Index : "+index);
             return index;
         };
     }
@@ -189,7 +190,7 @@ function deleteStory(person_id, story_id, callback) {
       callback(null, {result  : false,
                       message : "Fail, Person Is Not ExisteD!" })
     }
-
+    console.log("Start To Delete Story In Person.Strries");
     var stories = person.stories
     var index = indexOf.call(stories, story_id)
     if (index>=0) {
