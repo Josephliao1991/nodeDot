@@ -37,27 +37,19 @@ function checkExistById(_id, callback) {
 }
 
 //Check Which Element Is Exist At Index
-var indexOf = function(needle) {
-    if(typeof Array.prototype.indexOf === 'function') {
-        indexOf = Array.prototype.indexOf;
-    } else {
-        indexOf = function(needle) {
-            var i = -1, index = -1;
-
-            for(i = 0; i < this.length; i++) {
-                if(this[i] === needle) {
-                    index = i;
-                    break;
-                }
-            }
-
-            return index;
-        };
+function indexOf (array, item) {
+  console.log("Ready To COunt");
+    var i = -1, index = -1;
+    console.log("Before Index : "+index);
+    for(i = 0; i < array.length; i++) {
+        if(array[i] == item) {
+            index = i;
+            break;
+        }
     }
-
-    return indexOf.call(this, needle);
-};
-
+    console.log("After Index : "+index);
+    return index;
+}
 /*======================================*/
 
 function create(title, person_id, callback) {

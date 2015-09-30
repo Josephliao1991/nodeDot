@@ -99,6 +99,18 @@ router.get('/deleteStory', function (req, res) {
     res.json(result)
   })
 
+  console.log("Story Is Delete");
+  console.log("Story Is Delete");
+  console.log("Story Is Delete");
+  console.log("Story Is Delete");
+  console.log("Story Is Delete");
+  console.log("Story Is Delete");
+  console.log("Story Is Delete");
+  console.log("Story Is Delete");
+  console.log("Story Is Delete");
+  console.log("Story Is Delete");
+  console.log("Story Is Delete");
+
   Story.deleteById(stroy_id_delete, function (error, result) {
     // body...
     console.log("Story Is Delete");

@@ -51,29 +51,6 @@ function indexOf (array, item) {
     console.log("After Index : "+index);
     return index;
 }
-// var indexOf = function(needle) {
-//   console.log("Get Function");
-//     if(typeof Array.prototype.indexOf === 'function') {
-//       console.log("Nothing Happend");
-//         indexOf = Array.prototype.indexOf;
-//     } else {
-//         indexOf = function(needle) {
-//           console.log("Ready To COunt");
-//             var i = -1, index = -1;
-//             console.log("Before Index : "+index);
-//             for(i = 0; i < this.length; i++) {
-//                 if(this[i] === needle) {
-//                     index = i;
-//                     break;
-//                 }
-//             }
-//             console.log("After Index : "+index);
-//             return index;
-//         };
-//     }
-//
-//     return indexOf.call(this, needle);
-// };
 
 /*======================================*/
 
