@@ -7,7 +7,7 @@ var Story  = require('./Story.js');
 
 var Story = mongoose.model('story')
 
-router.get(/'getAllPerson', function (req, res) {
+router.get('/getAllPerson', function (req, res) {
   // body...
   Person.findAll(function (error, people) {
     // body...
@@ -19,7 +19,7 @@ router.get(/'getAllPerson', function (req, res) {
   })
 })
 
-router.get(/'getAllStory', function (req, res) {
+router.get('/getAllStory', function (req, res) {
   // body...
   Story.findAll(function (error, stories) {
     // body...
