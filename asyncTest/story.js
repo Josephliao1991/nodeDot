@@ -74,7 +74,7 @@ function create(title, person_id callback) {
     }
 
     Story.create({
-      title    : title
+      title    : title,
       person   : person_id
     },function (error, story) {
       // body...
@@ -100,7 +100,6 @@ function findAll(callback) {
 
   })
 }
-
 
 function findById(_id, callback) {
   // body...

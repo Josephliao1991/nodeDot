@@ -74,7 +74,7 @@ function create(name, callback) {
     }
 
     Person.create({
-      name    : name
+      name    : name,
       stories : []
     },function (error, person) {
       // body...
