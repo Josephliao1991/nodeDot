@@ -38,7 +38,7 @@ function checkExistById(_id, callback) {
 
 //Check Which Element Is Exist At Index
 var indexOf = function(needle) {
-
+  console.log("Get Function");
     if(typeof Array.prototype.indexOf === 'function') {
         indexOf = Array.prototype.indexOf;
     } else {
@@ -192,7 +192,7 @@ function deleteStory(person_id, story_id, callback) {
     }
     console.log("Start To Delete Story In Person.Strries");
     var stories = person.stories
-    var index = indexOf.call(stories, story_id)
+    var index = indexOf.call(person.stories, story_id)
     if (index>=0) {
       person.stories.splice(index, 1)
     }
