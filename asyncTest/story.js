@@ -90,7 +90,7 @@ function create(title, person_id, callback) {
 
 function findAll(callback) {
   // body...
-  Story.findById(function (error, storys) {
+  Story.find(function (error, storys) {
     // body...
     if (error) {
       callback(error)
