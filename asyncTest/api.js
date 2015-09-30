@@ -2,8 +2,8 @@ var mongoose   = require('mongoose');
 var express    = require('express');
 var router     = express.Router()
 
-var Person = require('./Person.js');
-var Story  = require('./Story.js');
+var Person = require('./person.js');
+var Story  = require('./story.js');
 
 var Story = mongoose.model('story')
 
