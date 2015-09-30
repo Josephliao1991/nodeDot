@@ -194,6 +194,7 @@ function deleteStory(person_id, story_id, callback) {
     console.log("Start To Delete Story In Person.Strries");
     var stories = person.stories
     var index = indexOf.call(person.stories, story_id)
+    console.log("Index : "+index);
     if (index>=0) {
       person.stories.splice(index, 1)
     }
