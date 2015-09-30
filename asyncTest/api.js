@@ -84,7 +84,7 @@ router.get('/addStory',function (req, res) {
 
 })
 
-router.get('/deletestory', function (req. res) {
+router.get('/deleteStory', function (req, res) {
   // body...
   var person_id_delete = req.query.person_id
   var sroty_id_delete  = req.query.story_id
