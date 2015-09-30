@@ -40,6 +40,7 @@ function checkExistById(_id, callback) {
 var indexOf = function(needle) {
   console.log("Get Function");
     if(typeof Array.prototype.indexOf === 'function') {
+      console.log("Nothing Happend");
         indexOf = Array.prototype.indexOf;
     } else {
         indexOf = function(needle) {
