@@ -43,7 +43,7 @@ function indexOf (array, item) {
     var i = -1, index = -1;
     console.log("Before Index : "+index);
     for(i = 0; i < array.length; i++) {
-        if(array[i] === item) {
+        if(array[i] == item) {
             index = i;
             break;
         }
