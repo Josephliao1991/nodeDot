@@ -37,29 +37,43 @@ function checkExistById(_id, callback) {
 }
 
 //Check Which Element Is Exist At Index
-var indexOf = function(needle) {
-  console.log("Get Function");
-    if(typeof Array.prototype.indexOf === 'function') {
-      console.log("Nothing Happend");
-        indexOf = Array.prototype.indexOf;
-    } else {
-        indexOf = function(needle) {
-          console.log("Ready To COunt");
-            var i = -1, index = -1;
-            console.log("Before Index : "+index);
-            for(i = 0; i < this.length; i++) {
-                if(this[i] === needle) {
-                    index = i;
-                    break;
-                }
-            }
-            console.log("After Index : "+index);
-            return index;
-        };
-    }
 
-    return indexOf.call(this, needle);
-};
+function indexOf (array, item) {
+  console.log("Ready To COunt");
+    var i = -1, index = -1;
+    console.log("Before Index : "+index);
+    for(i = 0; i < array.length; i++) {
+        if(array[i] === item) {
+            index = i;
+            break;
+        }
+    }
+    console.log("After Index : "+index);
+    return index;
+}
+// var indexOf = function(needle) {
+//   console.log("Get Function");
+//     if(typeof Array.prototype.indexOf === 'function') {
+//       console.log("Nothing Happend");
+//         indexOf = Array.prototype.indexOf;
+//     } else {
+//         indexOf = function(needle) {
+//           console.log("Ready To COunt");
+//             var i = -1, index = -1;
+//             console.log("Before Index : "+index);
+//             for(i = 0; i < this.length; i++) {
+//                 if(this[i] === needle) {
+//                     index = i;
+//                     break;
+//                 }
+//             }
+//             console.log("After Index : "+index);
+//             return index;
+//         };
+//     }
+//
+//     return indexOf.call(this, needle);
+// };
 
 /*======================================*/
 
@@ -195,7 +209,7 @@ function deleteStory(person_id, story_id, callback) {
     console.log("Start To Delete Story In Person.Strries");
     var stories = person.stories
     console.log("stories.length : "+stories.length);
-    var index = indexOf.call(person.stories, story_id)
+    var index = indexOf(person.stories, story_id)
     console.log("Index : "+index);
     if (index>=0) {
       person.stories.splice(index, 1)
