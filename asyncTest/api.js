@@ -5,7 +5,6 @@ var router     = express.Router()
 var Person = require('./person.js');
 var Story  = require('./story.js');
 
-var Story = mongoose.model('story')
 
 router.get('/getAllPerson', function (req, res) {
   // body...
@@ -70,6 +69,8 @@ router.get('/createStory',function (req, res) {
     }
 
     var story_id = result.data._id
+
+    console.log("Story Is CreateD, Story_id : "+story_id);
 
     Person.addStory(person_id_create, story_id, function (error, result) {
       // body...
