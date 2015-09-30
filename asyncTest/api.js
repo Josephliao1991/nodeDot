@@ -49,12 +49,12 @@ router.get('/createPerson',function (req, res) {
   })
 })
 
-router.get('/addStory',function (req, res) {
+router.get('/createStory',function (req, res) {
   // body...
   var person_id_create   = req.query.person_id
   var title_create  = req.query.title
 
-  if (name_create==null || title_create==null) {
+  if (person_id_create==null || title_create==null) {
     return res.send({reqult  : false,
                      message : "Fail, Lost Some ParamS"})
   }
