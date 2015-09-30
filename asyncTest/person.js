@@ -44,6 +44,7 @@ var indexOf = function(needle) {
         indexOf = Array.prototype.indexOf;
     } else {
         indexOf = function(needle) {
+          console.log("Ready To COunt");
             var i = -1, index = -1;
             console.log("Before Index : "+index);
             for(i = 0; i < this.length; i++) {
