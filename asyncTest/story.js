@@ -60,7 +60,7 @@ var indexOf = function(needle) {
 
 /*======================================*/
 
-function create(title, person_id callback) {
+function create(title, person_id, callback) {
   // body...
   checkExistByTitle(title, function (error, exist) {
     // body...
