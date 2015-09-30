@@ -65,12 +65,12 @@ function create(name, callback) {
   checkExistByName(name, function (error, exist) {
     // body...
     if (error) {
-      callback(error)
+      return callback(error)
     }
 
     if (exist) {
-      callback(null, {result  : false,
-                      message : "Fail, Person Is ExisteD!" })
+      return callback(null, {result  : false,
+                             message : "Fail, Person Is ExisteD!" })
     }
 
     Person.create({
@@ -79,7 +79,7 @@ function create(name, callback) {
     },function (error, person) {
       // body...
       if (error) {
-        callback(error)
+        return callback(error)
       }
 
       callback(null,{result : true,
@@ -93,7 +93,7 @@ function findAll(callback) {
   Person.find(function (error, persons) {
     // body...
     if (error) {
-      callback(error)
+      return callback(error)
     }
 
     callback(null, persons)
@@ -106,7 +106,7 @@ function findById(_id, callback) {
   Person.findById({_id : _id}, function (error, person) {
     // body...
     if (error) {
-      callback(error)
+      return callback(error)
     }
 
     callback(null, person)
@@ -146,12 +146,12 @@ function addStory(person_id, story_id, callback) {
   Person.findById({_id : person_id},function (error, person) {
     // body...
     if (error) {
-      callback(error)
+      return callback(error)
     }
 
     if (!person) {
-      callback(null, {result  : false,
-                      message : "Fail, Person Is Not ExisteD!" })
+      return callback(null, {result  : false,
+                             message : "Fail, Person Is Not ExisteD!" })
     }
 
     //Check Story Is Exist
@@ -159,8 +159,8 @@ function addStory(person_id, story_id, callback) {
     var index = indexOf.call(stories, story_id)
     if (index>=0) {
       // person.stories.splice(index, 1)
-      callback(null, {result  : false,
-                      message : "Fail, Story Is ExisteD!" })
+      return callback(null, {result  : false,
+                             message : "Fail, Story Is ExisteD!" })
     }
 
     person.stories.push(story_id)
@@ -168,7 +168,7 @@ function addStory(person_id, story_id, callback) {
     return person.save(function (error, person) {
       // body...
       if (error) {
-        callback(error)
+        return callback(error)
       }
       callback(null, {result  : true,
                       data    : person})

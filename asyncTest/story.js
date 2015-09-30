@@ -65,12 +65,12 @@ function create(title, person_id, callback) {
   checkExistByTitle(title, function (error, exist) {
     // body...
     if (error) {
-      callback(error)
+      return callback(error)
     }
 
     if (exist) {
-      callback(null, {result  : false,
-                      message : "Fail, Story Is ExisteD!" })
+      return callback(null, {result  : false,
+                             message : "Fail, Story Is ExisteD!" })
     }
 
     Story.create({
@@ -79,7 +79,7 @@ function create(title, person_id, callback) {
     },function (error, story) {
       // body...
       if (error) {
-        callback(error)
+        return callback(error)
       }
 
       callback(null,{result : true,
@@ -93,7 +93,7 @@ function findAll(callback) {
   Story.find(function (error, storys) {
     // body...
     if (error) {
-      callback(error)
+      return callback(error)
     }
 
     callback(null, storys)
@@ -106,7 +106,7 @@ function findById(_id, callback) {
   Story.findOne({_id : _id}, function (error, story) {
     // body...
     if (error) {
-      callback(error)
+      return callback(error)
     }
 
     callback(null, story)
@@ -119,12 +119,12 @@ function updateTitle(_id, title, callback) {
   Story.findOne({_id : _id},function (error, story) {
     // body...
     if (error) {
-      callback(error)
+      return callback(error)
     }
 
     if (!story) {
-      callback(null, {result  : false,
-                      message : "Fail, Story Is Not ExisteD!" })
+      return callback(null, {result  : false,
+                             message : "Fail, Story Is Not ExisteD!" })
     }
 
     story.title = title
@@ -132,7 +132,7 @@ function updateTitle(_id, title, callback) {
     return story.save(function (error, story) {
       // body...
       if (error) {
-        callback(error)
+        return callback(error)
       }
       callback(null, {result  : true,
                       data    : story})
@@ -146,12 +146,12 @@ function deleteById(story_id, callback) {
   Story.findOne({_id : story_id},function (error, story) {
     // body...
     if (error) {
-      callback(error)
+      return callback(error)
     }
 
     if (!story) {
-      callback(null, {result  : false,
-                      message : "Fail, Story Is Not ExisteD!" })
+      return callback(null, {result  : false,
+                             message : "Fail, Story Is Not ExisteD!" })
     }
 
     story.remove(function (error) {
