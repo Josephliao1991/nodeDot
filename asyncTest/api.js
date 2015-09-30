@@ -88,9 +88,9 @@ router.get('/createStory',function (req, res) {
 router.get('/deleteStory', function (req, res) {
   // body...
   var person_id_delete = req.query.person_id
-  var sroty_id_delete  = req.query.story_id
+  var stroy_id_delete  = req.query.story_id
 
-  Person.deleteStory(person_id_delete, sroty_id_delete, function (error, result) {
+  Person.deleteStory(person_id_delete, stroy_id_delete, function (error, result) {
     // body...
     if (error) {
       return res.send(error)
@@ -99,7 +99,7 @@ router.get('/deleteStory', function (req, res) {
     res.json(result)
   })
 
-  Story.deleteById(story_id_delete, function (error, result) {
+  Story.deleteById(stroy_id_delete, function (error, result) {
     // body...
     console.log("Story Is Delete");
 
