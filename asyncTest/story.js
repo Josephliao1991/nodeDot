@@ -103,7 +103,7 @@ function findAll(callback) {
 
 function findById(_id, callback) {
   // body...
-  Story.findById({_id : _id}, function (error, story) {
+  Story.findOne({_id : _id}, function (error, story) {
     // body...
     if (error) {
       callback(error)
@@ -116,7 +116,7 @@ function findById(_id, callback) {
 
 function updateTitle(_id, title, callback) {
   // body...
-  Story.findById({_id : _id},function (error, story) {
+  Story.findOne({_id : _id},function (error, story) {
     // body...
     if (error) {
       callback(error)
@@ -143,7 +143,7 @@ function updateTitle(_id, title, callback) {
 
 function deleteById(story_id, callback) {
   // body...
-  Story.findById({_id : story_id},function (error, story) {
+  Story.findOne({_id : story_id},function (error, story) {
     // body...
     if (error) {
       callback(error)
@@ -161,7 +161,7 @@ function deleteById(story_id, callback) {
     }
     callback(null,{result  : true,
                    message : "Success, Story Is Delete"})
-  })
+   })
 
   })
 }
