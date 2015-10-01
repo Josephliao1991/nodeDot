@@ -198,7 +198,7 @@ function addDeviceList(_id, inedot_id, callback) {
     }
 
     //3.Add inedot in to center.deviceList
-    center.DeviceList.push(inedot_id)
+    center.deviceList.push(inedot_id)
 
     return center.save(function (error, center) {
       // body...
