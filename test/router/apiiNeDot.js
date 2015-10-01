@@ -58,7 +58,7 @@ function createCPush(pushPeople, inedot_macAddr, callback) {
     //3. Create CPush
     console.log("pushCenterS : "+pushCenters);
     for (var i = 0; i < pushCenters.length; i++) {
-      cpush.Create(pushCenters[i], inedot_macAddr, 0, function (error, result) {
+      cpush.create(pushCenters[i], inedot_macAddr, 0, function (error, result) {
         // body...
       })
       center.addDeviceList(pushCenters[i], inedot_macAddr, function (error, result) {
