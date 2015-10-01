@@ -121,8 +121,9 @@ router.post('/create',function (req, res) {
   // console.log('pushGroup_create: '+pushGroup_create.length);
   // console.log('situation_create: '+situation_create.mornitor.alert.value);
 
-  if (!macAddr_create || !owner_create || !connectState_create ||
-      !name_create || !battery_create || !pushGroup_create || !situation_create) {
+  if ( (macAddr_create != null) || (owner_create != null) || (connectState_create != null) ||
+      (name_create != null) || (battery_create != null) || (pushGroup_create != null) ||
+      (pushPeople_create != null) || (situation_create != null) {
         return res.json({result : false,
                          message : "fail,lost some params"})
   }
@@ -165,7 +166,7 @@ router.post('/create',function (req, res) {
             createCPush(pushPeople_create, function (error, result) {
               // body...
               console.log(result);
-              
+
             })
 
             var inedot_id = result.data._id
