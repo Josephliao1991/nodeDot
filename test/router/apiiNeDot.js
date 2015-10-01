@@ -129,6 +129,16 @@ router.post('/create',function (req, res) {
             if (result.result == false) {
               return res.json(result)
             }
+
+            //Create CPush Table
+            group.findByIds(pushGroup_create, function (error, groups) {
+              // body...
+              if (error) {
+                console.log(error);
+              }
+              console.log(group);
+            })
+            
             var inedot_id = result.data._id
             //3. connect Person & iNeDot
             person.addiNedot(owner_create, inedot_id, function (error, result) {
@@ -143,16 +153,7 @@ router.post('/create',function (req, res) {
               res.json(result)
             })
 
-            //Create CPush Table
-            group.findByIds(pushGroup_create, function (error, groups) {
-              // body...
-              if (error) {
-                console.log(error);
-              }
-              console.log(group);
 
-
-            })
 
           })
   })
