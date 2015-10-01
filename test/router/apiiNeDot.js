@@ -123,7 +123,7 @@ router.post('/create',function (req, res) {
 
   if ( (macAddr_create != null) || (owner_create != null) || (connectState_create != null) ||
       (name_create != null) || (battery_create != null) || (pushGroup_create != null) ||
-      (pushPeople_create != null) || (situation_create != null) {
+      (pushPeople_create != null) || (situation_create != null) ){
         return res.json({result : false,
                          message : "fail,lost some params"})
   }
