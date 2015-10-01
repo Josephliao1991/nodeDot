@@ -136,7 +136,10 @@ router.post('/create',function (req, res) {
               if (error) {
                 console.log(error);
               }
-              console.log("Group : : "+group);
+              console.log("Group : : "+groups);
+              for (var i = 0; i < groups.length; i++) {
+                console.log("groups["+i+"]"+groups[i]);
+              }
             })
 
             var inedot_id = result.data._id
