@@ -153,7 +153,7 @@ router.post('/create',function (req, res) {
               if (error) {
                 console.log(error);
               }
-              console.log("Group : : "+groups);
+              console.log("Group : : "+groups["members"]);
               for (var i = 0; i < groups.length; i++) {
                 console.log("groups["+i+"]"+groups[i]);
               }
