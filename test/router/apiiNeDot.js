@@ -6,7 +6,7 @@ var inedot = require('../lib/inedot.js');
 var center = require('../lib/center.js');
 var person = require('../lib/person.js');
 var group  = require('../lib/group.js');
-
+var cpush  = require('../lib/cpush.js');
 
 function checkPersoniNeDotExist(person_id, inedot_id, callback) {
   // body...
@@ -39,7 +39,7 @@ function checkPersoniNeDotExist(person_id, inedot_id, callback) {
 
 }
 
-function createCPush(pushPeople, callback) {
+function createCPush(pushPeople, inedot_macAddr, callback) {
   // body...
   //1. Get All People
   person.findByIds(pushPeople, function (error, people) {
@@ -49,12 +49,23 @@ function createCPush(pushPeople, callback) {
     }
     //2. Get All Center In Member
     var pushCenters = []
-    // console.log("Group : : "+groups["members"]);
+
     for (var i = 0; i < people.length; i++) {
-      console.log("people["+i+"].centers"+people[i].centers);
+      // console.log("people["+i+"].centers"+people[i].centers);
       pushCenters.push(people[i].centers)
     }
+
+    //3. Create CPush
     console.log("pushCenterS : "+pushCenters);
+    for (var i = 0; i < pushCenters.length; i++) {
+      cpush.Create(pushCenters[i], inedot_macAddr, 0, function (error, result) {
+        // body...
+      })
+      center.addDeviceList(pushCenters[i], inedot_macAddr, function (error, result) {
+        // body...
+      })
+    }
+
     callback(null,1)
   })
 
@@ -163,7 +174,7 @@ router.post('/create',function (req, res) {
             //     console.log("groups["+i+"]"+groups[i]);
             //   }
             // })
-            createCPush(pushPeople_create, function (error, result) {
+            createCPush(pushPeople_create, macAddr_create, function (error, result) {
               // body...
               console.log(result);
 
