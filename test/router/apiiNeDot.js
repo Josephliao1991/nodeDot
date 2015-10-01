@@ -52,7 +52,11 @@ function createCPush(pushPeople, inedot_macAddr, callback) {
 
     for (var i = 0; i < people.length; i++) {
       // console.log("people["+i+"].centers"+people[i].centers);
-      pushCenters.push(people[i].centers)
+      var centers = people[i].centers
+      //Get Center Push To pushCenters Array
+      for (var i = 0; i < centers.length; i++) {
+        pushCenters.push(centers[i])
+      }
     }
 
     //3. Create CPush
