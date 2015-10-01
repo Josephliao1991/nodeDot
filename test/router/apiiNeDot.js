@@ -52,9 +52,9 @@ function createCPush(pushPeople, callback) {
     // console.log("Group : : "+groups["members"]);
     for (var i = 0; i < people.length; i++) {
       console.log("people["+i+"].centers"+people[i].centers);
-
+      pushCenters.push(people[i].centers)
     }
-
+    console.log("pushCenterS : "+pushCenters);
     callback(null,1)
   })
 
