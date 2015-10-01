@@ -136,9 +136,9 @@ router.post('/create',function (req, res) {
               if (error) {
                 console.log(error);
               }
-              console.log(group);
+              console.log("Group : : "+group);
             })
-            
+
             var inedot_id = result.data._id
             //3. connect Person & iNeDot
             person.addiNedot(owner_create, inedot_id, function (error, result) {
