@@ -39,7 +39,7 @@ function checkPersoniNeDotExist(person_id, inedot_id, callback) {
 
 }
 
-function createCPush(pushPeople, inedot_macAddr, callback) {
+function createCPush(pushPeople, inedot_macAddr, inedot_id, callback) {
   // body...
   //1. Get All People
   person.findByIds(pushPeople, function (error, people) {
@@ -65,7 +65,7 @@ function createCPush(pushPeople, inedot_macAddr, callback) {
       cpush.create(pushCenters[i], inedot_macAddr, 0, function (error, result) {
         // body...
       })
-      center.addDeviceList(pushCenters[i], inedot_macAddr, function (error, result) {
+      center.addDeviceList(pushCenters[i], inedot_id, function (error, result) {
         // body...
       })
     }
@@ -167,24 +167,13 @@ router.post('/create',function (req, res) {
               return res.json(result)
             }
 
+            var inedot_id = result.data._id
+
             //Create CPush Table
-            // group.findByIds(pushGroup_create, function (error, groups) {
-            //   // body...
-            //   if (error) {
-            //     console.log(error);
-            //   }
-            //   // console.log("Group : : "+groups["members"]);
-            //   for (var i = 0; i < groups.length; i++) {
-            //     console.log("groups["+i+"]"+groups[i]);
-            //   }
-            // })
-            createCPush(pushPeople_create, macAddr_create, function (error, result) {
+            createCPush(pushPeople_create, macAddr_create, inedot_id, function (error, result) {
               // body...
               console.log(result);
-
             })
-
-            var inedot_id = result.data._id
             //3. connect Person & iNeDot
             person.addiNedot(owner_create, inedot_id, function (error, result) {
               // body...
