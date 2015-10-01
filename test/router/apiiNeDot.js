@@ -5,7 +5,7 @@ var mongoose = require('mongoose');
 var inedot = require('../lib/inedot.js');
 var center = require('../lib/center.js');
 var person = require('../lib/person.js');
-
+var group  = require('../lib/group.js');
 
 
 function checkPersoniNeDotExist(person_id, inedot_id, callback) {
@@ -90,7 +90,6 @@ router.post('/create',function (req, res) {
   var name_create           = req.body.name
   var battery_create        = req.body.battery
   var pushGroup_create      = req.body.pushGroup
-  // pushGroup_create  =
   var situation_create      = req.body.situation
 
   // console.log('macAddr_create: '+macAddr_create);
@@ -98,8 +97,8 @@ router.post('/create',function (req, res) {
   // console.log('connectState_create: '+connectState_create);
   // console.log('name_create: '+name_create);
   // console.log('battery_create: '+battery_create);
-  console.log('pushGroup_create: '+pushGroup_create.length);
-  console.log('situation_create: '+situation_create.mornitor.alert.value);
+  // console.log('pushGroup_create: '+pushGroup_create.length);
+  // console.log('situation_create: '+situation_create.mornitor.alert.value);
 
   if (!macAddr_create || !owner_create || !connectState_create ||
       !name_create || !battery_create || !pushGroup_create || !situation_create) {
@@ -143,6 +142,18 @@ router.post('/create',function (req, res) {
               }
               res.json(result)
             })
+
+            //Create CPush Table
+            group.findByIds(pushGroup_create, function (error, groups) {
+              // body...
+              if (error) {
+                console.log(error);
+              }
+              console.log(group);
+
+
+            })
+
           })
   })
 })

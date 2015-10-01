@@ -70,6 +70,18 @@ function findById(_id, callback) {
   })
 }
 
+function findByIds(_ids, callback) {
+  // body...
+  Group.find({_id : {$in : _ids}},function (error, group) {
+    // body...
+    if (error) {
+      return callback(error)
+    }
+    console.log('/Group/findByIds => '+group);
+    callback(null,group)
+  })
+}
+
 function findByLeader(person_id, callback) {
   // body...
   Group.find({leader : person_id},function (error, groups) {
@@ -341,6 +353,7 @@ function create(person_id, name, callback) {
    checkExistById     : checkExistById,
 
    findById       : findById,
+   findByIds      : findByIds,
    findByLeader   : findByLeader,
    findAll        : findAll,
 
