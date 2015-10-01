@@ -39,6 +39,23 @@ function checkPersoniNeDotExist(person_id, inedot_id, callback) {
 
 }
 
+function createCPush(pushGroup, callback) {
+  // body...
+  //1. Get All Groups
+  group.findByIds(pushGroup, function (error, groups) {
+    // body...
+    if (error) {
+      console.log(error);
+    }
+    //2. Get All Group Member
+    console.log("Group : : "+groups["members"]);
+    for (var i = 0; i < groups.length; i++) {
+      console.log("groups["+i+"]"+groups[i]);
+    }
+  })
+
+}
+
 /*======================================================*/
 
 
