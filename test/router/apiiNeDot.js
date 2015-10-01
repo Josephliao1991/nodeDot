@@ -50,13 +50,13 @@ function createCPush(pushPeople, inedot_macAddr, inedot_id, callback) {
     //2. Get All Center In Member
     var pushCenters = []
     console.log("PushPeople : "+people +" People.length : "+people.length);
-    for (var i = 0; i < 2; i++) {
+    for (var i = 0; i < people.length; i++) {
       console.log("people["+i+"].centers : "+people[i].centers);
       var people_centers = people[i].centers
 
       //Get Center Push To pushCenters Array
-      for (var i = 0; i < people_centers.length; i++) {
-        pushCenters.push(people_centers[i])
+      for (var j = 0; j < people_centers.length; j++) {
+        pushCenters.push(people_centers[j])
       }
     }
 
