@@ -68,13 +68,13 @@ function findById(_id, callback) {
 
 function findByIds(_ids, callback) {
   // body...
-  Person.find({_id : {$in : _ids}},function (error, person) {
+  Person.find({_id : {$in : _ids}},function (error, people) {
     // body...
     if (error) {
       return callback(error)
     }
-    console.log('/Person/findByIds => '+person);
-    callback(null,person)
+    console.log('/Person/findByIds => '+people);
+    callback(null,people)
   })
 }
 
