@@ -39,19 +39,23 @@ function checkPersoniNeDotExist(person_id, inedot_id, callback) {
 
 }
 
-function createCPush(pushGroup, callback) {
+function createCPush(pushPeople, callback) {
   // body...
-  //1. Get All Groups
-  group.findByIds(pushGroup, function (error, groups) {
+  //1. Get All People
+  person.findByIds(pushPeople, function (error, people) {
     // body...
     if (error) {
       console.log(error);
     }
-    //2. Get All Group Member
-    console.log("Group : : "+groups["members"]);
-    for (var i = 0; i < groups.length; i++) {
-      console.log("groups["+i+"]"+groups[i]);
+    //2. Get All Center In Member
+    var pushCenters = []
+    // console.log("Group : : "+groups["members"]);
+    for (var i = 0; i < people.length; i++) {
+      console.log("people["+i+"].centers"+people[i].centers);
+
     }
+
+    callback(null,1)
   })
 
 }
@@ -98,7 +102,6 @@ router.get('/findByMacAddr',function (req, res) {
 })
 
 
-
 router.post('/create',function (req, res) {
   // body...
   var macAddr_create        = req.body.macAddr
@@ -107,6 +110,7 @@ router.post('/create',function (req, res) {
   var name_create           = req.body.name
   var battery_create        = req.body.battery
   var pushGroup_create      = req.body.pushGroup
+  var pushPeople_create     = req.body.pushPeople
   var situation_create      = req.body.situation
 
   // console.log('macAddr_create: '+macAddr_create);
@@ -137,7 +141,7 @@ router.post('/create',function (req, res) {
     //**Route To @ Part, Normal Mode & Mornitor Mode
     //2. Create iNeDot
     inedot.create(macAddr_create, owner_create, connectState_create,
-                  name_create,  battery_create, pushGroup_create, situation_create,
+                  name_create,  battery_create, pushGroup_create, pushPeople_create, situation_create,
           function (error, result) {
             // body...
             if (error) {
@@ -148,15 +152,20 @@ router.post('/create',function (req, res) {
             }
 
             //Create CPush Table
-            group.findByIds(pushGroup_create, function (error, groups) {
+            // group.findByIds(pushGroup_create, function (error, groups) {
+            //   // body...
+            //   if (error) {
+            //     console.log(error);
+            //   }
+            //   // console.log("Group : : "+groups["members"]);
+            //   for (var i = 0; i < groups.length; i++) {
+            //     console.log("groups["+i+"]"+groups[i]);
+            //   }
+            // })
+            createCPush(pushPeople_create, function (error, result) {
               // body...
-              if (error) {
-                console.log(error);
-              }
-              console.log("Group : : "+groups["members"]);
-              for (var i = 0; i < groups.length; i++) {
-                console.log("groups["+i+"]"+groups[i]);
-              }
+              console.log(result);
+              
             })
 
             var inedot_id = result.data._id

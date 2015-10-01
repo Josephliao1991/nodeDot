@@ -68,7 +68,7 @@ function findById(_id, callback) {
 
 }
 
-function create(macAddr, owner, connectState, name, battery, pushGroup, situation, callback) {
+function create(macAddr, owner, connectState, name, battery, pushGroup, pushPeople, situation, callback) {
   // body...
   var macAddr        = macAddr
   var owner          = owner
@@ -76,6 +76,7 @@ function create(macAddr, owner, connectState, name, battery, pushGroup, situatio
   var name           = name
   var battery        = battery
   var pushGroup      = pushGroup
+  var pushPeople     = pushPeople
   var situation      = situation
 
 
@@ -149,7 +150,7 @@ function create(macAddr, owner, connectState, name, battery, pushGroup, situatio
       name           : name,
       battery        : battery,
       pushGroup      : pushGroup,
-      pushPoeple     : [],
+      pushPoeple     : pushPeople,
       situation      : situation
 
     },function (error, inedot) {
