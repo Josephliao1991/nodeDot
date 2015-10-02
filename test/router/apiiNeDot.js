@@ -311,7 +311,7 @@ router.post('/updatePushGroup',function (req, res) {
   var pushGroup_update      = req.body.pushGroup
   var pushPeople_update     = req.body.pushPeople
 
-  if (inedot_id_update==null || pushGroup_update==nil || pushPeople_update==null) {
+  if (inedot_id_update==null || pushGroup_update==null || pushPeople_update==null) {
     return res.json({result : false,
                      message : "fail,lost some params(_id, pushGroup, pushPeople)"})
   }
