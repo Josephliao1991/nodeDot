@@ -321,7 +321,7 @@ router.post('/updatePushGroup',function (req, res) {
     // body...
     //Create CPush
     var situation = inedot.situation
-    res.json(situation)
+    res.json(""+situation)
     // console.log("UPData: situation: "+ situation[0]);
 
     //Save iNeDot Data
