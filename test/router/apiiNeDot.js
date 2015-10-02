@@ -129,8 +129,7 @@ router.post('/create',function (req, res) {
   var pushPeople_create     = req.body.pushPeople
   var situation_create      = req.body.situation
 
-  var inedotType  = situation_create
-  console.log("iNeDot Type : "+inedotType.type);
+  var inedotType  = situation_create.type
   // console.log('macAddr_create: '+macAddr_create);
   // console.log('owner_create: '+owner_create);
   // console.log('connectState_create: '+connectState_create);
@@ -173,10 +172,14 @@ router.post('/create',function (req, res) {
             var inedot_id = result.data._id
 
             //Create CPush Table
-            createCPush(pushPeople_create, macAddr_create, inedot_id, function (error, result) {
-              // body...
-              console.log(result);
-            })
+            if (inedotType == 0 /* iNeDot In Motnitor Mode */) {
+              console.log("iNeDot Type : "+inedotType);
+              createCPush(pushPeople_create, macAddr_create, inedot_id, function (error, result) {
+                // body...
+                console.log(result);
+              })
+            }
+
             //3. connect Person & iNeDot
             person.addiNedot(owner_create, inedot_id, function (error, result) {
               // body...
@@ -189,9 +192,6 @@ router.post('/create',function (req, res) {
               }
               res.json(result)
             })
-
-
-
           })
   })
 })
