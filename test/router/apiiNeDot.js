@@ -321,19 +321,20 @@ router.post('/updatePushGroup',function (req, res) {
     // body...
     //Create CPush
     var situation = inedot.situation
-    console.log("UPData: situation: "+ situation);
+    console.log("UPData: situation: "+ situation[0]);
+    
     //Save iNeDot Data
-    inedot.updatePushGroup(inedot_id_update, pushGroup_update, pushPeople_update,
-                   function (error, result) {
-                     // body...
-                     if (error) {
-                       return res.send(error)
-                     }
-                     if (result.result == false) {
-                       return res.json(result)
-                     }
-                     res.json(result)
-                   })
+    // inedot.updatePushGroup(inedot_id_update, pushGroup_update, pushPeople_update,
+    //                function (error, result) {
+    //                  // body...
+    //                  if (error) {
+    //                    return res.send(error)
+    //                  }
+    //                  if (result.result == false) {
+    //                    return res.json(result)
+    //                  }
+    //                  res.json(result)
+    //                })
 
   })
 
