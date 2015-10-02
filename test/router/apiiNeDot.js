@@ -317,7 +317,7 @@ router.post('/updatePushGroup',function (req, res) {
   }
 
   //1. Get Ole iNeDot First
-  inedot.findById(_id, function (error, inedot) {
+  inedot.findById(inedot_id_update, function (error, inedot) {
     // body...
     //Create CPush
     var situation = inedot.situation[0]
