@@ -129,7 +129,7 @@ router.post('/create',function (req, res) {
   var pushPeople_create     = req.body.pushPeople
   var situation_create      = req.body.situation
 
-  var inedotTyp  = situation_create[0].type
+  var inedotTyp  = situation_create[0]
   console.log("iNeDot Type : "+inedotTyp);
   // console.log('macAddr_create: '+macAddr_create);
   // console.log('owner_create: '+owner_create);
