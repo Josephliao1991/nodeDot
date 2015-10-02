@@ -94,7 +94,14 @@ var c_push  = new Schema({
   // group_id          : String,
   center_macAddr    : String,
   inedot_macAddr    : String,
-  command           : Number, // 0/1/2; /connect&setting /disconnect /deleteFromList
+  command           : Number,
   checkMark         : Boolean
+
+  // :::::: command :::::: //
+  // 0 ==> connect         //
+  // 1 ==> setting         //
+  // 3 ==> disConnect      //
+  // 4 ==> deleteFromLeis  //
+  // :::::: command :::::: //
 })
 mongoose.model( 'c_push', c_push );

@@ -291,7 +291,7 @@ function updateBattery(_id, battery, callback) {
 }
 
 //Update PushGroup
-function updatePushGroup(_id, pushGroup, callback) {
+function updatePushGroup(_id, pushGroup, pushPeople, callback) {
   // body...
   iNeDot.findById({_id : _id}, function (error, inedot) {
     // body...
@@ -304,7 +304,10 @@ function updatePushGroup(_id, pushGroup, callback) {
                             message : "fail,inedot is not exist"})
     }
 
-    if (pushGroup) {inedot.pushGroup = pushGroup}
+    if (pushGroup!=null && pushPeople!=null ) {
+      inedot.pushGroup  = pushGroup
+      inedot.pushPeople = pushPeople
+    }
 
     return inedot.save(function (error, inedot) {
       // body...

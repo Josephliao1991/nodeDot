@@ -309,23 +309,34 @@ router.post('/updatePushGroup',function (req, res) {
 
   var inedot_id_update      = req.body._id
   var pushGroup_update      = req.body.pushGroup
+  var pushPeople_update     = req.body.pushPeople
 
-  if (!inedot_id_update || !pushGroup_update) {
+  if (inedot_id_update==null || pushGroup_update==nil || pushPeople_update==null) {
     return res.json({result : false,
-                     message : "fail,lost some params(_id,pushGroup)"})
+                     message : "fail,lost some params(_id, pushGroup, pushPeople)"})
   }
 
-  inedot.updatePushGroup(inedot_id_update, pushGroup_update,
-                 function (error, result) {
-                   // body...
-                   if (error) {
-                     return res.send(error)
-                   }
-                   if (result.result == false) {
-                     return res.json(result)
-                   }
-                   res.json(result)
-                 })
+  //1. Get Ole iNeDot First
+  inedot.findById(_id, function (error, inedot) {
+    // body...
+    //Create CPush
+    var situation = inedot.situation[0]
+    console.log("UPData: situation: "+ situation);
+    //Save iNeDot Data
+    inedot.updatePushGroup(inedot_id_update, pushGroup_update, pushPeople_update,
+                   function (error, result) {
+                     // body...
+                     if (error) {
+                       return res.send(error)
+                     }
+                     if (result.result == false) {
+                       return res.json(result)
+                     }
+                     res.json(result)
+                   })
+
+  })
+
 })
 
 //Update Situation
