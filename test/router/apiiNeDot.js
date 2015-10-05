@@ -122,19 +122,20 @@ router.post('/create',function (req, res) {
   // body...
   var macAddr_create        = req.body.macAddr
   var owner_create          = req.body.owner
-  var connectState_create   = req.body.connectState
   var name_create           = req.body.name
+
+  var connectState_create   = req.body.connectState
   var battery_create        = req.body.battery
+
+  var type_create           = req.body.type
+  // var nowSet_create         = req.body.nowSet
+  // var center_create         = req.body.center
+
   var pushGroup_create      = req.body.pushGroup
   var pushPeople_create     = req.body.pushPeople
+
   var situation_create      = req.body.situation
 
-
-  console.log("iNeDot Type : "+situation_create[0]);
-  var inedotType  = situation_create[0].type
-  console.log("iNeDot Type : "+inedotType);
-
-  return res.send("Test End")
   // console.log('macAddr_create: '+macAddr_create);
   // console.log('owner_create: '+owner_create);
   // console.log('connectState_create: '+connectState_create);
@@ -144,8 +145,9 @@ router.post('/create',function (req, res) {
   // console.log('situation_create: '+situation_create.mornitor.alert.value);
 
   if ( (macAddr_create == null) || (owner_create == null) || (connectState_create == null) ||
-      (name_create == null) || (battery_create == null) || (pushGroup_create == null) ||
-      (pushPeople_create == null) || (situation_create == null) ){
+      (name_create == null) || (battery_create == null) || (type_create == null) ||
+      (pushGroup_create == null) || (pushPeople_create == null) || (situation_create == null) )
+      {
         return res.json({result : false,
                          message : "fail,lost some params"})
   }
@@ -163,8 +165,10 @@ router.post('/create',function (req, res) {
 
     //**Route To @ Part, Normal Mode & Mornitor Mode
     //2. Create iNeDot
+
     inedot.create(macAddr_create, owner_create, connectState_create,
-                  name_create,  battery_create, pushGroup_create, pushPeople_create, situation_create,
+                  name_create,  battery_create, type_create, pushGroup_create,
+                  pushPeople_create, situation_create,
           function (error, result) {
             // body...
             if (error) {
@@ -174,10 +178,8 @@ router.post('/create',function (req, res) {
               return res.json(result)
             }
 
-            var inedot_id = result.data._id
-
             //Create CPush Table
-            if (inedotType == 0 /* iNeDot In Motnitor Mode */) {
+            if (type_create == 1 /* iNeDot In Motnitor Mode */) {
               console.log("iNeDot Type : "+inedotType);
               createCPush(pushPeople_create, macAddr_create, inedot_id, function (error, result) {
                 // body...
@@ -207,10 +209,16 @@ router.post('/updateAll',function (req, res) {
   // body...
 
   var inedot_id_update      = req.body._id
+  var nowSe_update          = req.body.nowSet
+
   var connectState_update   = req.body.connectState
   var name_update           = req.body.name
   var battery_update        = req.body.battery
-  var pushGroup_update      = req.body.pushGroup_update
+  var type_update           = req.body.type
+
+  var center_update         = req.body.center
+  var pushGroup_update      = req.body.pushGroup
+  var pushPeople_update      = req.body.pushPeople
   var situation_update      = req.body.situation
 
   if (!inedot_id_update) {
@@ -218,8 +226,8 @@ router.post('/updateAll',function (req, res) {
                      message : "fail,lost some params(_id)"})
   }
 
-  inedot.updateAll(inedot_id_update, connectState_update, name_update, battery_update,
-                   pushGroup_update, situation_update,
+  inedot.updateAll(inedot_id_update, nowSe_update, connectState_update, name_update, battery_update,
+                  type_update, center_update, pushGroup_update, pushPeople_update, situation_update,
                  function (error, result) {
                    // body...
                    if (error) {
@@ -238,6 +246,7 @@ router.post('/updateConnectState',function (req, res) {
   // body...
 
   var inedot_id_update      = req.body._id
+  var nowSet_update          = req.body.nowSet
   var connectState_update   = req.body.connectState
 
   if (!inedot_id_update || (connectState == null)) {
@@ -245,7 +254,7 @@ router.post('/updateConnectState',function (req, res) {
                      message : "fail,lost some params(_id,connectState)"})
   }
 
-  inedot.updateConnectState(inedot_id_update, connectState_update,
+  inedot.updateConnectState(inedot_id_update, nowSet_update, connectState_update,
                  function (error, result) {
                    // body...
                    if (error) {
@@ -270,7 +279,7 @@ router.post('/updateName',function (req, res) {
                      message : "fail,lost some params(_id,name)"})
   }
 
-  inedot.updateName(inedot_id_update, name_update,
+  inedot.updateName(inedot_id_update, nowSet_update, name_update,
                  function (error, result) {
                    // body...
                    if (error) {
@@ -295,7 +304,7 @@ router.post('/updateBattery',function (req, res) {
                      message : "fail,lost some params(_id,battery)"})
   }
 
-  inedot.updateBattery(inedot_id_update, battery_update,
+  inedot.updateBattery(inedot_id_update, nowSet_update, battery_update,
                  function (error, result) {
                    // body...
                    if (error) {
@@ -313,6 +322,7 @@ router.post('/updatePushGroup',function (req, res) {
   // body...
 
   var inedot_id_update      = req.body._id
+  var nowSet_update         = req.body.noSet
   var pushGroup_update      = req.body.pushGroup
   var pushPeople_update     = req.body.pushPeople
 
@@ -330,17 +340,17 @@ router.post('/updatePushGroup',function (req, res) {
     // console.log("UPData: situation: "+ situation[0]);
 
     //Save iNeDot Data
-    // inedot.updatePushGroup(inedot_id_update, pushGroup_update, pushPeople_update,
-    //                function (error, result) {
-    //                  // body...
-    //                  if (error) {
-    //                    return res.send(error)
-    //                  }
-    //                  if (result.result == false) {
-    //                    return res.json(result)
-    //                  }
-    //                  res.json(result)
-    //                })
+    inedot.updatePushGroup(inedot_id_update, nowSet_update, pushGroup_update, pushPeople_update,
+                   function (error, result) {
+                     // body...
+                     if (error) {
+                       return res.send(error)
+                     }
+                     if (result.result == false) {
+                       return res.json(result)
+                     }
+                     res.json(result)
+                   })
 
   })
 
@@ -351,6 +361,7 @@ router.post('/updateSituation',function (req, res) {
   // body...
 
   var inedot_id_update      = req.body._id
+  var nowSet_update         = req.body.nowSet
   var situation_update      = req.body.situation
 
   if (!inedot_id_update || !situation_update) {
@@ -358,7 +369,7 @@ router.post('/updateSituation',function (req, res) {
                      message : "fail,lost some params(_id,situation)"})
   }
 
-  inedot.updateSituation(inedot_id_update, situation_update,
+  inedot.updateSituation(inedot_id_update, nowSet_update, situation_update,
                  function (error, result) {
                    // body...
                    if (error) {
