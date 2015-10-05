@@ -2,7 +2,9 @@ require('./dbModel');
 var mongoose = require('mongoose');
 var iNeDot  = mongoose.model('inedot')
 
-
+/*======================================================*/
+/*  C H E C K   */
+/*======================================================*/
 function checkExistByMacAddr(macAddr, callback) {
   // body...
   iNeDot.find({macAddr  : macAddr}, function (error, inedot) {
@@ -16,7 +18,6 @@ function checkExistByMacAddr(macAddr, callback) {
     callback(null,null)
   })
 }
-
 function checkExistById(_id, callback) {
   // body...
   iNeDot.find({_id  : _id}, function (error, inedot) {
@@ -31,7 +32,9 @@ function checkExistById(_id, callback) {
   })
 }
 
-/*==================================================*/
+/*======================================================*/
+/*  F I N D   */
+/*======================================================*/
 
 function findAll(callback) {
   // body...
@@ -43,7 +46,6 @@ function findAll(callback) {
     callback(null, inedots)
   })
 }
-
 function findByMacAddr(macAddr, callback) {
   // body...
   iNeDot.find({macAddr  : macAddr}, function (error, inedot) {
@@ -55,7 +57,6 @@ function findByMacAddr(macAddr, callback) {
   })
 
 }
-
 function findById(_id, callback) {
   // body...
   iNeDot.find({_id  : _id}, function (error, inedot) {
@@ -68,6 +69,9 @@ function findById(_id, callback) {
 
 }
 
+/*======================================================*/
+/*  C R E A T E  */
+/*======================================================*/
 function create(macAddr, owner, connectState, name, battery, type, pushGroup, pushPeople, situation, callback) {
   // body...
   var macAddr        = macAddr
@@ -127,9 +131,9 @@ function create(macAddr, owner, connectState, name, battery, type, pushGroup, pu
 
 }
 
-
-//Update Data Next Step
-//Update All
+/*======================================================*/
+/*  U P D A T E    */
+/*======================================================*/
 function updateAll(_id, nowSet, connectState, name, battery, type, center, pushGroup, pushPoeple, situation, callback) {
   // body...
   iNeDot.findById({_id : _id}, function (error, inedot) {
@@ -165,9 +169,7 @@ function updateAll(_id, nowSet, connectState, name, battery, type, center, pushG
     })
   })
 }
-
-//Update ConnectState
-function updateConnectState(_id,nowSet, connectState, callback) {
+function updateConnectState(_id, connectState, callback) {
   // body...
   iNeDot.findById({_id : _id}, function (error, inedot) {
     // body...
@@ -181,7 +183,6 @@ function updateConnectState(_id,nowSet, connectState, callback) {
     }
 
     if ((connectState != null)) {inedot.connectState = connectState}
-    if (nowSet) {inedot.nowSet = nowSet}
 
     return inedot.save(function (error, inedot) {
       // body...
@@ -195,9 +196,7 @@ function updateConnectState(_id,nowSet, connectState, callback) {
     })
   })
 }
-
-//Update Name
-function updateName(_id, nowSet, name, callback) {
+function updateName(_id, name, callback) {
   // body...
   iNeDot.findById({_id : _id}, function (error, inedot) {
     // body...
@@ -225,9 +224,7 @@ function updateName(_id, nowSet, name, callback) {
     })
   })
 }
-
-//Update Battery
-function updateBattery(_id, nowSet, battery, callback) {
+function updateBattery(_id, battery, callback) {
   // body...
   iNeDot.findById({_id : _id}, function (error, inedot) {
     // body...
@@ -255,9 +252,7 @@ function updateBattery(_id, nowSet, battery, callback) {
     })
   })
 }
-
-//Update PushGroup
-function updatePushGroup(_id, nowSet, pushGroup, pushPeople, callback) {
+function updatePushGroup(_id, pushGroup, pushPeople, callback) {
   // body...
   iNeDot.findById({_id : _id}, function (error, inedot) {
     // body...
@@ -288,38 +283,6 @@ function updatePushGroup(_id, nowSet, pushGroup, pushPeople, callback) {
     })
   })
 }
-
-//Update Situation
-function updateCenter(_id, nowSet, center, callback) {
-  // body...
-  iNeDot.findById({_id : _id}, function (error, inedot) {
-    // body...
-    if (error) {
-      return callback(error)
-    }
-    if (!inedot) {
-      console.log('/device/inedot/updateCenter => fail,inedot is not exist \n inedot_id: '+_id);
-      return callback(null,{result  : false,
-                            message : "fail,inedot is not exist"})
-    }
-
-    if (center) {inedot.center = center}
-    if (nowSet) {inedot.nowSet = nowSet}
-
-    return inedot.save(function (error, inedot) {
-      // body...
-      if (error) {
-        console.log('/device/inedot/updateCenter => fail to update \n inedot_id: '+_id);
-        return callback(error)
-      }
-      console.log('/device/inedot/updateCenter => success, inedot is update \n inedot_id: '+_id+' Name: '+inedot.name);
-      callback(null,{result : true,
-                     data   : inedot})
-    })
-  })
-}
-
-//Update Situation
 function updateSituation(_id, nowSet, type, situation, callback) {
   // body...
   iNeDot.findById({_id : _id}, function (error, inedot) {
@@ -351,7 +314,39 @@ function updateSituation(_id, nowSet, type, situation, callback) {
   })
 }
 
+//Only For Center
+function updateCenter(_id, center, callback) {
+  // body...
+  iNeDot.findById({_id : _id}, function (error, inedot) {
+    // body...
+    if (error) {
+      return callback(error)
+    }
+    if (!inedot) {
+      console.log('/device/inedot/updateCenter => fail,inedot is not exist \n inedot_id: '+_id);
+      return callback(null,{result  : false,
+                            message : "fail,inedot is not exist"})
+    }
 
+    if (center) {inedot.center = center}
+    if (nowSet) {inedot.nowSet = nowSet}
+
+    return inedot.save(function (error, inedot) {
+      // body...
+      if (error) {
+        console.log('/device/inedot/updateCenter => fail to update \n inedot_id: '+_id);
+        return callback(error)
+      }
+      console.log('/device/inedot/updateCenter => success, inedot is update \n inedot_id: '+_id+' Name: '+inedot.name);
+      callback(null,{result : true,
+                     data   : inedot})
+    })
+  })
+}
+
+/*======================================================*/
+/*  D E L E T E  */
+/*======================================================*/
 function deleteById(_id, callback) {
   // body...
   iNeDot.findOne({_id : _id},function (error, inedot) {
