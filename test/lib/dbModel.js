@@ -82,7 +82,7 @@ var inedot  = new Schema({
 
   type           : Number,
   nowSet         : {type: Schema.ObjectId, ref: 'person'},
-  center         : {type: Schema.ObjectId, ref: 'center'}
+  center         : {type: Schema.ObjectId, ref: 'center'},
 
   pushGroup      : [{type: Schema.ObjectId, ref: 'group'}],  //[_id, _id, _id,,,]
   pushPoeple     : [{type: Schema.ObjectId, ref: 'person'}],  //[deviceToken, deviceToken,,,]
