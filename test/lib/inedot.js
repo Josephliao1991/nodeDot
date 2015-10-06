@@ -297,9 +297,9 @@ function updateSituation(_id, nowSet, type, situation, callback) {
     }
 
 
-    if (type)       {inedot.type = type}
-    if (nowSet)     {inedot.nowSet = nowSet}
-    if (situation)  {inedot.situation = situation}
+    if (type != null)       {inedot.type = type}
+    if (nowSet != null)     {inedot.nowSet = nowSet}
+    if (situation != null)  {inedot.situation = situation}
 
     console.log("inedot.type updated : "+inedot.type);
     inedot.save(function (error, inedot) {

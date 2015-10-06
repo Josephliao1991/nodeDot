@@ -287,9 +287,9 @@ function updateSituation(inedot_id, nowSet, type, pushGroup, pushPeople, situati
 
       if (inedotObj.type == 1) {
         //Handling Center Push & Type(normal:mornitor)
-        // updatePushGroup(inedot_id, [], [], function (error, result) {
-        //   // body...
-        //  })
+        updatePushGroup(inedot_id, [], [], function (error, result) {
+          // body...
+         })
        }
      })
 
