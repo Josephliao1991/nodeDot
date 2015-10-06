@@ -339,7 +339,7 @@ function deleteById(person_id, inedot_id, callback) {
       // body...
       var pushPeople  = inedot.pushPoeple
       var macAddr     = inedot.macAddr
-      2. Delete iNeDot
+      // 2. Delete iNeDot
       inedot.deleteById(inedot_id, function (error, result) {
         // body...
         if (error) {
@@ -348,7 +348,7 @@ function deleteById(person_id, inedot_id, callback) {
         if (result.result == false) {
           return callback(null, result)
         }
-        3. Delete person
+        // 3. Delete person
         person.deleteiNedot(person_id, inedot_id, function (error, result) {
           // body...
           if (error) {
