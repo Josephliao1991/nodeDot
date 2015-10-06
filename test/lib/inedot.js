@@ -265,10 +265,10 @@ function updatePushGroup(_id, pushGroup, pushPeople, callback) {
     }
 
     console.log("pushGroup: "+pushGroup+"\n pushPeople: "+pushPeople)
-    if ( pushGroup!=null && pushPeople!=null ) {
-      inedot.pushGroup  = pushGroup
-      inedot.pushPeople = pushPeople
-    }
+
+    inedot.pushGroup  = pushGroup
+    inedot.pushPeople = pushPeople
+
 
     return inedot.save(function (error, inedot) {
       // body...
