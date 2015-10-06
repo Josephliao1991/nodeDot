@@ -340,14 +340,14 @@ function delete(person_id, inedot_id, callback) {
       var pushPeople  = inedot.pushPoeple
       var macAddr     = inedot.macAddr
       //2. Delete iNeDot
-      inedot.deleteById(inedot_id, function (error, result) {
-        // body...
-        if (error) {
-          return callback(error)
-        }
-        if (result.result == false) {
-          return callback(null, result)
-        }
+      // inedot.deleteById(inedot_id, function (error, result) {
+      //   // body...
+      //   if (error) {
+      //     return callback(error)
+      //   }
+        // if (result.result == false) {
+        //   return callback(null, result)
+        // }
         //3. Delete person
         // person.deleteiNedot(person_id, inedot_id, function (error, result) {
         //   // body...
@@ -366,7 +366,7 @@ function delete(person_id, inedot_id, callback) {
           //
           // callback(null, result)
         // })
-      })
+      // })
     })
   })
 }
