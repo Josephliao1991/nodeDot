@@ -294,7 +294,8 @@ function updateSituation(_id, nowSet, type, situation, callback) {
       return callback(null,{result  : false,
                             message : "fail,inedot is not exist"})
     }
-    if (nowSet) {inedot.nowSet = nowSet}
+
+    console.log("inedot.type"+type);
 
     if (type)       {inedot.type = type}
     if (nowSet)     {inedot.nowSet = nowSet}
