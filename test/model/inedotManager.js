@@ -349,23 +349,23 @@ function delete(person_id, inedot_id, callback) {
           return callback(null, result)
         }
         //3. Delete person
-        person.deleteiNedot(person_id, inedot_id, function (error, result) {
-          // body...
-          if (error) {
-            return callback(error)
-          }
-          if (result.result == false) {
-            return callback(null, result)
-          }
+        // person.deleteiNedot(person_id, inedot_id, function (error, result) {
+        //   // body...
+        //   if (error) {
+        //     return callback(error)
+        //   }
+        //   if (result.result == false) {
+        //     return callback(null, result)
+        //   }
           //Handling CPush
 
           // createCPush(pushPeople, macAddr, inedot_id, 2, function (error, result) {
           //   // body...
           //   console.log(result);
           // })
-
-          callback(null, result)
-        })
+          //
+          // callback(null, result)
+        // })
       })
     })
   })
