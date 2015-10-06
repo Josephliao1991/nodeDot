@@ -359,10 +359,10 @@ function delete(person_id, inedot_id, callback) {
           }
           //Handling CPush
 
-          createCPush(pushPeople, macAddr, inedot_id, 2, function (error, result) {
-            // body...
-            console.log(result);
-          })
+          // createCPush(pushPeople, macAddr, inedot_id, 2, function (error, result) {
+          //   // body...
+          //   console.log(result);
+          // })
 
           callback(null, result)
         })
