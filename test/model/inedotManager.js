@@ -244,12 +244,12 @@ function updatePushGroup(inedot_id, pushGroup, pushPeople, callback) {
   // body...
   console.log("Start UpdatePushGroup");
   //1. Get Ole iNeDot First
-  inedot.findById(inedot_id, function (error, inedot) {
+  inedot.findById(inedot_id, function (error, inedotObj) {
     // body...
     console.log("Start UpdatePushGroup =>findById");
     //Create CPush
     //Handling Center Push & Type(normal:mornitor)
-    var macAddr = inedot.macAddr
+    var macAddr = inedotObj.macAddr
     createCPush(pushPeople, macAddr, inedot_id, 0, function (error, result) {
       // body...
       console.log(result);
