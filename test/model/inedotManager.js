@@ -323,7 +323,7 @@ function updateSituation(inedot_id, nowSet, type, pushGroup, pushPeople, situati
 /*======================================================*/
 /*  D E L E T E  */
 /*======================================================*/
-function delete(person_id, inedot_id, callback) {
+// function delete(person_id, inedot_id, callback) {
   // body...
   //1. check Person & iNeDot Exist  &(iNeDot Belongs To Person)
   // checkPersoniNeDotExist(person_id, inedot_id, function (error, result) {
@@ -369,7 +369,7 @@ function delete(person_id, inedot_id, callback) {
       // })
     // })
   // })
-}
+// }
 
 
 module.exports = {
@@ -387,6 +387,6 @@ module.exports = {
   updatePushGroup     : updatePushGroup,
   updateSituation     : updateSituation,
 
-  delete              : delete
+  // delete              : delete
 
 }
