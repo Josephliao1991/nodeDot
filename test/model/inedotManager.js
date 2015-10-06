@@ -79,7 +79,7 @@ function createCPush(pushPeople, inedot_macAddr, inedot_id, command, callback) {
 
     }
 
-    callback(null,1)
+    callback(null, 1)
   })
 
 }
@@ -178,6 +178,7 @@ function create(macAddr, owner, name, connectState, battery, type, pushGroup, pu
               if (result.result == false) {
                 return callback(null, result)
               }
+              console.log("Create CallBack End");
               callback(result)
             })
           })
