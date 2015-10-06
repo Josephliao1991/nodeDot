@@ -264,7 +264,9 @@ function updatePushGroup(_id, pushGroup, pushPeople, callback) {
                             message : "fail,inedot is not exist"})
     }
 
-    print("pushGroup: "+pushGroup+"\n"+"pushPeople: "+pushPeople )
+    print(pushGroup)
+    print(pushPeople)
+
     if ( pushGroup!=null && pushPeople!=null ) {
       inedot.pushGroup  = pushGroup
       inedot.pushPeople = pushPeople
