@@ -162,7 +162,7 @@ function create(macAddr, owner, name, connectState, battery, type, pushGroup, pu
             //Create CPush Table
             if (type == 1 /* iNeDot In Motnitor Mode */) {
               console.log("iNeDot Type : "+type);
-              createCPush(pushPeople, macAddr, inedot_id, function (error, result) {
+              createCPush(pushPeople, macAddr, inedot_id, 0, function (error, result) {
                 // body...
                 console.log(result);
               })
