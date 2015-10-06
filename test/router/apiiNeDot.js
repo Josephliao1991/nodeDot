@@ -315,6 +315,7 @@ router.post('/updateSituation',function (req, res) {
                    if (result.result == false) {
                      return res.json(result)
                    }
+                   console.log("API iNeDot CallBack End");
                    res.json(result)
                  })
 })
