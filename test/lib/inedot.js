@@ -252,7 +252,7 @@ function updateBattery(_id, battery, callback) {
 }
 function updatePushGroup(_id, pushGroup, pushPeople, callback) {
   // body...
-  console.log("Start UpdatePushGroup");
+  
   iNeDot.findById({_id : _id}, function (error, inedot) {
     // body...
     if (error) {
