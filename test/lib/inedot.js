@@ -302,7 +302,7 @@ function updateSituation(_id, nowSet, type, situation, callback) {
     if (situation != null)  {inedot.situation = situation}
 
     console.log("inedot.type updated : "+inedot.type);
-    inedot.save(function (error, inedot) {
+    return inedot.save(function (error, inedot) {
       // body...
       if (error) {
         console.log('/device/inedot/updateSituation => fail to update \n inedot_id: '+_id);

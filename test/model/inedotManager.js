@@ -280,7 +280,7 @@ function updateSituation(inedot_id, nowSet, type, pushGroup, pushPeople, situati
                        if (error) {
                          return callback(error)
                        }
-                        // console.log("Update CallBack!!!");
+                        console.log("Update CallBack!!!");
                         // console.log("Resutl: "+result);
                        callback(null,result)
                     })

@@ -299,14 +299,18 @@ router.post('/updateSituation',function (req, res) {
   var inedot_id_update      = req.body._id
   var nowSet_update         = req.body.nowSet
   var type_create           = req.body.type
+  var pushGroup_update      = req.body.pushGroup
+  var pushPeople_update     = req.body.pushPeople
   var situation_update      = req.body.situation
+
 
   if (!inedot_id_update || !situation_update) {
     return res.json({result : false,
                      message : "fail,lost some params(_id,situation)"})
   }
 
-  inedotManager.updateSituation(inedot_id_update, nowSet_update, type_create, situation_update,
+  inedotManager.updateSituation(inedot_id_update, nowSet_update, type_create,
+                                 pushGroup_update, pushPeople_update, situation_update,
                  function (error, result) {
                    // body...
                    if (error) {
