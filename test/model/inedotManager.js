@@ -280,7 +280,7 @@ function updateSituation(inedot_id, nowSet, type, pushGroup, pushPeople, situati
                        if (error) {
                          return callback(error)
                        }
-                       callback(result)
+                       callback(null,result)
                     })
 
       if (inedotObj.type == 1) {
@@ -309,7 +309,7 @@ function updateSituation(inedot_id, nowSet, type, pushGroup, pushPeople, situati
                        if (error) {
                          return callback(error)
                        }
-                       callback(result)
+                       callback(null,result)
                      })
 
       var macAddr = inedotObj.macAddr
