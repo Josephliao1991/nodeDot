@@ -101,11 +101,11 @@ var c_push  = new Schema({
   command           : Number,
   checkMark         : Boolean
 
-  // :::::: command :::::: //
-  // 0 ==> connect         //
-  // 1 ==> setting         //
-  // 3 ==> disConnect      //
-  // 4 ==> deleteFromLeis  //
-  // :::::: command :::::: //
+  // ::::::: command ::::::: //
+  // 0 ==> connect           //
+  // 1 ==> setting           //
+  // 2 ==> disConnect&delete //
+  // 3 ==> deleteFromLeis    //
+  // ::::::: command ::::::: //
 })
 mongoose.model( 'c_push', c_push );
