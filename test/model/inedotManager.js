@@ -134,7 +134,7 @@ function create(macAddr, owner, name, connectState, battery, type, pushGroup, pu
   // body...
 
   //1. Check Person Exist Or Not
-  person.checkExistById(owner_create, function (error, exist) {
+  person.checkExistById(owner, function (error, exist) {
     // body...
     if (error) {
       return callback(error)
@@ -147,7 +147,7 @@ function create(macAddr, owner, name, connectState, battery, type, pushGroup, pu
 
     //**Route To @ Part, Normal Mode & Mornitor Mode
     //2. Create iNeDot
-    inedot.create(macAddr, owner, connectState, name,  battery, type,
+    inedot.create(macAddr, owner, connectState, name, battery, type,
                   pushGroup, pushPeople, situation,
           function (error, result) {
             // body...
@@ -169,7 +169,7 @@ function create(macAddr, owner, name, connectState, battery, type, pushGroup, pu
             }
 
             //3. connect Person & iNeDot
-            person.addiNedot(owner_create, inedot_id, function (error, result) {
+            person.addiNedot(owner, inedot_id, function (error, result) {
               // body...
               if (error) {
                 return callback(error)
@@ -193,8 +193,8 @@ function updataAll(inedot_id, nowSet, connectState, name, battery, type,
                    center, pushGroup, pushPeople, situation, callback)
                    {
   // body...
-  inedot.updateAll(inedot_id_update, nowSe_update, connectState_update, name_update, battery_update,
-                  type_update, center_update, pushGroup_update, pushPeople_update, situation_update,
+  inedot.updateAll(inedot_id, nowSet, connectState, name, battery,
+                  type, center, pushGroup, pushPeople, situation,
                  function (error, result) {
                    // body...
                    if (error) {
@@ -208,7 +208,7 @@ function updataAll(inedot_id, nowSet, connectState, name, battery, type,
 }
 function updateConnectState(inedot_id, connectState, callback) {
   // body...
-  inedot.updateConnectState(inedot_id_update, connectState_update,
+  inedot.updateConnectState(inedot_id, connectState,
                  function (error, result) {
                    // body...
                    if (error) {
