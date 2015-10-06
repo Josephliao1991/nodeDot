@@ -276,6 +276,7 @@ function updateSituation(inedot_id, nowSet, type, pushGroup, pushPeople, situati
       inedot.updateSituation(inedot_id, nowSet, type, situation,
                      function (error, result) {
                        // body...
+                       console.log("Update CallBack!!!");
                        if (error) {
                          return callback(error)
                        }
