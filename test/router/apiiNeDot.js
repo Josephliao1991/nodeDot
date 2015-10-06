@@ -252,7 +252,7 @@ router.post('/updateBattery',function (req, res) {
                      message : "fail,lost some params(_id,battery)"})
   }
 
-  inedotManager.updateBattery(inedot_id_update, nowSet_update, battery_update,
+  inedotManager.updateBattery(inedot_id_update, battery_update,
                  function (error, result) {
                    // body...
                    if (error) {

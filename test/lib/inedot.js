@@ -237,7 +237,6 @@ function updateBattery(_id, battery, callback) {
     }
 
     if (battery)  {inedot.battery = battery}
-    if (nowSet)   {inedot.nowSet = nowSet}
 
     return inedot.save(function (error, inedot) {
       // body...
