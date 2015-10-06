@@ -267,7 +267,6 @@ function updatePushGroup(_id, pushGroup, pushPeople, callback) {
       inedot.pushGroup  = pushGroup
       inedot.pushPeople = pushPeople
     }
-    if (nowSet) {inedot.nowSet = nowSet}
 
     return inedot.save(function (error, inedot) {
       // body...

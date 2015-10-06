@@ -270,7 +270,6 @@ router.post('/updatePushGroup',function (req, res) {
   // body...
 
   var inedot_id_update      = req.body._id
-  var nowSet_update         = req.body.noSet
   var pushGroup_update      = req.body.pushGroup
   var pushPeople_update     = req.body.pushPeople
 
@@ -280,7 +279,7 @@ router.post('/updatePushGroup',function (req, res) {
   }
 
     //Save iNeDot Data
-    inedotManager.updatePushGroup(inedot_id_update, nowSet_update, pushGroup_update, pushPeople_update,
+    inedotManager.updatePushGroup(inedot_id_update, pushGroup_update, pushPeople_update,
                    function (error, result) {
                      // body...
                      if (error) {
