@@ -323,53 +323,53 @@ function updateSituation(inedot_id, nowSet, type, pushGroup, pushPeople, situati
 /*======================================================*/
 /*  D E L E T E  */
 /*======================================================*/
-// function delete(person_id, inedot_id, callback) {
+function deleteById(person_id, inedot_id, callback) {
   // body...
-  //1. check Person & iNeDot Exist  &(iNeDot Belongs To Person)
-  // checkPersoniNeDotExist(person_id, inedot_id, function (error, result) {
-  //   // body...
-  //   if (error) {
-  //     return callback(error)
-  //   }
-  //   if (result.result == false) {
-  //     return callback(null, result)
-  //   }
-//
-    // inedot.findById(inedot_id, function (error, inedot) {
-    //   // body...
-    //   var pushPeople  = inedot.pushPoeple
-    //   var macAddr     = inedot.macAddr
-      //2. Delete iNeDot
-      // inedot.deleteById(inedot_id, function (error, result) {
-      //   // body...
-      //   if (error) {
-      //     return callback(error)
-      //   }
-        // if (result.result == false) {
-        //   return callback(null, result)
-        // }
-        //3. Delete person
-        // person.deleteiNedot(person_id, inedot_id, function (error, result) {
-        //   // body...
-        //   if (error) {
-        //     return callback(error)
-        //   }
-        //   if (result.result == false) {
-        //     return callback(null, result)
-        //   }
-          //Handling CPush
+  // 1. check Person & iNeDot Exist  &(iNeDot Belongs To Person)
+  checkPersoniNeDotExist(person_id, inedot_id, function (error, result) {
+    // body...
+    if (error) {
+      return callback(error)
+    }
+    if (result.result == false) {
+      return callback(null, result)
+    }
 
-          // createCPush(pushPeople, macAddr, inedot_id, 2, function (error, result) {
-          //   // body...
-          //   console.log(result);
-          // })
-          //
-          // callback(null, result)
-        // })
-      // })
-    // })
-  // })
-// }
+    inedot.findById(inedot_id, function (error, inedot) {
+      // body...
+      var pushPeople  = inedot.pushPoeple
+      var macAddr     = inedot.macAddr
+      2. Delete iNeDot
+      inedot.deleteById(inedot_id, function (error, result) {
+        // body...
+        if (error) {
+          return callback(error)
+        }
+        if (result.result == false) {
+          return callback(null, result)
+        }
+        3. Delete person
+        person.deleteiNedot(person_id, inedot_id, function (error, result) {
+          // body...
+          if (error) {
+            return callback(error)
+          }
+          if (result.result == false) {
+            return callback(null, result)
+          }
+          Handling CPush
+
+          createCPush(pushPeople, macAddr, inedot_id, 2, function (error, result) {
+            // body...
+            console.log(result);
+          })
+
+          callback(null, result)
+        })
+      })
+    })
+  })
+}
 
 
 module.exports = {
@@ -387,6 +387,6 @@ module.exports = {
   updatePushGroup     : updatePushGroup,
   updateSituation     : updateSituation,
 
-  // delete              : delete
+  deleteById          : deleteById
 
 }
