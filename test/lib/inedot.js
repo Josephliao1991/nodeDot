@@ -267,7 +267,7 @@ function updatePushGroup(_id, pushGroup, pushPeople, callback) {
     console.log("pushGroup: "+pushGroup+"\n pushPeople: "+pushPeople)
 
     inedot.pushGroup  = pushGroup
-    inedot.pushPeople = pushPeople
+    inedot.pushPoeple = pushPeople
 
 
     return inedot.save(function (error, inedot) {
