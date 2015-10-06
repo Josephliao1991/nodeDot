@@ -48,7 +48,7 @@ function findAll(callback) {
 }
 function findByMacAddr(macAddr, callback) {
   // body...
-  iNeDot.find({macAddr  : macAddr}, function (error, inedot) {
+  iNeDot.findOne({macAddr  : macAddr}, function (error, inedot) {
     // body...
     if (error) {
       return callback(error)
@@ -59,7 +59,7 @@ function findByMacAddr(macAddr, callback) {
 }
 function findById(_id, callback) {
   // body...
-  iNeDot.find({_id  : _id}, function (error, inedot) {
+  iNeDot.findOne({_id  : _id}, function (error, inedot) {
     // body...
     if (error) {
       return callback(error)
