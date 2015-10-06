@@ -326,15 +326,15 @@ function updateSituation(inedot_id, nowSet, type, pushGroup, pushPeople, situati
 function delete(person_id, inedot_id, callback) {
   // body...
   //1. check Person & iNeDot Exist  &(iNeDot Belongs To Person)
-  checkPersoniNeDotExist(person_id, inedot_id, function (error, result) {
-    // body...
-    if (error) {
-      return callback(error)
-    }
-    if (result.result == false) {
-      return callback(null, result)
-    }
-
+  // checkPersoniNeDotExist(person_id, inedot_id, function (error, result) {
+  //   // body...
+  //   if (error) {
+  //     return callback(error)
+  //   }
+  //   if (result.result == false) {
+  //     return callback(null, result)
+  //   }
+//
     // inedot.findById(inedot_id, function (error, inedot) {
     //   // body...
     //   var pushPeople  = inedot.pushPoeple
@@ -368,7 +368,7 @@ function delete(person_id, inedot_id, callback) {
         // })
       // })
     // })
-  })
+  // })
 }
 
 
