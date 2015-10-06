@@ -284,8 +284,9 @@ function updateSituation(inedot_id, nowSet, type, pushGroup, pushPeople, situati
                            return callback(error)
                          }
                          callback(result)
-                       })
-                     })
+                      })
+         })
+
 
       }else {//type= 1
         inedot.findById(inedot_id, function (error, inedot) {
@@ -310,9 +311,9 @@ function updateSituation(inedot_id, nowSet, type, pushGroup, pushPeople, situati
                              }
                              callback(result)
                            })
-                         })
-      }
-  }
+                         }
+              })
+            }
 }
 
 /*======================================================*/
@@ -362,7 +363,6 @@ function delete(person_id, inedot_id, callback) {
           callback(null, result)
         })
       })
-
     })
   })
 
