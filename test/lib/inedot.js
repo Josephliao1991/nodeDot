@@ -284,6 +284,7 @@ function updatePushGroup(_id, pushGroup, pushPeople, callback) {
 }
 function updateSituation(_id, nowSet, type, situation, callback) {
   // body...
+  console.log("inedot.type"+type);
   iNeDot.findById({_id : _id}, function (error, inedot) {
     // body...
     if (error) {
@@ -295,7 +296,6 @@ function updateSituation(_id, nowSet, type, situation, callback) {
                             message : "fail,inedot is not exist"})
     }
 
-    console.log("inedot.type"+type);
 
     if (type)       {inedot.type = type}
     if (nowSet)     {inedot.nowSet = nowSet}

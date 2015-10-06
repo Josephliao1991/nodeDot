@@ -242,11 +242,11 @@ function updateBattery(inedot_id, battery, callback) {
 }
 function updatePushGroup(inedot_id, pushGroup, pushPeople, callback) {
   // body...
-  console.log("Start UpdatePushGroup");
+  // console.log("Start UpdatePushGroup");
   //1. Get Ole iNeDot First
   inedot.findById(inedot_id, function (error, inedotObj) {
     // body...
-    console.log("Start UpdatePushGroup =>findById");
+    // console.log("Start UpdatePushGroup =>findById");
     //Create CPush
     //Handling Center Push & Type(normal:mornitor)
     var macAddr = inedotObj.macAddr
@@ -254,7 +254,7 @@ function updatePushGroup(inedot_id, pushGroup, pushPeople, callback) {
       // body...
       console.log(result);
     })
-    console.log("Ready For UpdatePushGroup =>updatePushGroup");
+    // console.log("Ready For UpdatePushGroup =>updatePushGroup");
     //Save iNeDot Data
     inedot.updatePushGroup(inedot_id, pushGroup, pushPeople,
                    function (error, result) {
@@ -280,8 +280,8 @@ function updateSituation(inedot_id, nowSet, type, pushGroup, pushPeople, situati
                        if (error) {
                          return callback(error)
                        }
-                        console.log("Update CallBack!!!");
-                        console.log("Resutl: "+result);
+                        // console.log("Update CallBack!!!");
+                        // console.log("Resutl: "+result);
                        callback(null,result)
                     })
 
