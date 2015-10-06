@@ -273,9 +273,9 @@ function updateSituation(inedot_id, nowSet, type, situation, callback) {
     //Find Out iNeDot , Check Type(normal:mornitor)
     inedot.findById(inedot_id, function (error, inedotObj) {
       // body...
-      var pushGroup    = inedotObj.pushGroups
+      var pushGroup    = inedotObj.pushGroup
       var pushPeople   = inedotObj.pushPeople
-      
+
       inedot.updateSituation(inedot_id, nowSet, type, situation,
                      function (error, result) {
                        // body...
