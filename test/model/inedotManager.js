@@ -215,6 +215,7 @@ function updateConnectState(inedot_id, connectState, callback) {
                      return callback(error)
                    }
                    return callback(null, result)
+                 })
 }
 function updateName(inedot_id, name, callback) {
   // body...
