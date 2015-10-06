@@ -288,7 +288,6 @@ function updateSituation(inedot_id, nowSet, type, pushGroup, pushPeople, situati
        }
      })
 
-
   }else {//type= 1
     inedot.findById(inedot_id, function (error, inedot) {
       // body...
@@ -317,8 +316,8 @@ function updateSituation(inedot_id, nowSet, type, pushGroup, pushPeople, situati
       })
 
 
-        })
-    }
+    })
+  }
 }
 
 /*======================================================*/
@@ -335,6 +334,7 @@ function delete(person_id, inedot_id, callback) {
     if (result.result == false) {
       return callback(null, result)
     }
+
     inedot.findById(inedot_id, function (error, inedot) {
       // body...
       var pushPeople  = inedot.pushPoeple
@@ -348,7 +348,6 @@ function delete(person_id, inedot_id, callback) {
         if (result.result == false) {
           return callback(null, result)
         }
-
         //3. Delete person
         person.deleteiNedot(person_id, inedot_id, function (error, result) {
           // body...
@@ -370,7 +369,6 @@ function delete(person_id, inedot_id, callback) {
       })
     })
   })
-
 }
 
 
