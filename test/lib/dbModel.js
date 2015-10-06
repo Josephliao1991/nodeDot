@@ -102,7 +102,7 @@ var c_push  = new Schema({
   checkMark         : Boolean
 
   // ::::::: command ::::::: //
-  // 0 ==> connect           //
+  // 0 ==> connect&setting   //
   // 1 ==> setting           //
   // 2 ==> disConnect&delete //
   // 3 ==> deleteFromLeis    //

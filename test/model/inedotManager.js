@@ -271,49 +271,54 @@ function updateSituation(inedot_id, nowSet, type, pushGroup, pushPeople, situati
     //Find Out iNeDot , Check Type(normal:mornitor)
     inedot.findById(inedot_id, function (error, inedot) {
       // body...
+      inedot.updateSituation(inedot_id, nowSet, type, situation,
+                     function (error, result) {
+                       // body...
+                       if (error) {
+                         return callback(error)
+                       }
+                       callback(result)
+                    })
+
       if (inedot.type == 1) {
+        //Handling Center Push & Type(normal:mornitor)
+        updatePushGroup(inedot_id, pushGroup, pushPeople, function (error, result) {
+          // body...
+         })
+       }
+     })
+
+
+  }else {//type= 1
+    inedot.findById(inedot_id, function (error, inedot) {
+      // body...
+      var command = 0
+      if (inedot.type == 0) {
+        command = 2
         //Handling Center Push & Type(normal:mornitor)
         updatePushGroup(inedot_id, [], [], function (error, result) {
           // body...
         })
+      }
 
-        inedot.updateSituation(inedot_id, nowSet, type, situation,
-                       function (error, result) {
-                         // body...
-                         if (error) {
-                           return callback(error)
-                         }
-                         callback(result)
-                      })
-         })
+      inedot.updateSituation(inedot_id, nowSet, type, situation,
+                     function (error, result) {
+                       // body...
+                       if (error) {
+                         return callback(error)
+                       }
+                       callback(result)
+                     })
+
+      var macAddr = inedot.macAddr
+      createCPush(pushPeople, macAddr, inedot_id, command, function (error, result) {
+        // body...
+        console.log(result);
+      })
 
 
-      }else {//type= 1
-        inedot.findById(inedot_id, function (error, inedot) {
-          // body...
-          if (inedot.type == 0) {
-            //Handling Center Push & Type(normal:mornitor)
-            updatePushGroup(inedot_id, pushGroup, pushPeople, function (error, result) {
-              // body...
-            })
-
-            var macAddr = inedot.macAddr
-            createCPush(pushPeople, macAddr, inedot_id, 2, function (error, result) {
-              // body...
-              console.log(result);
-            })
-
-            inedot.updateSituation(inedot_id, nowSet, type, situation,
-                           function (error, result) {
-                             // body...
-                             if (error) {
-                               return callback(error)
-                             }
-                             callback(result)
-                           })
-                         }
-              })
-            }
+        })
+    }
 }
 
 /*======================================================*/
