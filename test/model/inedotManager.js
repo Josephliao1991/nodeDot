@@ -66,7 +66,7 @@ function createCPush(pushPeople, inedot_macAddr, inedot_id, command, callback) {
       cpush.create(pushCenters[i], inedot_macAddr, command, function (error, result) {
         // body...
       })
-      if command == 0 {
+      if (command == 0) {
         center.addDeviceList(pushCenters[i], inedot_id, function (error, result) {
           // body...
         })
