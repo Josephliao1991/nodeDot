@@ -225,6 +225,7 @@ function updateName(inedot_id, name, callback) {
                      return callback(error)
                    }
                    return callback(null, result)
+                 })
 }
 function updateBattery(inedot_id, battery, callback) {
   // body...
