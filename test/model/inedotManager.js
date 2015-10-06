@@ -311,7 +311,7 @@ function updateSituation(inedot_id, nowSet, type, pushGroup, pushPeople, situati
                        callback(result)
                      })
 
-      var macAddr = inedot.macAddr
+      var macAddr = inedotObj.macAddr
       createCPush(pushPeople, macAddr, inedot_id, command, function (error, result) {
         // body...
         console.log(result);
