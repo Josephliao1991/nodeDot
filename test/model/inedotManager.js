@@ -300,9 +300,14 @@ function updateSituation(inedot_id, nowSet, type, pushGroup, pushPeople, situati
       if (inedotObj.type == 0) {
         command = 2
         //Handling Center Push & Type(normal:mornitor)
-        updatePushGroup(inedot_id, pushGroup, pushPeople, function (error, result) {
-          // body...
-        })
+        inedot.updatePushGroup(inedot_id, pushGroup, pushPeople,
+                       function (error, result) {
+                         // body...
+                         if (error) {
+                           return callback(error)
+                         }
+                         callback(null, result)
+                       })
       }
 
       inedot.updateSituation(inedot_id, nowSet, type, situation,
