@@ -357,7 +357,7 @@ function deleteById(person_id, inedot_id, callback) {
           if (result.result == false) {
             return callback(null, result)
           }
-          Handling CPush
+          // Handling CPush
 
           createCPush(pushPeople, macAddr, inedot_id, 2, function (error, result) {
             // body...
