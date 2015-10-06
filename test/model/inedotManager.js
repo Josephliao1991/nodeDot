@@ -385,7 +385,7 @@ module.exports = {
   updateName          : updateName,
   updateBattery       : updateBattery,
   updatePushGroup     : updatePushGroup,
-  updateSituation     : updateSituation
+  updateSituation     : updateSituation,
 
   delete              : delete
 
