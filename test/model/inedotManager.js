@@ -266,13 +266,16 @@ function updatePushGroup(inedot_id, pushGroup, pushPeople, callback) {
                    })
   })
 }
-function updateSituation(inedot_id, nowSet, type, pushGroup, pushPeople, situation, callback) {
+function updateSituation(inedot_id, nowSet, type, situation, callback) {
   // body...
 
   if (type == 0) {
     //Find Out iNeDot , Check Type(normal:mornitor)
     inedot.findById(inedot_id, function (error, inedotObj) {
       // body...
+      var pushGroup    = inedotObj.pushGroups
+      var pushPeople   = inedotObj.pushPeople
+      
       inedot.updateSituation(inedot_id, nowSet, type, situation,
                      function (error, result) {
                        // body...
