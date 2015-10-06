@@ -210,7 +210,6 @@ function updateName(_id, name, callback) {
     }
 
     if (name)   {inedot.name = name}
-    if (nowSet) {inedot.nowSet = nowSet}
 
     return inedot.save(function (error, inedot) {
       // body...
