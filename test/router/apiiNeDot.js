@@ -227,7 +227,7 @@ router.post('/updateName',function (req, res) {
                      message : "fail,lost some params(_id,name)"})
   }
 
-  inedotManager.updateName(inedot_id_update, nowSet_update, name_update,
+  inedotManager.updateName(inedot_id_update, name_update,
                  function (error, result) {
                    // body...
                    if (error) {
